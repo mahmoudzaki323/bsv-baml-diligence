@@ -1,0 +1,134 @@
+[
+  {
+    "ticket_id": "T001",
+    "scenario": "clean_product_bug",
+    "subject": "Export button fails on invoice page",
+    "body": "Hi team, the CSV export button on the invoice page started returning a 500 error this morning. It affects only the invoice page, not customer exports. We can work around it manually for now, but finance needs this fixed before Friday close.",
+    "expected_category": "bug",
+    "expected_urgency": "medium",
+    "expected_team": "engineering",
+    "expected_needs_human_review": false,
+    "expected_reason": "Specific product defect with workaround and limited scope."
+  },
+  {
+    "ticket_id": "T002",
+    "scenario": "enterprise_outage_renewal_pressure",
+    "subject": "Production sync failing after v2.8 upgrade",
+    "body": "We upgraded to v2.8 yesterday and our Salesforce sync has been failing since. This is blocking reporting for about 40 enterprise customers. Logs show repeated auth token refresh errors. We have a renewal call tomorrow and need help ASAP.",
+    "expected_category": "outage",
+    "expected_urgency": "critical",
+    "expected_team": "engineering",
+    "expected_needs_human_review": true,
+    "expected_reason": "Production failure with many customers affected and renewal risk."
+  },
+  {
+    "ticket_id": "T003",
+    "scenario": "vague_complaint_missing_info",
+    "subject": "This is broken again",
+    "body": "Nothing works anymore. Your app keeps doing the same thing as last time and my boss is mad. I do not have time to explain this again. Please fix it.",
+    "expected_category": "unclear",
+    "expected_urgency": "medium",
+    "expected_team": "support",
+    "expected_needs_human_review": true,
+    "expected_reason": "The issue lacks concrete facts and needs clarification before routing."
+  },
+  {
+    "ticket_id": "T004",
+    "scenario": "billing_dispute",
+    "subject": "Charged twice for annual plan",
+    "body": "Our card was charged twice for the annual plan renewal on May 1. The invoice numbers are INV-9031 and INV-9032. Please reverse one charge and confirm which invoice should remain in our accounting system.",
+    "expected_category": "billing",
+    "expected_urgency": "high",
+    "expected_team": "billing",
+    "expected_needs_human_review": true,
+    "expected_reason": "Payment dispute requires billing team review and refund handling."
+  },
+  {
+    "ticket_id": "T005",
+    "scenario": "security_report",
+    "subject": "Possible tenant data exposure through shared link",
+    "body": "We found that a report link created by one user may be visible to another workspace if the URL is forwarded. We have not confirmed data exfiltration, but the behavior looks like cross-tenant access. Please treat this as confidential and advise on next steps.",
+    "expected_category": "security",
+    "expected_urgency": "critical",
+    "expected_team": "security",
+    "expected_needs_human_review": true,
+    "expected_reason": "Potential cross-tenant data exposure is a critical security issue."
+  },
+  {
+    "ticket_id": "T006",
+    "scenario": "feature_request",
+    "subject": "Request: scheduled exports to S3",
+    "body": "It would be useful if we could schedule weekly exports directly to our S3 bucket instead of downloading CSVs manually. This is not blocking us, but it would save our data team a couple of hours each week.",
+    "expected_category": "feature_request",
+    "expected_urgency": "low",
+    "expected_team": "customer_success",
+    "expected_needs_human_review": false,
+    "expected_reason": "Enhancement request with no immediate breakage."
+  },
+  {
+    "ticket_id": "T007",
+    "scenario": "data_loss_concern",
+    "subject": "Deleted project still missing after restore",
+    "body": "A user accidentally deleted a project yesterday. We clicked restore within the retention window, but several files and comments are still missing. This project contains the final deliverables for a client launch on Monday.",
+    "expected_category": "data_loss",
+    "expected_urgency": "critical",
+    "expected_team": "engineering",
+    "expected_needs_human_review": true,
+    "expected_reason": "Possible data loss with client deadline and restore failure."
+  },
+  {
+    "ticket_id": "T008",
+    "scenario": "integration_failure",
+    "subject": "Webhook retries exhausted for production orders",
+    "body": "Our order webhook endpoint has stopped receiving events from your system. The dashboard says retries exhausted for 118 events. We changed nothing on our side and need the missing events replayed if possible.",
+    "expected_category": "integration_failure",
+    "expected_urgency": "high",
+    "expected_team": "engineering",
+    "expected_needs_human_review": true,
+    "expected_reason": "Production integration failure with lost or delayed events."
+  },
+  {
+    "ticket_id": "T009",
+    "scenario": "performance_degradation",
+    "subject": "Dashboard loads in 45 seconds after last release",
+    "body": "Since the last release, the analytics dashboard takes 30 to 45 seconds to load for our operations team. It used to load in under 5 seconds. This is slowing daily planning for 25 users, but the app eventually loads.",
+    "expected_category": "performance",
+    "expected_urgency": "high",
+    "expected_team": "engineering",
+    "expected_needs_human_review": true,
+    "expected_reason": "Major performance regression affecting a team but not a total outage."
+  },
+  {
+    "ticket_id": "T010",
+    "scenario": "account_access_issue",
+    "subject": "New analyst cannot access workspace",
+    "body": "We invited a new analyst yesterday, but she gets an access denied message after accepting the invite. Other users can log in normally. Can you help us get her into the workspace today?",
+    "expected_category": "account_access",
+    "expected_urgency": "medium",
+    "expected_team": "support",
+    "expected_needs_human_review": false,
+    "expected_reason": "Single-user access issue suitable for support triage."
+  },
+  {
+    "ticket_id": "T011",
+    "scenario": "compliance_privacy_concern",
+    "subject": "Need DPA clarification for EU customer data",
+    "body": "Our legal team is reviewing your DPA before we enable EU customer records. They need confirmation on subprocessors, data retention, and whether support logs can include customer identifiers. Please route this to the right privacy contact.",
+    "expected_category": "compliance_privacy",
+    "expected_urgency": "high",
+    "expected_team": "compliance",
+    "expected_needs_human_review": true,
+    "expected_reason": "Privacy and DPA review requires compliance/legal handling."
+  },
+  {
+    "ticket_id": "T012",
+    "scenario": "low_priority_how_to",
+    "subject": "How do I rename a saved view?",
+    "body": "I created a saved view with a typo in the name. I cannot find the rename option. Could you point me to the right menu or docs page? No rush.",
+    "expected_category": "how_to",
+    "expected_urgency": "low",
+    "expected_team": "support",
+    "expected_needs_human_review": false,
+    "expected_reason": "Simple product usage question with no urgency."
+  }
+]
