@@ -81,9 +81,11 @@ def generate_comparison() -> None:
     _write_csv(COMPARISON_DIR / "latency_by_run_step.csv", latency_rows)
     _write_csv(COMPARISON_DIR / "metrics_by_implementation.csv", _metrics_by_implementation(rows))
     _write_csv(COMPARISON_DIR / "latency_by_step.csv", _latency_by_step(latency_rows))
-    _write_csv(COMPARISON_DIR / "workflow_by_ticket.csv", _workflow_by_ticket(rows))
+    workflow_rows = _workflow_by_ticket(rows)
+    _write_csv(COMPARISON_DIR / "workflow_by_ticket.csv", workflow_rows)
     _write_csv(COMPARISON_DIR / "manual_failure_counts.csv", _manual_failure_counts())
     _write_markdown_summary(rows)
+    _write_ticket_markdown_summary(workflow_rows)
 
 
 def _metrics_by_implementation(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -148,6 +150,16 @@ def _workflow_by_ticket(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "runs": len(items),
                 "end_to_end_success_rate": _avg(items, "end_to_end_success"),
                 "all_label_accuracy": _avg(items, "all_expected_labels_match"),
+                "average_label_match_rate": sum(
+                    _avg(items, field)
+                    for field in [
+                        "category_match",
+                        "urgency_match",
+                        "team_match",
+                        "needs_human_review_match",
+                    ]
+                )
+                / 4,
             }
         )
     return summary
@@ -205,18 +217,76 @@ def _write_markdown_summary(rows: list[dict[str, Any]]) -> None:
         path.write_text("# Results\n\nNo benchmark outputs found yet. Run the benchmark first.\n")
         return
 
+    display_name = {
+        "baml": "BAML",
+        "openai_structured": "OpenAI Structured Output",
+        "openai_json": "OpenAI JSON Prompt",
+    }
     lines = [
         "# Benchmark Results",
         "",
-        "## Metrics by Implementation",
+        "## Summary by Implementation",
         "",
-        "| Implementation | Runs | Schema Success | All Labels | End-to-End |",
-        "| --- | ---: | ---: | ---: | ---: |",
+        "| Implementation | Runs | Schema-valid workflows | Category matched | Urgency matched | Routing team matched | Human-review flag matched | Strict all-label match |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for row in metrics:
         lines.append(
-            f"| {row['implementation']} | {row['runs']} | {row['schema_success_rate']:.2%} | "
-            f"{row['all_label_accuracy']:.2%} | {row['end_to_end_success_rate']:.2%} |"
+            f"| {display_name.get(row['implementation'], row['implementation'])} | {row['runs']} | "
+            f"{row['schema_success_rate']:.2%} | {row['category_accuracy']:.2%} | "
+            f"{row['urgency_accuracy']:.2%} | {row['team_accuracy']:.2%} | "
+            f"{row['human_review_accuracy']:.2%} | {row['all_label_accuracy']:.2%} |"
         )
+    lines.append("")
+    lines.append(
+        "Note: strict all-label match requires category, urgency, routing team, and human-review flag to all match the locked expected labels in the same run."
+    )
+    lines.append("")
+    path.write_text("\n".join(lines))
+
+
+def _write_ticket_markdown_summary(rows: list[dict[str, Any]]) -> None:
+    path = COMPARISON_DIR / "ticket_results_table.md"
+    if not rows:
+        path.write_text("# Ticket-Level Results\n\nNo benchmark outputs found yet. Run the benchmark first.\n")
+        return
+
+    display_name = {
+        "baml": "BAML",
+        "openai_structured": "OpenAI Structured Output",
+        "openai_json": "OpenAI JSON Prompt",
+    }
+    scenario_name = {
+        "clean_product_bug": "Clean product bug",
+        "enterprise_outage_renewal_pressure": "Enterprise outage with renewal pressure",
+        "vague_complaint_missing_info": "Vague complaint with missing information",
+        "billing_dispute": "Billing dispute",
+        "security_report": "Security report",
+        "feature_request": "Feature request",
+        "data_loss_concern": "Data loss concern",
+        "integration_failure": "Integration failure",
+        "performance_degradation": "Performance degradation",
+        "account_access_issue": "Account access issue",
+        "compliance_privacy_concern": "Compliance and privacy concern",
+        "low_priority_how_to": "Low-priority how-to question",
+    }
+
+    lines = [
+        "# Ticket-Level Results",
+        "",
+        "| Ticket | Scenario | Implementation | Average label match | Strict all-label match |",
+        "| --- | --- | --- | ---: | ---: |",
+    ]
+    for row in sorted(rows, key=lambda item: (item["ticket_id"], item["implementation"])):
+        lines.append(
+            f"| {row['ticket_id']} | {scenario_name.get(row['scenario'], row['scenario'])} | "
+            f"{display_name.get(row['implementation'], row['implementation'])} | "
+            f"{float(row.get('average_label_match_rate', row['all_label_accuracy'])):.2%} | "
+            f"{float(row['all_label_accuracy']):.2%} |"
+        )
+    lines.append("")
+    lines.append(
+        "Average label match is the mean of category, urgency, routing team, and human-review flag match rates. Strict all-label match requires all four labels to match in the same run."
+    )
     lines.append("")
     path.write_text("\n".join(lines))

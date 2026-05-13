@@ -88,7 +88,8 @@ Charts are generated only from observed results, not arbitrary subjective scores
 - `expected_label_accuracy.png`
 - `latency_by_step.png`
 - `manual_failure_counts.png`
-- `workflow_success_by_ticket.png`
+- `label_match_by_ticket.png`
+- `workflow_success_by_ticket.png` is kept as a compatibility filename, but now shows average expected-label match rather than a brittle all-or-nothing workflow score.
 
 ## Notes for the final writeup
 
