@@ -1,10 +1,7 @@
-client<llm> Gemini {
-  provider google-ai
+client<llm> OpenAI {
+  provider openai
   options {
     model env.BENCHMARK_MODEL
-    api_key env.GOOGLE_API_KEY
-    generationConfig {
-      temperature 0.1
-    }
+    api_key env.OPENAI_API_KEY
   }
 }

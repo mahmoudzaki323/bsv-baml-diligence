@@ -6,10 +6,10 @@
 BAML ranked first because production LLM development is turning prompts, structured outputs, retries, evals, and tool calls into application logic that needs to be tested and maintained.
 
 ### What I built
-I built a three-step support ticket triage workflow in BAML and two Gemini SDK baselines.
+I built a three-step support ticket triage workflow in BAML and two direct OpenAI API baselines.
 
 ### Benchmark design
-The benchmark uses the same Gemini model, 12 tickets, 5 runs per ticket, and locked expected labels.
+The benchmark uses the same OpenAI model, 12 tickets, 5 runs per ticket, and locked expected labels.
 
 ### Results
 Insert generated tables and charts from `outputs/comparison/` and `artifacts/charts/`.

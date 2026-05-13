@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from .gemini_api import call_json, client
+from .openai_api import call_json, client
 from .io_utils import benchmark_model, output_path, read_json, serialize, write_json
 from .models import DraftResponse, StepResult, Ticket, TicketClassification, TicketFacts
 from .prompts import json_classification_prompt, json_draft_prompt, json_facts_prompt
 
-IMPLEMENTATION = "gemini_json"
+IMPLEMENTATION = "openai_json"
 
 
 def run_ticket(ticket: Ticket, run_index: int, force: bool = False) -> dict:

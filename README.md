@@ -1,10 +1,10 @@
 # BSV BAML Diligence Benchmark
 
-This repo contains a hands-on evaluation of BAML for production-style structured LLM workflows using the Gemini Developer API.
+This repo contains a hands-on evaluation of BAML for production-style structured LLM workflows using the OpenAI API.
 
 ## Diligence question
 
-Does BAML make structured LLM application logic easier to define, test, debug, and evolve than direct Gemini SDK implementations?
+Does BAML make structured LLM application logic easier to define, test, debug, and evolve than direct OpenAI API implementations?
 
 ## What this benchmark builds
 
@@ -16,13 +16,13 @@ A three-step support ticket triage workflow:
 
 The same workflow is implemented three ways:
 
-1. `baml`: BAML typed functions using the `google-ai` provider.
-2. `gemini_structured`: Direct Gemini REST call with `responseJsonSchema` from the same Pydantic schema.
-3. `gemini_json`: Direct Gemini REST call with plain JSON prompting and manual Pydantic validation.
+1. `baml`: BAML typed functions using the OpenAI provider.
+2. `openai_structured`: Direct OpenAI Chat Completions call with `json_schema` structured output from the same Pydantic schema.
+3. `openai_json`: Direct OpenAI Chat Completions call with JSON mode and manual Pydantic validation.
 
 ## Why this is a useful BAML test
 
-The goal is not to prove that BAML makes Gemini smarter. The goal is to test whether BAML improves the developer workflow once LLM calls become typed, multi-step application logic with expected labels, regression cases, and safety constraints.
+The goal is not to prove that BAML makes the model smarter. The goal is to test whether BAML improves the developer workflow once LLM calls become typed, multi-step application logic with expected labels, regression cases, and safety constraints.
 
 ## Setup
 
@@ -34,13 +34,9 @@ cp .env.example .env
 Edit `.env`:
 
 ```bash
-GOOGLE_API_KEY=your_key_here
-BENCHMARK_MODEL=gemini-3-flash-preview
+OPENAI_API_KEY=your_key_here
+BENCHMARK_MODEL=gpt-5.4-nano
 ```
-
-If you prefer Google docs' `GEMINI_API_KEY` name, also set `GOOGLE_API_KEY` to the same value because BAML's `google-ai` provider expects `GOOGLE_API_KEY`.
-
-The direct REST baselines are used because this local environment hung while importing `google-genai`; the benchmark still uses the official Gemini `generateContent` API.
 
 Generate the BAML Python client:
 
@@ -48,26 +44,24 @@ Generate the BAML Python client:
 uv run baml-cli generate
 ```
 
-If your installed BAML CLI exposes `baml generate` instead, use that equivalent command.
-
 ## Run
 
 Smoke test one ticket once across all implementations:
 
 ```bash
-PYTHONPATH=src uv run python -m bsv_baml_diligence.cli smoke --force
+PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli smoke --force
 ```
 
 Full benchmark, matching the diligence plan:
 
 ```bash
-PYTHONPATH=src uv run python -m bsv_baml_diligence.cli benchmark --runs 5 --force
+PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli benchmark --runs 5 --force
 ```
 
 Generate comparison tables and charts:
 
 ```bash
-PYTHONPATH=src uv run python -m bsv_baml_diligence.cli report
+PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli report
 ```
 
 Outputs are written to:
@@ -83,7 +77,7 @@ Automated metrics are not enough for this diligence. Review the outputs and fill
 Then regenerate the report:
 
 ```bash
-PYTHONPATH=src uv run python -m bsv_baml_diligence.cli report
+PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli report
 ```
 
 ## Charts

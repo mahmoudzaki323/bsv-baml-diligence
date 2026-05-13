@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from enum import Enum
 from pathlib import Path
 from typing import Any
@@ -32,10 +33,10 @@ def benchmark_model() -> str:
     return model
 
 
-def require_google_key() -> None:
+def require_openai_key() -> None:
     load_environment()
-    if not os.getenv("GOOGLE_API_KEY"):
-        raise RuntimeError("Set GOOGLE_API_KEY in .env or the shell before running Gemini calls.")
+    if not os.getenv("OPENAI_API_KEY"):
+        raise RuntimeError("Set OPENAI_API_KEY in .env or the shell before running OpenAI calls.")
 
 
 def ensure_output_dirs() -> None:
@@ -69,7 +70,15 @@ def serialize(value: Any) -> Any:
 
 def write_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(serialize(data), indent=2, sort_keys=True) + "\n")
+    payload = json.dumps(serialize(data), indent=2, sort_keys=True) + "\n"
+    for attempt in range(3):
+        try:
+            path.write_text(payload)
+            return
+        except TimeoutError:
+            if attempt == 2:
+                raise
+            time.sleep(1)
 
 
 def read_json(path: Path) -> Any:

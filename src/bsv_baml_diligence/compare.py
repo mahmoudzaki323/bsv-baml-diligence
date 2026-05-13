@@ -8,7 +8,7 @@ from typing import Any
 
 from .io_utils import COMPARISON_DIR, DOCS_DIR, RAW_DIR, ensure_output_dirs, load_tickets, read_json
 
-IMPLEMENTATIONS = ["baml", "gemini_structured", "gemini_json"]
+IMPLEMENTATIONS = ["baml", "openai_structured", "openai_json"]
 STEPS = ["classification", "facts", "draft"]
 LABEL_FIELDS = [
     ("category", "expected_category"),

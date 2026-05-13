@@ -3,7 +3,7 @@ from __future__ import annotations
 import sys
 import time
 
-from .io_utils import ROOT, benchmark_model, load_environment, output_path, read_json, require_google_key, serialize, write_json
+from .io_utils import ROOT, benchmark_model, load_environment, output_path, read_json, require_openai_key, serialize, write_json
 from .models import StepResult, Ticket
 
 IMPLEMENTATION = "baml"
@@ -15,7 +15,7 @@ def run_ticket(ticket: Ticket, run_index: int, force: bool = False) -> dict:
         return read_json(path)
 
     load_environment()
-    require_google_key()
+    require_openai_key()
     model = benchmark_model()
     if str(ROOT) not in sys.path:
         sys.path.insert(0, str(ROOT))

@@ -1,5 +1,5 @@
 function ClassifyTicket(ticket: string) -> TicketClassification {
-  client Gemini
+  client OpenAI
   prompt #"
     {{ _.role("system") }}
     You are a support operations triage assistant for a B2B SaaS company.
@@ -15,7 +15,7 @@ function ClassifyTicket(ticket: string) -> TicketClassification {
 }
 
 function ExtractTicketFacts(ticket: string, classification: TicketClassification) -> TicketFacts {
-  client Gemini
+  client OpenAI
   prompt #"
     {{ _.role("system") }}
     Extract grounded support facts from the ticket. Separate explicit facts from missing information.
@@ -33,7 +33,7 @@ function ExtractTicketFacts(ticket: string, classification: TicketClassification
 }
 
 function DraftSupportResponse(ticket: string, classification: TicketClassification, facts: TicketFacts) -> DraftResponse {
-  client Gemini
+  client OpenAI
   prompt #"
     {{ _.role("system") }}
     Draft a safe support response for a B2B SaaS customer.

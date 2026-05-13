@@ -1,7 +1,7 @@
 [project]
 name = "bsv-baml-diligence"
 version = "0.1.0"
-description = "Hands-on BAML diligence benchmark using Gemini API support ticket triage."
+description = "Hands-on BAML diligence benchmark using OpenAI API support ticket triage."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

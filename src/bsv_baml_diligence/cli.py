@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 
-IMPLEMENTATION_CHOICES = ["baml", "gemini_structured", "gemini_json"]
+IMPLEMENTATION_CHOICES = ["baml", "openai_structured", "openai_json"]
 
 
 def main() -> None:
@@ -47,3 +47,7 @@ def main() -> None:
 
         generate_comparison()
         generate_charts()
+
+
+if __name__ == "__main__":
+    main()

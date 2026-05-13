@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import os
 from enum import Enum
 from typing import Any
+
+os.environ.setdefault("PYDANTIC_DISABLE_PLUGINS", "1")
 
 from pydantic import BaseModel, Field
 

@@ -15,4 +15,4 @@ Use this rubric after the full benchmark has produced raw outputs.
 1. Review one ticket at a time across all implementations.
 2. Mark flags with `true` or `1` in `docs/manual_review.csv`.
 3. Keep notes short and factual.
-4. Run `PYTHONPATH=src uv run python -m bsv_baml_diligence.cli report` after filling the CSV to regenerate manual failure charts.
+4. Run `PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli report` after filling the CSV to regenerate manual failure charts.
