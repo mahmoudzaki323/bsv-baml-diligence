@@ -1,0 +1,117 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1244.556917110458,
+      "ok": true,
+      "parsed": {
+        "category": "unclear",
+        "needs_human_review": true,
+        "rationale": "Customer reports the app is broken and nothing works anymore, but no specific error details, features affected, or timeframe are provided to confirm the exact issue type (e.g., outage vs bug vs integration). Requires human review for accurate routing.",
+        "team": "engineering",
+        "urgency": "critical"
+      },
+      "raw_text": "{\"category\":\"unclear\",\"urgency\":\"critical\",\"team\":\"engineering\",\"needs_human_review\":true,\"rationale\":\"Customer reports the app is broken and nothing works anymore, but no specific error details, features affected, or timeframe are provided to confirm the exact issue type (e.g., outage vs bug vs integration). Requires human review for accurate routing.\"}",
+      "usage_metadata": {
+        "completion_tokens": 80,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 416,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 496
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2457.8230830375105,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi\u2014sorry you\u2019re running into this again. We understand the urgency, and we\u2019ll get this investigated as a priority.\n\nTo make sure we\u2019re looking at the exact failing behavior (since \u201cnothing works\u201d is currently too broad for us to pinpoint), could you reply with the minimum details below?\n1) What exact workflow(s) fail? (e.g., login, uploading, search, saving data, integrations, checkout, etc.)\n2) What do you see instead of the expected result? If there\u2019s an error message, please paste the exact wording.\n3) When did it start, and is it still happening right now?\n4) Your environment/region: production or staging, and browser/app version (or device/OS).\n5) If available, share any screenshot/screen recording and any request/correlation ID(s) shown in the UI.\n\nAs soon as we have that, we\u2019ll escalate to engineering for immediate troubleshooting. In the meantime, if you can, please avoid making changes on your side that could alter the state (e.g., configuration updates) so we can match the issue to the reports from your last incident.",
+        "promised_actions": [
+          "Escalate the ticket to engineering for immediate troubleshooting once the requested details are provided"
+        ],
+        "safety_notes": [
+          "Avoid claiming an outage/known cause or promising a fix/ETA based on insufficient information.",
+          "Acknowledge escalation without asserting resolution.",
+          "Request only the minimum useful diagnostic details to identify the failing feature/error."
+        ],
+        "tone": "apologetic"
+      },
+      "raw_text": "{\"draft_response\":\"Hi\u2014sorry you\u2019re running into this again. We understand the urgency, and we\u2019ll get this investigated as a priority.\\n\\nTo make sure we\u2019re looking at the exact failing behavior (since \u201cnothing works\u201d is currently too broad for us to pinpoint), could you reply with the minimum details below?\\n1) What exact workflow(s) fail? (e.g., login, uploading, search, saving data, integrations, checkout, etc.)\\n2) What do you see instead of the expected result? If there\u2019s an error message, please paste the exact wording.\\n3) When did it start, and is it still happening right now?\\n4) Your environment/region: production or staging, and browser/app version (or device/OS).\\n5) If available, share any screenshot/screen recording and any request/correlation ID(s) shown in the UI.\\n\\nAs soon as we have that, we\u2019ll escalate to engineering for immediate troubleshooting. In the meantime, if you can, please avoid making changes on your side that could alter the state (e.g., configuration updates) so we can match the issue to the reports from your last incident.\",\"tone\":\"apologetic\",\"promised_actions\":[\"Escalate the ticket to engineering for immediate troubleshooting once the requested details are provided\"],\"safety_notes\":[\"Avoid claiming an outage/known cause or promising a fix/ETA based on insufficient information.\",\"Acknowledge escalation without asserting resolution.\",\"Request only the minimum useful diagnostic details to identify the failing feature/error.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 325,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 815,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1140
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 6023.268375080079,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Customer reports complete loss of functionality (\u201cnothing works anymore\u201d) and escalation with their boss; this implies major operational disruption.",
+        "grounded_facts": [
+          "Customer states that the app is \u201cbroken again.\u201d",
+          "Customer states that \u201cNothing works anymore.\u201d",
+          "Customer says the app \u201ckeeps doing the same thing as last time.\u201d",
+          "Customer reports their boss is mad.",
+          "Customer requests: \u201cPlease fix it.\u201d",
+          "Customer says: \u201cI do not have time to explain this again.\u201d",
+          "Ticket classification marks category as \u201cunclear,\u201d needs human review as true, team as \u201cengineering,\u201d and urgency as \u201ccritical.\u201d"
+        ],
+        "missing_information": [
+          "What \u201csame thing as last time\u201d refers to (previous incident details or symptoms).",
+          "Which app features or workflows are failing (e.g., login, payments, search, uploads).",
+          "Exact timeframe when the issue started and whether it is continuous or intermittent.",
+          "Any error messages, logs, screenshots, or stack traces shown to the customer.",
+          "Device/platform/browser/app version and environment (production vs staging, region).",
+          "Whether any recent changes (deployments, configuration, integrations) occurred before the issue began.",
+          "Expected behavior vs actual behavior and steps to reproduce."
+        ],
+        "risk_signals": [
+          "Ambiguous/unclear failure mode increases time-to-resolution due to insufficient diagnostics.",
+          "Claim of recurring issue (\u201cagain\u201d / \u201csame thing as last time\u201d) suggests potential regression or unresolved underlying problem.",
+          "Stated critical urgency indicates potential ongoing production impact."
+        ],
+        "summary": "Customer reports the app is broken again and nothing works anymore, but provides no specific details to identify the exact failing feature or error."
+      },
+      "raw_text": "{\"summary\":\"Customer reports the app is broken again and nothing works anymore, but provides no specific details to identify the exact failing feature or error.\",\"grounded_facts\":[\"Customer states that the app is \u201cbroken again.\u201d\",\"Customer states that \u201cNothing works anymore.\u201d\",\"Customer says the app \u201ckeeps doing the same thing as last time.\u201d\",\"Customer reports their boss is mad.\",\"Customer requests: \u201cPlease fix it.\u201d\",\"Customer says: \u201cI do not have time to explain this again.\u201d\",\"Ticket classification marks category as \u201cunclear,\u201d needs human review as true, team as \u201cengineering,\u201d and urgency as \u201ccritical.\u201d\"],\"missing_information\":[\"What \u201csame thing as last time\u201d refers to (previous incident details or symptoms).\",\"Which app features or workflows are failing (e.g., login, payments, search, uploads).\",\"Exact timeframe when the issue started and whether it is continuous or intermittent.\",\"Any error messages, logs, screenshots, or stack traces shown to the customer.\",\"Device/platform/browser/app version and environment (production vs staging, region).\",\"Whether any recent changes (deployments, configuration, integrations) occurred before the issue began.\",\"Expected behavior vs actual behavior and steps to reproduce.\"],\"customer_impact\":\"Customer reports complete loss of functionality (\u201cnothing works anymore\u201d) and escalation with their boss; this implies major operational disruption.\",\"risk_signals\":[\"Ambiguous/unclear failure mode increases time-to-resolution due to insufficient diagnostics.\",\"Claim of recurring issue (\u201cagain\u201d / \u201csame thing as last time\u201d) suggests potential regression or unresolved underlying problem.\",\"Stated critical urgency indicates potential ongoing production impact.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 333,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 353,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 686
+      }
+    }
+  },
+  "ticket_id": "T003"
+}

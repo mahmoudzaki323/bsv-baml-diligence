@@ -64,6 +64,19 @@ def _save(path: Path) -> None:
     plt.close()
 
 
+def _add_bar_labels(ax, *, percent: bool = False, decimals: int = 0) -> None:
+    for container in ax.containers:
+        labels = []
+        for value in container.datavalues:
+            if pd.isna(value):
+                labels.append("")
+            elif percent:
+                labels.append(f"{value:.{decimals}%}")
+            else:
+                labels.append(f"{value:.{decimals}f}")
+        ax.bar_label(container, labels=labels, padding=3, fontsize=8)
+
+
 def _implementation_order(df: pd.DataFrame) -> list[str]:
     preferred = ["baml", "openai_structured", "openai_json"]
     return [item for item in preferred if item in set(df["implementation"])]
@@ -75,11 +88,12 @@ def _schema_success_chart() -> None:
         return
     df = df.set_index("implementation").loc[_implementation_order(df)].reset_index()
     df["Implementation"] = df["implementation"].map(IMPLEMENTATION_LABELS)
-    ax = df.plot.bar(x="Implementation", y="schema_success_rate", legend=False, ylim=(0, 1), color="#2F6F73")
-    ax.set_title("Schema-valid workflows by implementation")
+    ax = df.plot.bar(x="Implementation", y="schema_success_rate", legend=False, ylim=(0, 1.12), color="#2F6F73")
+    ax.set_title("Schema-valid workflows by implementation\nAll three workflow steps returned valid structured data")
     ax.set_xlabel("Implementation")
     ax.set_ylabel("Share of runs with all three steps schema-valid")
     ax.yaxis.set_major_formatter(lambda value, _: f"{value:.0%}")
+    _add_bar_labels(ax, percent=True)
     _save(CHARTS_DIR / "schema_success_rate.png")
 
 
@@ -90,12 +104,13 @@ def _expected_label_accuracy_chart() -> None:
     df = df.set_index("implementation").loc[_implementation_order(df)]
     df.index = [IMPLEMENTATION_LABELS[item] for item in df.index]
     chart_df = df[list(FIELD_LABELS)].rename(columns=FIELD_LABELS)
-    ax = chart_df.plot.bar(ylim=(0, 1), figsize=(10, 5))
-    ax.set_title("Expected-label match rate by field")
+    ax = chart_df.plot.bar(ylim=(0, 1.18), figsize=(11, 5.5))
+    ax.set_title("Expected-label match rate by field\nLocked labels are review targets, not absolute ground truth")
     ax.set_xlabel("Implementation")
     ax.set_ylabel("Share of runs matching locked expected label")
     ax.yaxis.set_major_formatter(lambda value, _: f"{value:.0%}")
     ax.legend(title="Field evaluated")
+    _add_bar_labels(ax, percent=True)
     _save(CHARTS_DIR / "expected_label_accuracy.png")
 
 
@@ -108,11 +123,12 @@ def _latency_chart() -> None:
     df["Median latency (seconds)"] = df["median_latency_ms"] / 1000
     pivot = df.pivot(index="Workflow step", columns="Implementation", values="Median latency (seconds)")
     pivot = pivot.loc[[label for label in STEP_LABELS.values() if label in pivot.index]]
-    ax = pivot.plot.bar(figsize=(10, 5))
-    ax.set_title("Median latency by workflow step")
+    ax = pivot.plot.bar(figsize=(11, 5.5))
+    ax.set_title("Median API latency by workflow step\nLower is better; each bar summarizes observed benchmark calls")
     ax.set_xlabel("Workflow step")
     ax.set_ylabel("Median latency in seconds")
     ax.legend(title="Implementation")
+    _add_bar_labels(ax, decimals=1)
     _save(CHARTS_DIR / "latency_by_step.png")
 
 
@@ -124,10 +140,11 @@ def _manual_failure_chart() -> None:
     df["Failure type"] = df["failure_type"].str.replace("_", " ").str.title()
     pivot = df.pivot(index="Failure type", columns="Implementation", values="count").fillna(0)
     ax = pivot.plot.bar(figsize=(10, 5))
-    ax.set_title("Manual review failure counts")
+    ax.set_title("Manual review failure counts\nGenerated only after manual review is completed")
     ax.set_xlabel("Failure type")
     ax.set_ylabel("Number of flagged runs")
     ax.legend(title="Implementation")
+    _add_bar_labels(ax)
     _save(CHARTS_DIR / "manual_failure_counts.png")
 
 
@@ -141,11 +158,11 @@ def _label_match_by_ticket_chart() -> None:
     pivot = df.pivot_table(index="Ticket scenario", columns="Implementation", values=value_column, aggfunc="mean")
     ordered_labels = [label for label in SCENARIO_LABELS.values() if label in pivot.index]
     pivot = pivot.loc[ordered_labels]
-    ax = pivot.plot.bar(figsize=(13, 6), ylim=(0, 1))
-    ax.set_title("Average expected-label match by ticket")
+    ax = pivot.plot.bar(figsize=(14, 6.5), ylim=(0, 1.16))
+    ax.set_title("Average expected-label match by ticket\nMean of category, urgency, routing team, and human-review match rates")
     ax.set_xlabel("Ticket scenario")
     ax.set_ylabel("Average share of labels matched")
     ax.yaxis.set_major_formatter(lambda value, _: f"{value:.0%}")
     ax.legend(title="Implementation")
+    _add_bar_labels(ax, percent=True)
     _save(CHARTS_DIR / "label_match_by_ticket.png")
-    _save(CHARTS_DIR / "workflow_success_by_ticket.png")

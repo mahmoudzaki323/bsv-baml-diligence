@@ -1,0 +1,75 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1225.5478750448674,
+      "ok": true,
+      "parsed": {
+        "category": "UNCLEAR",
+        "needs_human_review": true,
+        "rationale": "The ticket says the app is 'broken again' and nothing works anymore, but provides no specific symptoms, error messages, impacted workflow, or evidence of outage/security/billing/data loss. Mentions boss is mad and asks to fix, implying important workflow impact; however, routing details are insufficient.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2062.339707976207,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi\u2014sorry you\u2019re running into this again. I understand this is impacting you and you need it resolved quickly.\n\nTo get this fixed as fast as possible, can you reply with the following minimum details?\n1) What feature/workflow \u201cdoesn\u2019t work anymore\u201d (exact steps from what you click to what happens)\n2) Any error message text you see (or a screenshot)\n3) When it started (date/time) and whether it affects all users or just your account/environment\n4) Whether you can still reproduce it right now\n\nIf you have any prior incident reference or ticket ID from \u201clast time,\u201d please include that as well.\n\nOnce I have those details, we\u2019ll escalate to the engineering team to investigate immediately.",
+        "promised_actions": [
+          "Escalate to the engineering team to investigate",
+          "Request specific reproduction and error details to proceed"
+        ],
+        "safety_notes": [
+          "No refund, root-cause, or resolution promise included.",
+          "No SLA/incident confirmation claimed.",
+          "The ticket lacks specifics (feature, errors, timestamps, affected scope), so the response asks for minimum useful clarification."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3175.0318750273436,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The customer indicates their app is non-functional for them (\u201cNothing works anymore\u201d) and that the repeated issue is causing organizational pressure (\u201cmy boss is mad\u201d), implying significant disruption to their operations.",
+        "grounded_facts": [
+          "The ticket subject says: \"This is broken again\".",
+          "The customer states: \"Nothing works anymore.\"",
+          "The customer states the app keeps doing \"the same thing as last time.\"",
+          "The customer says they do not have time to explain this again.",
+          "The customer says: \"my boss is mad.\"",
+          "The customer asks: \"Please fix it.\""
+        ],
+        "missing_information": [
+          "What specifically is not working (which feature/workflow and what the user expected vs what happened).",
+          "Any error messages, logs, screenshots, or exact observed behavior.",
+          "What changed since the last time (if any) and when the issue started / how long it has been happening.",
+          "Whether this is affecting all users or only specific accounts/environments (e.g., region, device, plan).",
+          "Whether there is an outage/incident already in progress and any relevant timestamps/incident IDs.",
+          "Any evidence of data loss, security issues, or billing problems (not mentioned)."
+        ],
+        "risk_signals": [
+          "Production-like impact implied by \"Nothing works anymore\" and \"fix it\" request",
+          "Recurring failure implied by \"the same thing as last time\"",
+          "High urgency implied by \"my boss is mad\" and \"I do not have time to explain this again\"",
+          "No details provided, increasing troubleshooting and misrouting risk"
+        ],
+        "summary": "The customer reports that the app is broken again, with nothing working anymore, and requests an immediate fix because the issue is repeating from a prior incident."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T003"
+}

@@ -1,0 +1,111 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1216.7289170902222,
+      "ok": true,
+      "parsed": {
+        "category": "feature_request",
+        "needs_human_review": false,
+        "rationale": "Customer requests a new capability to schedule weekly exports directly to their S3 bucket instead of manual CSV downloads; not blocking.",
+        "team": "customer_success",
+        "urgency": "low"
+      },
+      "raw_text": "{\"category\":\"feature_request\",\"urgency\":\"low\",\"team\":\"customer_success\",\"needs_human_review\":false,\"rationale\":\"Customer requests a new capability to schedule weekly exports directly to their S3 bucket instead of manual CSV downloads; not blocking.\"}",
+      "usage_metadata": {
+        "completion_tokens": 58,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 428,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 486
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2631.72912504524,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there \u2014 thanks for the feature request. Scheduling weekly exports directly to your S3 bucket would definitely help reduce the manual CSV download time for your team.\n\nTo help us evaluate and (if available) advise on the best way to set this up, could you share a few details?\n1) Are you looking to export from a specific product/module (or which system currently generates the CSV)?\n2) Do you already have any S3 integration/connection configured with us, or would this be a new setup?\n3) What schedule do you want (day/time and timezone)?\n4) For the destination in S3: bucket name/region and the folder/prefix you want files written to.\n5) Any expected export format/schema (CSV columns, naming convention, whether you need one file per export vs. a folder-by-date approach).\n\nOnce we have this, we can confirm feasibility and the recommended configuration path. Since you mentioned this isn\u2019t blocking, we\u2019ll prioritize it accordingly\u2014but we can get the right requirements collected to move it forward.",
+        "promised_actions": [
+          "Review the request internally once you provide the requested scheduling and S3/destination details",
+          "Follow up with feasibility/configuration guidance based on your answers"
+        ],
+        "safety_notes": [
+          "Avoid claiming the feature exists or is available at the moment since details are not provided.",
+          "No promises about timeline/SLA, implementation outcome, or refund."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": "{\"draft_response\":\"Hi there \u2014 thanks for the feature request. Scheduling weekly exports directly to your S3 bucket would definitely help reduce the manual CSV download time for your team.\\n\\nTo help us evaluate and (if available) advise on the best way to set this up, could you share a few details?\\n1) Are you looking to export from a specific product/module (or which system currently generates the CSV)?\\n2) Do you already have any S3 integration/connection configured with us, or would this be a new setup?\\n3) What schedule do you want (day/time and timezone)?\\n4) For the destination in S3: bucket name/region and the folder/prefix you want files written to.\\n5) Any expected export format/schema (CSV columns, naming convention, whether you need one file per export vs. a folder-by-date approach).\\n\\nOnce we have this, we can confirm feasibility and the recommended configuration path. Since you mentioned this isn\u2019t blocking, we\u2019ll prioritize it accordingly\u2014but we can get the right requirements collected to move it forward.\",\"tone\":\"clarifying\",\"promised_actions\":[\"Review the request internally once you provide the requested scheduling and S3/destination details\",\"Follow up with feasibility/configuration guidance based on your answers\"],\"safety_notes\":[\"Avoid claiming the feature exists or is available at the moment since details are not provided.\",\"No promises about timeline/SLA, implementation outcome, or refund.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 306,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 670,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 976
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 17257.23816594109,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Would reduce manual CSV download work and save the customer\u2019s data team a couple of hours per week; currently not blocking operations.",
+        "grounded_facts": [
+          "Customer requests scheduled weekly exports directly to their S3 bucket.",
+          "Customer currently downloads CSVs manually.",
+          "Customer says the request is not blocking them.",
+          "Customer estimates the scheduled export would save their data team a couple of hours each week."
+        ],
+        "missing_information": [
+          "Which system/tool currently generates the exports (not specified).",
+          "Whether exports are currently supported as an on-demand download only or if any S3 integration already exists (not specified).",
+          "Details of the desired schedule (exact day/time, timezone) (not specified).",
+          "S3 connection details and expectations (bucket name, region, access method/credentials, folder/prefix) (not specified).",
+          "Export contents/schema and file format expectations for the S3 output (not specified)."
+        ],
+        "risk_signals": [
+          "Low urgency and explicitly non-blocking, but scheduling/export automation could require correct permissions and configuration; details are not provided in the ticket.",
+          "Ambiguity around S3 integration requirements (access method, destination path, schedule specifics) could delay implementation if not clarified."
+        ],
+        "summary": "Customer requests the ability to schedule weekly exports directly to their S3 bucket rather than manually downloading CSVs, and states it is not blocking them."
+      },
+      "raw_text": "{\"summary\":\"Customer requests the ability to schedule weekly exports directly to their S3 bucket rather than manually downloading CSVs, and states it is not blocking them.\",\"grounded_facts\":[\"Customer requests scheduled weekly exports directly to their S3 bucket.\",\"Customer currently downloads CSVs manually.\",\"Customer says the request is not blocking them.\",\"Customer estimates the scheduled export would save their data team a couple of hours each week.\"],\"missing_information\":[\"Which system/tool currently generates the exports (not specified).\",\"Whether exports are currently supported as an on-demand download only or if any S3 integration already exists (not specified).\",\"Details of the desired schedule (exact day/time, timezone) (not specified).\",\"S3 connection details and expectations (bucket name, region, access method/credentials, folder/prefix) (not specified).\",\"Export contents/schema and file format expectations for the S3 output (not specified).\"],\"customer_impact\":\"Would reduce manual CSV download work and save the customer\u2019s data team a couple of hours per week; currently not blocking operations.\",\"risk_signals\":[\"Low urgency and explicitly non-blocking, but scheduling/export automation could require correct permissions and configuration; details are not provided in the ticket.\",\"Ambiguity around S3 integration requirements (access method, destination path, schedule specifics) could delay implementation if not clarified.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 277,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 343,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 620
+      }
+    }
+  },
+  "ticket_id": "T006"
+}

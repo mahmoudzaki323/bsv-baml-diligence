@@ -1,0 +1,78 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 2553.980000084266,
+      "ok": true,
+      "parsed": {
+        "category": "UNCLEAR",
+        "needs_human_review": true,
+        "rationale": "The ticket says the app is 'broken again' and 'Nothing works anymore,' referencing the same issue as last time, but it provides no specific symptoms, logs, affected workflow, or whether this is an outage vs a bug. The mention of a boss being mad suggests significant business impact, but details are insufficient to confidently categorize.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2856.5101670101285,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Thanks for the note\u2014sorry you\u2019re running into this again and that it\u2019s impacting your team. To get this investigated quickly, I need a few specifics since \u201cnothing works\u201d and \u201csame as last time\u201d aren\u2019t enough for us to pinpoint the failing workflow.\n\nPlease reply with the following (copy/paste is fine):\n1) What exact action/feature is failing? (e.g., \u201ccreate invoice,\u201d \u201clog in,\u201d \u201csync,\u201d etc.)\n2) Any error message text or error code you see (and where you see it in the UI).\n3) When it started (date/time + your timezone) and whether it\u2019s ongoing right now.\n4) Where you\u2019re seeing it: production vs sandbox, and the browser/device (or API client) if applicable.\n5) The approximate time of the previous incident and/or the prior ticket number, if you have it.\n\nIf you can include a short screen recording or screenshots of the error, that would help a lot.\n\nOnce we have the above, we\u2019ll route it to the right engineering team for investigation and follow-up.",
+        "promised_actions": [
+          "Ask for minimum details to identify the failing workflow",
+          "Route the report to the appropriate engineering team for investigation and follow-up"
+        ],
+        "safety_notes": [
+          "Did not claim an outage status, root cause, or fix.",
+          "Did not promise a refund, SLA, or legal conclusion.",
+          "Acknowledged recurrence and impact, but required specific symptoms/workflow details before asserting anything further.",
+          "Framed as escalation/triage routing without claiming resolution."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3069.7314999997616,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The requester indicates significant business impact by stating their boss is mad, and claims that nothing works anymore, implying users cannot use the app as expected.",
+        "grounded_facts": [
+          "The subject is: \"This is broken again\".",
+          "The requester says: \"Nothing works anymore.\"",
+          "The requester says the app \"keeps doing the same thing as last time\".",
+          "The requester says: \"Your app keeps doing the same thing as last time\" and implies recurrence of the same problem.",
+          "The requester asks to \"Please fix it.\"",
+          "The requester states: \"my boss is mad.\"",
+          "The requester states they \"do not have time to explain this again.\""
+        ],
+        "missing_information": [
+          "What specifically is broken (which feature/workflow is failing).",
+          "Whether there is an outage, error messages, or specific symptoms.",
+          "Timeframe of when the issue started and whether it is ongoing.",
+          "Environment details (production vs staging), platform/device/browser if applicable.",
+          "Any logs, screenshots, error codes, or reproduction steps.",
+          "What happened \"last time\" (previous ticket number, known issue, or prior symptoms).",
+          "How many users are affected and in what way (blocked actions, partial failures)."
+        ],
+        "risk_signals": [
+          "Production-like impact suggested by \"Nothing works anymore.\"",
+          "Repeated occurrence implied by \"broken again\" and \"same thing as last time.\"",
+          "High urgency implied by stating they do not have time to explain again and requesting immediate fix.",
+          "Ambiguity preventing precise triage (no specific symptoms provided)."
+        ],
+        "summary": "The requester reports that the app is broken again and nothing works anymore, repeating the same issue as last time."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T003"
+}

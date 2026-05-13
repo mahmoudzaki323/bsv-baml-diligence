@@ -1,0 +1,113 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 925.5586671642959,
+      "ok": true,
+      "parsed": {
+        "category": "compliance_privacy",
+        "needs_human_review": true,
+        "rationale": "Legal team requests DPA clarification covering subprocessors, data retention, and whether support logs may include customer identifiers, which requires privacy/legal review.",
+        "team": "compliance",
+        "urgency": "medium"
+      },
+      "raw_text": "{\n  \"category\": \"compliance_privacy\",\n  \"urgency\": \"medium\",\n  \"team\": \"compliance\",\n  \"needs_human_review\": true,\n  \"rationale\": \"Legal team requests DPA clarification covering subprocessors, data retention, and whether support logs may include customer identifiers, which requires privacy/legal review.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 77,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 333,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 410
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2704.2399579659104,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Thanks for flagging this\u2014our team can help route your DPA clarification request to the appropriate privacy/legal contact. \n\nTo ensure the right party reviews the correct materials, could you please share:\n1) Which DPA document/version your legal team is reviewing (or paste the relevant section/questions).\n2) Whether you\u2019re asking for confirmations about (a) subprocessors, (b) data retention, and (c) support logs containing customer identifiers\u2014please confirm if these are the only items.\n3) The specific wording/requirements your legal team needs for each item (e.g., what \u201ccustomer identifiers\u201d means in this context).\n\nOnce we have the above, we\u2019ll escalate internally to our privacy contact for review so you can proceed with enabling EU customer records.",
+        "promised_actions": [
+          "Route/escalate the request to the appropriate privacy/legal contact for review",
+          "Ask for the minimum additional details needed to ensure the correct DPA materials and requirements are reviewed"
+        ],
+        "safety_notes": [
+          "Do not confirm subprocessors, retention periods, or log handling details without privacy/legal review.",
+          "Acknowledge escalation is required; do not promise a specific outcome, timeline, refund, or SLA."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Thanks for flagging this\u2014our team can help route your DPA clarification request to the appropriate privacy/legal contact. \\n\\nTo ensure the right party reviews the correct materials, could you please share:\\n1) Which DPA document/version your legal team is reviewing (or paste the relevant section/questions).\\n2) Whether you\u2019re asking for confirmations about (a) subprocessors, (b) data retention, and (c) support logs containing customer identifiers\u2014please confirm if these are the only items.\\n3) The specific wording/requirements your legal team needs for each item (e.g., what \u201ccustomer identifiers\u201d means in this context).\\n\\nOnce we have the above, we\u2019ll escalate internally to our privacy contact for review so you can proceed with enabling EU customer records.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Route/escalate the request to the appropriate privacy/legal contact for review\",\n    \"Ask for the minimum additional details needed to ensure the correct DPA materials and requirements are reviewed\"\n  ],\n  \"safety_notes\": [\n    \"Do not confirm subprocessors, retention periods, or log handling details without privacy/legal review.\",\n    \"Acknowledge escalation is required; do not promise a specific outcome, timeline, refund, or SLA.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 282,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 606,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 888
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2393.1007909122854,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Delays enabling EU customer records until DPA terms are clarified, potentially blocking customer data activation and compliance readiness.",
+        "grounded_facts": [
+          "The ticket subject requests DPA clarification for EU customer data.",
+          "The recipient\u2019s legal team is reviewing a DPA before enabling EU customer records.",
+          "The legal team needs confirmation on subprocessors.",
+          "The legal team needs confirmation on data retention.",
+          "The legal team needs confirmation on whether support logs can include customer identifiers.",
+          "The ticket requests routing the issue to the right privacy contact."
+        ],
+        "missing_information": [
+          "Which specific DPA document/version the legal team is reviewing.",
+          "The name or identifier of the privacy contact or the correct internal routing destination.",
+          "The current/submitted list of subprocessors (if any) that requires confirmation.",
+          "The exact retention periods or retention policy language that needs confirmation.",
+          "Whether support logs can include customer identifiers under current practices (and under what conditions)."
+        ],
+        "risk_signals": [
+          "Compliance and legal review is pending and explicitly blocks enabling EU customer records.",
+          "Uncertainty about subprocessors, data retention, and support logs containing customer identifiers."
+        ],
+        "summary": "Legal needs DPA clarification before enabling EU customer records, specifically about subprocessors, data retention, and whether support logs can include customer identifiers."
+      },
+      "raw_text": "{\n  \"summary\": \"Legal needs DPA clarification before enabling EU customer records, specifically about subprocessors, data retention, and whether support logs can include customer identifiers.\",\n  \"grounded_facts\": [\n    \"The ticket subject requests DPA clarification for EU customer data.\",\n    \"The recipient\u2019s legal team is reviewing a DPA before enabling EU customer records.\",\n    \"The legal team needs confirmation on subprocessors.\",\n    \"The legal team needs confirmation on data retention.\",\n    \"The legal team needs confirmation on whether support logs can include customer identifiers.\",\n    \"The ticket requests routing the issue to the right privacy contact.\"\n  ],\n  \"missing_information\": [\n    \"Which specific DPA document/version the legal team is reviewing.\",\n    \"The name or identifier of the privacy contact or the correct internal routing destination.\",\n    \"The current/submitted list of subprocessors (if any) that requires confirmation.\",\n    \"The exact retention periods or retention policy language that needs confirmation.\",\n    \"Whether support logs can include customer identifiers under current practices (and under what conditions).\"\n  ],\n  \"customer_impact\": \"Delays enabling EU customer records until DPA terms are clarified, potentially blocking customer data activation and compliance readiness.\",\n  \"risk_signals\": [\n    \"Compliance and legal review is pending and explicitly blocks enabling EU customer records.\",\n    \"Uncertainty about subprocessors, data retention, and support logs containing customer identifiers.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 297,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 254,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 551
+      }
+    }
+  },
+  "ticket_id": "T011"
+}

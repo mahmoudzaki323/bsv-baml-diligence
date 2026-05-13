@@ -1,0 +1,63 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 976.6045829746872,
+      "ok": true,
+      "parsed": {
+        "category": "BILLING",
+        "needs_human_review": true,
+        "rationale": "Customer reports their card was charged twice for the annual plan renewal on May 1 and requests reversal of one charge and confirmation of which invoice (INV-9031 or INV-9032) should remain. This is a billing/invoice dispute requiring human review.",
+        "team": "BILLING",
+        "urgency": "MEDIUM"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2459.3000828754157,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014thanks for reaching out, and I\u2019m sorry for the confusion this caused.\n\nI see your report that your annual plan renewal was charged twice on May 1, with invoice numbers INV-9031 and INV-9032. Since this involves reconciling which charge/invoice should remain, we\u2019ll need our billing team to review the transactions and advise the correct one for your accounting.\n\nIn the meantime, could you please confirm one detail so we can match everything correctly: what are the last 4 digits of the card that was charged (or the payment method identifier shown on your statement) for the May 1 charges?\n\nOnce we have that, we\u2019ll escalate this to billing for review of the duplicate charges and to provide guidance on which invoice should be kept.",
+        "promised_actions": [
+          "Escalate the duplicate charge/invoice discrepancy to the billing team for review",
+          "Request the last 4 digits (or payment method identifier) to match the charges"
+        ],
+        "safety_notes": [
+          "Did not promise a reversal or confirm which invoice is correct, as human billing review is required",
+          "Did not claim root cause, refund status, SLA, or any legal conclusion"
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 1845.4299999866635,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Potential billing/accounting discrepancy for the customer due to duplicate charges and uncertainty about which invoice to record.",
+        "grounded_facts": [
+          "The ticket states the card was charged twice for the annual plan renewal on May 1.",
+          "Two invoice numbers are provided: INV-9031 and INV-9032.",
+          "The customer is requesting that one of the charges be reversed.",
+          "The customer is requesting confirmation of which invoice (INV-9031 or INV-9032) should remain in their accounting system."
+        ],
+        "missing_information": [],
+        "risk_signals": [
+          "Duplicate billing/renewal charge reported",
+          "Invoice ambiguity requiring resolution (which invoice should remain: INV-9031 vs INV-9032)"
+        ],
+        "summary": "The customer reports being charged twice for an annual plan renewal on May 1 and requests a reversal of one charge and confirmation of whether INV-9031 or INV-9032 should remain."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T004"
+}

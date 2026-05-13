@@ -1,0 +1,112 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1471.4607920031995,
+      "ok": true,
+      "parsed": {
+        "category": "unclear",
+        "needs_human_review": true,
+        "rationale": "User reports the app is broken and nothing works, but no specific error, scope, or impacted feature is provided to confirm bug vs outage.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"unclear\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"User reports the app is broken and nothing works, but no specific error, scope, or impacted feature is provided to confirm bug vs outage.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 74,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 320,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 394
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2550.766916014254,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi \u2014 I\u2019m sorry this is happening again and that your team is blocked. We can get this looked at quickly, but I\u2019ll need a bit more detail to confirm exactly what\u2019s failing.\n\nPlease reply with:\n1) What \u201cthe same thing as last time\u201d refers to (any prior ticket/incident link, or a short description of what changed).\n2) Which feature(s) or workflow(s) don\u2019t work (e.g., login, creating records, syncing, reports, integrations, etc.).\n3) The exact error message(s) you see (or a screenshot) and when they occur.\n4) Whether it\u2019s happening for all users in your org or only specific users.\n5) When it started and whether it\u2019s ongoing right now.\n6) Your environment details: app version (or browser + OS), and whether you\u2019re using one specific account/workspace.\n\nAs soon as you send this, I\u2019ll escalate to our engineering team to investigate with the right context.",
+        "promised_actions": [
+          "Escalate to engineering once the requested details are provided"
+        ],
+        "safety_notes": [
+          "Customer report is ambiguous; asked for minimal clarifications to identify scope and failing workflow.",
+          "No refund/SLA/root-cause claims made; response only commits to escalation after receiving details."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Hi \u2014 I\u2019m sorry this is happening again and that your team is blocked. We can get this looked at quickly, but I\u2019ll need a bit more detail to confirm exactly what\u2019s failing.\\n\\nPlease reply with:\\n1) What \u201cthe same thing as last time\u201d refers to (any prior ticket/incident link, or a short description of what changed).\\n2) Which feature(s) or workflow(s) don\u2019t work (e.g., login, creating records, syncing, reports, integrations, etc.).\\n3) The exact error message(s) you see (or a screenshot) and when they occur.\\n4) Whether it\u2019s happening for all users in your org or only specific users.\\n5) When it started and whether it\u2019s ongoing right now.\\n6) Your environment details: app version (or browser + OS), and whether you\u2019re using one specific account/workspace.\\n\\nAs soon as you send this, I\u2019ll escalate to our engineering team to investigate with the right context.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Escalate to engineering once the requested details are provided\"\n  ],\n  \"safety_notes\": [\n    \"Customer report is ambiguous; asked for minimal clarifications to identify scope and failing workflow.\",\n    \"No refund/SLA/root-cause claims made; response only commits to escalation after receiving details.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 304,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 602,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 906
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2316.553207812831,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Operations impact is indicated by the customer stating nothing works and that their boss is mad, implying the customer\u2019s ability to use the app is impaired.",
+        "grounded_facts": [
+          "The customer says the app is broken again.",
+          "The customer says nothing works anymore.",
+          "The customer says the app keeps doing the same thing as last time.",
+          "The customer says their boss is mad."
+        ],
+        "missing_information": [
+          "What \u201cthe same thing as last time\u201d refers to (previous incident details).",
+          "Which specific app features or workflows are failing.",
+          "Any error messages, logs, screenshots, or error codes provided by the customer.",
+          "Whether the issue is total outage or partial (scope across users/regions/devices).",
+          "When the problem started and whether it is ongoing or intermittent.",
+          "Device/platform details (app version, OS, browser, account type) and steps to reproduce."
+        ],
+        "risk_signals": [
+          "Recurring failure compared to a prior incident (\u201csame thing as last time\u201d).",
+          "Statement that the app is unusable (\u201cnothing works anymore\u201d).",
+          "High business pressure implied by the boss being mad."
+        ],
+        "summary": "The customer reports that the app is broken again and that nothing works anymore, repeating the same issue as last time."
+      },
+      "raw_text": "{\n  \"summary\": \"The customer reports that the app is broken again and that nothing works anymore, repeating the same issue as last time.\",\n  \"grounded_facts\": [\n    \"The customer says the app is broken again.\",\n    \"The customer says nothing works anymore.\",\n    \"The customer says the app keeps doing the same thing as last time.\",\n    \"The customer says their boss is mad.\"\n  ],\n  \"missing_information\": [\n    \"What \u201cthe same thing as last time\u201d refers to (previous incident details).\",\n    \"Which specific app features or workflows are failing.\",\n    \"Any error messages, logs, screenshots, or error codes provided by the customer.\",\n    \"Whether the issue is total outage or partial (scope across users/regions/devices).\",\n    \"When the problem started and whether it is ongoing or intermittent.\",\n    \"Device/platform details (app version, OS, browser, account type) and steps to reproduce.\"\n  ],\n  \"customer_impact\": \"Operations impact is indicated by the customer stating nothing works and that their boss is mad, implying the customer\u2019s ability to use the app is impaired.\",\n  \"risk_signals\": [\n    \"Recurring failure compared to a prior incident (\u201csame thing as last time\u201d).\",\n    \"Statement that the app is unusable (\u201cnothing works anymore\u201d).\",\n    \"High business pressure implied by the boss being mad.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 292,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 238,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 530
+      }
+    }
+  },
+  "ticket_id": "T003"
+}

@@ -1,0 +1,67 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 4982.037583133206,
+      "ok": true,
+      "parsed": {
+        "category": "UNCLEAR",
+        "needs_human_review": true,
+        "rationale": "The ticket states the app is 'broken again' and 'Nothing works anymore' with no specific behavior, errors, or workflow details provided, but it implies an important workflow is affected ('my boss is mad' and 'Please fix it'). Insufficient concrete info to confirm bug vs outage vs other category, so it requires human review; initial ownership should go to engineering for likely product/infrastructure failure.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2493.509874911979,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi \u2014 I\u2019m sorry for the disruption. I understand this is happening again and that things aren\u2019t working for you.\n\nTo get this fixed as quickly as possible, please send the minimum details below (even short answers are fine):\n1) What specific action/workflow is failing (e.g., login, submitting a form, API call, a particular dashboard page)?\n2) What do you see instead (exact error message, missing output, or behavior)?\n3) When did it start and is it currently happening?\n4) Your environment/region (production vs sandbox) and any relevant workspace/account identifier.\n5) If applicable: request/trace ID, timestamp, and any correlation ID from the UI or API response.\n\nOnce I have that, we\u2019ll escalate to our engineering team to investigate immediately. If you can\u2019t provide all of the above right now, tell us #1 and #2 first\u2014we\u2019ll take it from there.",
+        "promised_actions": [
+          "Request minimum details to identify the failing workflow and symptoms",
+          "Escalate the issue to the engineering team for investigation"
+        ],
+        "safety_notes": [
+          "Customer description is ambiguous; no specific errors/features were provided.",
+          "Response does not claim root cause or restoration status.",
+          "Response does not promise an SLA or refund, and avoids any security/legal conclusions."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2457.0746670942754,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The requester indicates the app is not working and that an internal stakeholder (their boss) is impacted, implying operational disruption for the requester/team.",
+        "grounded_facts": [
+          "The subject says: 'This is broken again'.",
+          "The requester states: 'Nothing works anymore.'",
+          "The requester says the app 'keeps doing the same thing as last time'.",
+          "The requester mentions: 'my boss is mad.'",
+          "The requester says: 'I do not have time to explain this again.'",
+          "The requester asks: 'Please fix it.'"
+        ],
+        "missing_information": [],
+        "risk_signals": [
+          "Potential recurring production or service failure ('broken again', 'same thing as last time').",
+          "High urgency is implied by 'my boss is mad' and the request to fix immediately.",
+          "No specific symptoms, errors, affected features, or environment details are provided, making triage ambiguous."
+        ],
+        "summary": "The requester reports that the app is 'broken again' and that 'nothing works anymore,' asking for a fix due to an urgent business impact."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T003"
+}

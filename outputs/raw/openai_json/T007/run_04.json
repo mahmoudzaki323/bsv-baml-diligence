@@ -1,0 +1,117 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1221.5722089167684,
+      "ok": true,
+      "parsed": {
+        "category": "data_loss",
+        "needs_human_review": true,
+        "rationale": "Project deletion was restored within the retention window, but files and comments are still missing and the project is needed for a client launch on Monday.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"data_loss\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"Project deletion was restored within the retention window, but files and comments are still missing and the project is needed for a client launch on Monday.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 74,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 327,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 401
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3609.7469159867615,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Apologies for the trouble\u2014especially given the Monday launch deadline. I can see why this is urgent.\n\nSince the restore was initiated within the retention window but you\u2019re still seeing missing files and comments, we\u2019ll need to investigate the specific project restore result and exactly what content is absent.\n\nTo help our engineering team review it quickly, could you please reply with:\n1) The workspace/project location in our product (product/module name or where the project lives).\n2) Approximate deletion time (date + time and time zone) and the time the restore was initiated (and completed, if you have it).\n3) Confirmation of what you saw when clicking restore (any success message/status, and any timestamps).\n4) Which items are missing: list the specific files and/or comment threads (names/IDs/URLs if available).\n5) Whether there were multiple restore attempts and whether any errors or warnings appeared.\n6) Whether anything else besides files/comments is missing (e.g., project metadata, permissions, attachments).\n\nIn the meantime, please avoid repeated restore/delete actions for the same project until we review your details, as that can complicate the investigation.\n\nWe\u2019ve escalated this for human review so engineering can check what happened during restore and advise on the next best step. Reply with the details above and we\u2019ll continue as quickly as possible.",
+        "promised_actions": [
+          "Escalate the case for human review by engineering",
+          "Review the restore outcome and the specific missing files/comments once the requested details are provided"
+        ],
+        "safety_notes": [
+          "Do not promise restoration completion, refund, or root cause; user reports missing content after restore and requires engineering investigation.",
+          "Avoid claiming any specific technical determination until investigation is completed."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Apologies for the trouble\u2014especially given the Monday launch deadline. I can see why this is urgent.\\n\\nSince the restore was initiated within the retention window but you\u2019re still seeing missing files and comments, we\u2019ll need to investigate the specific project restore result and exactly what content is absent.\\n\\nTo help our engineering team review it quickly, could you please reply with:\\n1) The workspace/project location in our product (product/module name or where the project lives).\\n2) Approximate deletion time (date + time and time zone) and the time the restore was initiated (and completed, if you have it).\\n3) Confirmation of what you saw when clicking restore (any success message/status, and any timestamps).\\n4) Which items are missing: list the specific files and/or comment threads (names/IDs/URLs if available).\\n5) Whether there were multiple restore attempts and whether any errors or warnings appeared.\\n6) Whether anything else besides files/comments is missing (e.g., project metadata, permissions, attachments).\\n\\nIn the meantime, please avoid repeated restore/delete actions for the same project until we review your details, as that can complicate the investigation.\\n\\nWe\u2019ve escalated this for human review so engineering can check what happened during restore and advise on the next best step. Reply with the details above and we\u2019ll continue as quickly as possible.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Escalate the case for human review by engineering\",\n    \"Review the restore outcome and the specific missing files/comments once the requested details are provided\"\n  ],\n  \"safety_notes\": [\n    \"Do not promise restoration completion, refund, or root cause; user reports missing content after restore and requires engineering investigation.\",\n    \"Avoid claiming any specific technical determination until investigation is completed.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 393,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 651,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1044
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2669.655832927674,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The missing project deliverables may delay the client launch scheduled for Monday.",
+        "grounded_facts": [
+          "A user accidentally deleted a project yesterday.",
+          "The project restore was clicked within the retention window.",
+          "Several files are missing after the restore.",
+          "Comments are missing after the restore.",
+          "The project contains the final deliverables for a client launch on Monday.",
+          "The project is still missing after restore."
+        ],
+        "missing_information": [
+          "Which platform/system this project belongs to (e.g., product/module name).",
+          "Whether the restore succeeded from the system\u2019s perspective (e.g., any status, confirmation message, or timestamps).",
+          "The exact time of deletion and the exact time restore was initiated/completed.",
+          "What \u201cseveral files and comments\u201d corresponds to (which specific files/comments are missing).",
+          "Whether the project metadata, permissions, or attachments are also missing or only certain content.",
+          "Whether multiple restore attempts were made and their outcomes.",
+          "Whether any errors or warnings were reported during restore.",
+          "Whether the retention window length and current time are known/available for verification.",
+          "Whether users have any backups/exports outside the system."
+        ],
+        "risk_signals": [
+          "Restored project still has missing files and comments.",
+          "High urgency because the project is needed for a client launch on Monday."
+        ],
+        "summary": "A user deleted a project yesterday, and although restore was clicked within the retention window, some files and comments are still missing and the project is needed for a client launch on Monday."
+      },
+      "raw_text": "{\n  \"summary\": \"A user deleted a project yesterday, and although restore was clicked within the retention window, some files and comments are still missing and the project is needed for a client launch on Monday.\",\n  \"grounded_facts\": [\n    \"A user accidentally deleted a project yesterday.\",\n    \"The project restore was clicked within the retention window.\",\n    \"Several files are missing after the restore.\",\n    \"Comments are missing after the restore.\",\n    \"The project contains the final deliverables for a client launch on Monday.\",\n    \"The project is still missing after restore.\"\n  ],\n  \"missing_information\": [\n    \"Which platform/system this project belongs to (e.g., product/module name).\",\n    \"Whether the restore succeeded from the system\u2019s perspective (e.g., any status, confirmation message, or timestamps).\",\n    \"The exact time of deletion and the exact time restore was initiated/completed.\",\n    \"What \u201cseveral files and comments\u201d corresponds to (which specific files/comments are missing).\",\n    \"Whether the project metadata, permissions, or attachments are also missing or only certain content.\",\n    \"Whether multiple restore attempts were made and their outcomes.\",\n    \"Whether any errors or warnings were reported during restore.\",\n    \"Whether the retention window length and current time are known/available for verification.\",\n    \"Whether users have any backups/exports outside the system.\"\n  ],\n  \"customer_impact\": \"The missing project deliverables may delay the client launch scheduled for Monday.\",\n  \"risk_signals\": [\n    \"Restored project still has missing files and comments.\",\n    \"High urgency because the project is needed for a client launch on Monday.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 346,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 245,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 591
+      }
+    }
+  },
+  "ticket_id": "T007"
+}

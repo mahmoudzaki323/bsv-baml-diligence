@@ -1,0 +1,78 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 960.7089578639716,
+      "ok": true,
+      "parsed": {
+        "category": "BUG",
+        "needs_human_review": true,
+        "rationale": "CSV export button on the invoice page started returning a 500 error as of this morning; affects only invoice exports (not customer exports). Finance needs it fixed before Friday close, indicating a critical workflow impact, and a 500 error requires engineering investigation.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3356.6869171336293,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi team\u2014thanks for reporting this. We understand that starting this morning the CSV export button on the invoice page is returning an HTTP 500 error and blocks finance from exporting invoices (customer exports are not affected), though you do have a manual workaround for now.\n\nWe\u2019re escalating this for engineering review and will investigate the invoice-page export flow to restore the expected behavior. To help us narrow it down quickly, could you share the following?\n1) The environment where it fails (e.g., production) and whether it\u2019s consistent or intermittent\n2) The exact 500 error details you\u2019re seeing (response message/body if available) or any request/correlation ID from the failed attempt\n3) Steps to reproduce (e.g., export from which date range/all invoices or a specific invoice), and whether the failure happens for all users or only certain ones\n4) Any recent deployment/config changes that occurred before the issue started\n\nIf you\u2019re able to capture it, a browser/network log for one failed click (including the endpoint/URL and request parameters) would be especially helpful. \n\nIn the meantime, we\u2019ll continue to monitor the workaround you mentioned so finance can keep operating until the export flow is corrected.",
+        "promised_actions": [
+          "Escalate the issue for engineering review",
+          "Investigate the invoice-page CSV export flow",
+          "Help the team narrow down the cause using the requested failure details"
+        ],
+        "safety_notes": [
+          "Did not promise a fix by Friday close (not guaranteed).",
+          "Did not confirm root cause or provide an SLA.",
+          "Asked for minimal additional details needed to proceed with investigation."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3256.174457957968,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Finance users performing invoice exports are blocked by a 500 error on the invoice page CSV export flow (requiring a manual workaround until fixed).",
+        "grounded_facts": [
+          "A CSV export button exists on the invoice page.",
+          "The CSV export button started returning a 500 error as of this morning.",
+          "The issue affects only the invoice page.",
+          "The issue affects invoice exports.",
+          "The issue does not affect customer exports.",
+          "A manual workaround exists for now.",
+          "Finance needs the export issue fixed before Friday close."
+        ],
+        "missing_information": [
+          "Exact error message/body/stack trace for the 500 response.",
+          "Which environment(s) are affected (production, staging, etc.).",
+          "Whether the failure is consistent or intermittent.",
+          "Whether the failure occurs for all invoices or only certain invoices/date ranges/users.",
+          "Any recent deployments/config changes made before this morning.",
+          "Expected behavior vs. actual behavior when clicking the export button (timing, download behavior).",
+          "Server/request details (endpoint URL, HTTP method, request parameters, correlation/request IDs)."
+        ],
+        "risk_signals": [
+          "Production workflow impact suggested by an HTTP 500 error on an export function.",
+          "Time pressure: fix needed before Friday close.",
+          "Scope ambiguity but indicates limited blast radius (invoice exports only, not customer exports).",
+          "Potential risk of operational delay for finance due to export failure, despite a workaround."
+        ],
+        "summary": "The CSV export button on the invoice page began returning a 500 error this morning and affects only invoice exports (not customer exports), requiring a fix before Friday close."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T001"
+}

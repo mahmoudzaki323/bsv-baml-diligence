@@ -1,0 +1,110 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1002.3325411602855,
+      "ok": true,
+      "parsed": {
+        "category": "feature_request",
+        "needs_human_review": true,
+        "rationale": "Customer requests scheduling weekly exports directly to S3 instead of manual CSV downloads; stated as not blocking and would save time.",
+        "team": "customer_success",
+        "urgency": "low"
+      },
+      "raw_text": "{\n  \"category\": \"feature_request\",\n  \"urgency\": \"low\",\n  \"team\": \"customer_success\",\n  \"needs_human_review\": true,\n  \"rationale\": \"Customer requests scheduling weekly exports directly to S3 instead of manual CSV downloads; stated as not blocking and would save time.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 71,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 332,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 403
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2519.711415981874,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Thanks for the suggestion\u2014scheduling exports directly to your S3 bucket would definitely save time. We\u2019ve received your feature request and can escalate it to the team that reviews export automation options.\n\nTo make sure we capture your needs correctly, could you share a few details?\n1) Which specific exports/products should be included (and whether they match what you download today)?\n2) What format(s) do you need in S3 (e.g., CSV, ZIP, etc.)?\n3) Your target S3 destination details: bucket name/path (or the preferred folder pattern) and any file naming convention you use.\n4) How you\u2019d like authentication/connection handled to write to your S3 (e.g., an IAM role, access keys, or another method), if you have a preference.\n5) Your preferred schedule: day/time and timezone for the weekly run.\n\nOnce we have this, we\u2019ll confirm whether this can be supported and what the closest implementation would look like. Since you mentioned it\u2019s not blocking, we\u2019ll prioritize accordingly.",
+        "promised_actions": [
+          "Escalate the feature request to the team reviewing export automation options",
+          "Use the details you provide to confirm your requirements and the closest supported implementation"
+        ],
+        "safety_notes": [
+          "Do not promise delivery method, timelines, or availability of S3 scheduling without internal confirmation.",
+          "Request minimal clarifications needed to evaluate feasibility."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Thanks for the suggestion\u2014scheduling exports directly to your S3 bucket would definitely save time. We\u2019ve received your feature request and can escalate it to the team that reviews export automation options.\\n\\nTo make sure we capture your needs correctly, could you share a few details?\\n1) Which specific exports/products should be included (and whether they match what you download today)?\\n2) What format(s) do you need in S3 (e.g., CSV, ZIP, etc.)?\\n3) Your target S3 destination details: bucket name/path (or the preferred folder pattern) and any file naming convention you use.\\n4) How you\u2019d like authentication/connection handled to write to your S3 (e.g., an IAM role, access keys, or another method), if you have a preference.\\n5) Your preferred schedule: day/time and timezone for the weekly run.\\n\\nOnce we have this, we\u2019ll confirm whether this can be supported and what the closest implementation would look like. Since you mentioned it\u2019s not blocking, we\u2019ll prioritize accordingly.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Escalate the feature request to the team reviewing export automation options\",\n    \"Use the details you provide to confirm your requirements and the closest supported implementation\"\n  ],\n  \"safety_notes\": [\n    \"Do not promise delivery method, timelines, or availability of S3 scheduling without internal confirmation.\",\n    \"Request minimal clarifications needed to evaluate feasibility.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 325,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 589,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 914
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2183.912207838148,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Reduced operational effort for the customer\u2019s data team by saving a couple of hours per week currently spent on manual CSV downloads.",
+        "grounded_facts": [
+          "The customer wants scheduled weekly exports directly to their S3 bucket.",
+          "The customer currently downloads CSVs manually.",
+          "The request is not blocking them.",
+          "They expect the change would save their data team a couple of hours each week."
+        ],
+        "missing_information": [
+          "Which specific data/products should be included in the exports.",
+          "What export format(s) are required for the S3 files (e.g., CSV) if different from the current manual downloads.",
+          "Whether the customer needs a particular S3 location (bucket name/path/folder) and file naming conventions.",
+          "Authentication/authorization details for writing to the customer\u2019s S3 bucket (e.g., access method).",
+          "How scheduling should be configured (day/time, timezone, and frequency beyond weekly).",
+          "Whether they require any delivery guarantees (e.g., retries, failure notifications, backfills).",
+          "Whether any consent/compliance constraints apply to the exported data."
+        ],
+        "risk_signals": [],
+        "summary": "The customer requests the ability to schedule weekly exports directly to their S3 bucket rather than manually downloading CSVs."
+      },
+      "raw_text": "{\n  \"summary\": \"The customer requests the ability to schedule weekly exports directly to their S3 bucket rather than manually downloading CSVs.\",\n  \"grounded_facts\": [\n    \"The customer wants scheduled weekly exports directly to their S3 bucket.\",\n    \"The customer currently downloads CSVs manually.\",\n    \"The request is not blocking them.\",\n    \"They expect the change would save their data team a couple of hours each week.\"\n  ],\n  \"missing_information\": [\n    \"Which specific data/products should be included in the exports.\",\n    \"What export format(s) are required for the S3 files (e.g., CSV) if different from the current manual downloads.\",\n    \"Whether the customer needs a particular S3 location (bucket name/path/folder) and file naming conventions.\",\n    \"Authentication/authorization details for writing to the customer\u2019s S3 bucket (e.g., access method).\",\n    \"How scheduling should be configured (day/time, timezone, and frequency beyond weekly).\",\n    \"Whether they require any delivery guarantees (e.g., retries, failure notifications, backfills).\",\n    \"Whether any consent/compliance constraints apply to the exported data.\"\n  ],\n  \"customer_impact\": \"Reduced operational effort for the customer\u2019s data team by saving a couple of hours per week currently spent on manual CSV downloads.\",\n  \"risk_signals\": []\n}",
+      "usage_metadata": {
+        "completion_tokens": 284,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 247,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 531
+      }
+    }
+  },
+  "ticket_id": "T006"
+}

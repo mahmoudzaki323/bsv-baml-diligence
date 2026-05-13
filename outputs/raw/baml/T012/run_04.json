@@ -1,0 +1,67 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1166.7572911828756,
+      "ok": true,
+      "parsed": {
+        "category": "HOW_TO",
+        "needs_human_review": false,
+        "rationale": "Customer asks for product guidance on how to rename a saved view and where to find the menu/docs; they note 'No rush' and there is no indication of a bug, outage, security, or data loss.",
+        "team": "SUPPORT",
+        "urgency": "LOW"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2227.8945420403033,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi! Happy to help\u2014saved-view renaming is usually available from the saved view\u2019s own action menu.\n\nCould you share which product/app you\u2019re using (and any version if applicable) and where you created the saved view (which screen/module)? Also, when you select the saved view, what options do you see in its action menu (for example: Open, Edit, More/\u22ef, Delete, etc.)? A screenshot would be perfect if you can share one.\n\nOnce I have that context, I can point you to the exact menu path or the correct help article for renaming the view. No rush.",
+        "promised_actions": [
+          "Provide the exact menu path or the relevant documentation for renaming a saved view once product/UI context is confirmed"
+        ],
+        "safety_notes": [
+          "Did not claim the rename feature exists or provide an exact menu path without confirming product/app and UI context.",
+          "Did not promise any refund, fix, root cause, SLA, legal/security conclusions, or resolution."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2539.9754580575973,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The customer is unable to correct a typo in the saved view name because they cannot find how to rename the view.",
+        "grounded_facts": [
+          "The customer created a saved view with a typo in the name.",
+          "The customer cannot find a rename option for the saved view.",
+          "The customer is asking for the right menu or a docs page that explains how to rename a saved view.",
+          "The customer says 'No rush'."
+        ],
+        "missing_information": [
+          "Which product/app this saved view is in (name of platform and version, if applicable).",
+          "Where the saved view was created (which screen/module).",
+          "What options the customer currently sees for the saved view (e.g., available actions/buttons/menus).",
+          "Whether the rename feature is expected to exist in that context (e.g., role/permissions) or if the customer is using a specific UI layout."
+        ],
+        "risk_signals": [
+          "No production impact, security issue, data loss, or outage is mentioned.",
+          "The ticket is ambiguous because the product/UI context is not specified, making it unclear where the rename option would be located."
+        ],
+        "summary": "The customer asks for guidance on how to rename a saved view, noting they created the view with a typo and cannot find the rename option, and requests the correct menu path or docs page."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T012"
+}

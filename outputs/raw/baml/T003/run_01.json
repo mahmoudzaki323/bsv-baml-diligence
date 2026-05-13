@@ -1,0 +1,78 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1120.4995829612017,
+      "ok": true,
+      "parsed": {
+        "category": "UNCLEAR",
+        "needs_human_review": true,
+        "rationale": "The ticket says the app is 'broken again' and 'Nothing works anymore,' implying a continuing product defect, but it provides no specific behavior, affected feature, error messages, or impact details to confidently classify as bug/outage/performance/security/etc.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2800.6402500905097,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi\u2014sorry about the repeated disruption. I understand this is urgent and you don\u2019t have time to re-explain.\n\nTo get this fixed as quickly as possible, can you reply with just the following:\n1) Which feature/workflow is failing (e.g., login, creating a record, exporting, API action, etc.)?\n2) What exactly happens when you try (include any error message/code, if shown)?\n3) When did it start (approx. time/date) and is it happening consistently?\n4) Is this for your whole org/tenant or only certain users/accounts?\n5) Your environment (Production vs Staging) and whether you recently changed anything (permissions, integrations, SSO, API keys).\n\nIf you have it, please attach a screenshot of the error or paste the log snippet/error code\u2014otherwise, even the error text is enough.\n\nOnce I have these details, we\u2019ll escalate to the engineering team to investigate immediately.",
+        "promised_actions": [
+          "Request minimal information to identify the failing feature and error details",
+          "Escalate to the engineering team for investigation"
+        ],
+        "safety_notes": [
+          "Did not assume the specific cause or confirm an outage.",
+          "Did not promise a fix time, refund, or SLA.",
+          "Acknowledged escalation without claiming resolution.",
+          "Requested the minimum useful clarifications (failing feature, error details, timing, scope, environment)."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2967.534333933145,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The customer reports that nothing works anymore, indicating the app is not functioning for them, and they are experiencing escalation pressure because their boss is upset.",
+        "grounded_facts": [
+          "The ticket subject says: 'This is broken again'.",
+          "The customer states: 'Nothing works anymore.'",
+          "The customer states the app 'keeps doing the same thing as last time'.",
+          "The customer says: 'my boss is mad.'",
+          "The customer says they 'do not have time to explain this again'.",
+          "The customer requests: 'Please fix it.'"
+        ],
+        "missing_information": [
+          "What specific part of the app is not working (feature/module/endpoint/screen).",
+          "What behavior occurs ('same thing as last time') and what exactly changed since the last incident.",
+          "Any error messages, logs, screenshots, or error codes.",
+          "When the issue started and whether it is continuous or intermittent.",
+          "Whether this affects all users or only certain users/accounts/tenants.",
+          "How frequently it happens and any steps to reproduce.",
+          "Any timestamps, environment details (prod/staging), or affected app version.",
+          "Severity indicators such as outage status, inability to perform key actions, or performance symptoms.",
+          "Customer identifiers needed to correlate events (account/org, affected users)."
+        ],
+        "risk_signals": [
+          "Pervasive failure claim: 'Nothing works anymore.'",
+          "Recurring issue implied by 'broken again' and 'same thing as last time'.",
+          "High urgency implied by 'my boss is mad' and lack of time to re-explain."
+        ],
+        "summary": "The customer reports that the app is 'broken again' and 'nothing works anymore' and asks to fix it because their boss is upset."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T003"
+}

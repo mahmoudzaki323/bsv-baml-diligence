@@ -1,0 +1,113 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1212.3331669718027,
+      "ok": true,
+      "parsed": {
+        "category": "compliance_privacy",
+        "needs_human_review": true,
+        "rationale": "Request is specifically for DPA/legal clarification for EU customer data, including subprocessors, data retention, and whether support logs can include customer identifiers; this requires privacy/compliance review.",
+        "team": "compliance",
+        "urgency": "medium"
+      },
+      "raw_text": "{\"category\":\"compliance_privacy\",\"urgency\":\"medium\",\"team\":\"compliance\",\"needs_human_review\":true,\"rationale\":\"Request is specifically for DPA/legal clarification for EU customer data, including subprocessors, data retention, and whether support logs can include customer identifiers; this requires privacy/compliance review.\"}",
+      "usage_metadata": {
+        "completion_tokens": 72,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 429,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 501
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2606.8457500077784,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi team,\n\nThanks for the details. We can route this to our privacy/compliance contact for DPA review support.\n\nTo ensure the right responses (and avoid delays), could you please share:\n1) The specific DPA document/version your legal team is reviewing (or a link/name).\n2) Which subprocessors you want confirmed (names and/or any jurisdictions).\n3) The intended retention period(s) your legal team is looking to validate, and for which data categories (e.g., EU customer records vs. support/ticket logs).\n4) Your expectations for support logs regarding customer identifiers (e.g., whether identifiers may appear unredacted, and if there\u2019s a preferred redaction/masking approach).\n5) The privacy contact details you\u2019d like us to route to (name/email or the correct alias/channel).\n\nOnce we have the above, we\u2019ll escalate internally to the privacy team for review and respond with the applicable, agreed information.\n\nBest regards,\nCustomer Support",
+        "promised_actions": [
+          "Route the DPA clarification request to the privacy/compliance contact for review.",
+          "Request the minimum additional details needed to route accurately and respond without unnecessary back-and-forth."
+        ],
+        "safety_notes": [
+          "Do not confirm subprocessors/retention/log behavior without internal privacy review.",
+          "Do not promise a timeline, specific outcome, or legal conclusion."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": "{\"draft_response\":\"Hi team,\\n\\nThanks for the details. We can route this to our privacy/compliance contact for DPA review support.\\n\\nTo ensure the right responses (and avoid delays), could you please share:\\n1) The specific DPA document/version your legal team is reviewing (or a link/name).\\n2) Which subprocessors you want confirmed (names and/or any jurisdictions).\\n3) The intended retention period(s) your legal team is looking to validate, and for which data categories (e.g., EU customer records vs. support/ticket logs).\\n4) Your expectations for support logs regarding customer identifiers (e.g., whether identifiers may appear unredacted, and if there\u2019s a preferred redaction/masking approach).\\n5) The privacy contact details you\u2019d like us to route to (name/email or the correct alias/channel).\\n\\nOnce we have the above, we\u2019ll escalate internally to the privacy team for review and respond with the applicable, agreed information.\\n\\nBest regards,\\nCustomer Support\",\"tone\":\"clarifying\",\"promised_actions\":[\"Route the DPA clarification request to the privacy/compliance contact for review.\",\"Request the minimum additional details needed to route accurately and respond without unnecessary back-and-forth.\"],\"safety_notes\":[\"Do not confirm subprocessors/retention/log behavior without internal privacy review.\",\"Do not promise a timeline, specific outcome, or legal conclusion.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 297,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 698,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 995
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2569.296000059694,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "EU customer record enablement is blocked pending DPA/privacy clarifications, which may delay onboarding or activation for EU customers.",
+        "grounded_facts": [
+          "A customer\u2019s legal team is reviewing your DPA before enabling EU customer records.",
+          "The legal team needs confirmation on subprocessors.",
+          "The legal team needs confirmation on data retention.",
+          "The legal team needs confirmation on whether support logs can include customer identifiers.",
+          "The ticket asks that this be routed to the right privacy contact."
+        ],
+        "missing_information": [
+          "Which specific DPA document or version is being reviewed.",
+          "What specific subprocessors (names/locations) are included or need to be confirmed.",
+          "The intended data retention period(s) and for which data categories (e.g., EU customer records vs support logs).",
+          "The current policy/allowance regarding support logs containing customer identifiers (and any masking/redaction approach).",
+          "Which privacy contact or team should receive the request (name/email/channel)."
+        ],
+        "risk_signals": [
+          "Compliance/privacy ambiguity (subprocessors and retention) before processing EU customer data.",
+          "Potential risk around data in support logs including customer identifiers, which may affect privacy compliance.",
+          "Resolution requires routing to the correct privacy contact; misrouting could delay review."
+        ],
+        "summary": "Legal is requesting clarification of your Data Processing Agreement (DPA) before enabling EU customer records, specifically around subprocessors, data retention, and whether support logs may include customer identifiers."
+      },
+      "raw_text": "{\"summary\":\"Legal is requesting clarification of your Data Processing Agreement (DPA) before enabling EU customer records, specifically around subprocessors, data retention, and whether support logs may include customer identifiers.\",\"grounded_facts\":[\"A customer\u2019s legal team is reviewing your DPA before enabling EU customer records.\",\"The legal team needs confirmation on subprocessors.\",\"The legal team needs confirmation on data retention.\",\"The legal team needs confirmation on whether support logs can include customer identifiers.\",\"The ticket asks that this be routed to the right privacy contact.\"],\"missing_information\":[\"Which specific DPA document or version is being reviewed.\",\"What specific subprocessors (names/locations) are included or need to be confirmed.\",\"The intended data retention period(s) and for which data categories (e.g., EU customer records vs support logs).\",\"The current policy/allowance regarding support logs containing customer identifiers (and any masking/redaction approach).\",\"Which privacy contact or team should receive the request (name/email/channel).\"],\"customer_impact\":\"EU customer record enablement is blocked pending DPA/privacy clarifications, which may delay onboarding or activation for EU customers.\",\"risk_signals\":[\"Compliance/privacy ambiguity (subprocessors and retention) before processing EU customer data.\",\"Potential risk around data in support logs including customer identifiers, which may affect privacy compliance.\",\"Resolution requires routing to the correct privacy contact; misrouting could delay review.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 286,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 358,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 644
+      }
+    }
+  },
+  "ticket_id": "T011"
+}

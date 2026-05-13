@@ -1,0 +1,60 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 3,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1211.7818330880255,
+      "ok": true,
+      "parsed": {
+        "category": "FEATURE_REQUEST",
+        "needs_human_review": false,
+        "rationale": "Customer requests scheduling weekly exports directly to an S3 bucket instead of manually downloading CSVs; they state it is not blocking and would save time weekly.",
+        "team": "ENGINEERING",
+        "urgency": "LOW"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2011.8767500389367,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014thanks for the suggestion. Scheduling weekly exports directly to your S3 bucket (instead of downloading CSVs manually) sounds like a great workflow improvement.\n\nWe can pass this along to our product/engineering team as a feature request. To help us route it correctly, could you share what export format(s) you\u2019d need (CSV only or also other formats) and whether you want a single bucket/path per export or configurable destinations for different data sets?\n\nIt\u2019s not blocking you today\u2014we\u2019ll still make sure your use case is captured for future planning.",
+        "promised_actions": [
+          "Share the request with product/engineering as a feature request",
+          "Request details needed to route the feature request"
+        ],
+        "safety_notes": [
+          "No promise of delivery timeline or availability.",
+          "No assumptions made about current product capabilities beyond what was described."
+        ],
+        "tone": "calm"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 1649.18537507765,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Would save the customer\u2019s data team time each week by eliminating manual CSV downloads and replacing them with scheduled exports to their S3 bucket.",
+        "grounded_facts": [
+          "The requester is asking to schedule weekly exports directly to an S3 bucket.",
+          "The requester currently downloads CSVs manually.",
+          "They state the request is not blocking for them.",
+          "They estimate it would save their data team a couple of hours each week."
+        ],
+        "missing_information": [],
+        "risk_signals": [],
+        "summary": "The requester wants the ability to schedule weekly exports directly to their S3 bucket instead of manually downloading CSVs."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T006"
+}

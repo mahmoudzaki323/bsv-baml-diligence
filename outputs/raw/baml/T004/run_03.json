@@ -1,0 +1,66 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 3,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1355.0565000623465,
+      "ok": true,
+      "parsed": {
+        "category": "BILLING",
+        "needs_human_review": true,
+        "rationale": "Customer reports being charged twice for an annual plan renewal on May 1 and requests reversal of one charge and confirmation of which invoice (INV-9031 vs INV-9032) should remain for accounting.",
+        "team": "BILLING",
+        "urgency": "MEDIUM"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2441.863583866507,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014thanks for flagging this. I\u2019m sorry for the confusion caused by the duplicate annual renewal charge on May 1.\n\nI can see you received two invoices for that renewal: INV-9031 and INV-9032. We\u2019ll need a billing specialist to review the account and determine which charge should remain as the correct renewal entry, and then process the appropriate reversal for the other charge.\n\nIn the meantime, could you please confirm the last 4 digits of the card that was charged (or the payment reference shown on your bank/statement) for May 1? This will help ensure we match the right transaction(s) to the correct invoice(s) during the review.\n\nOnce our billing team completes the check, we\u2019ll follow up with confirmation of which invoice should remain for your accounting.",
+        "promised_actions": [
+          "Escalate the case to the billing team for review of the duplicate charges and invoices",
+          "Follow up with confirmation of which invoice should remain for accounting",
+          "Process the appropriate reversal for the incorrect/duplicate charge (after review)"
+        ],
+        "safety_notes": [
+          "Did not promise an immediate reversal or refund outcome; reversal depends on billing review of account/transactions.",
+          "Did not state root cause or confirm which invoice is correct until billing specialist review is completed.",
+          "Requested minimal additional information (card last 4 / payment reference) to match transactions accurately."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 1934.3299998436123,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Potential incorrect billing/duplicate payment for the customer\u2019s annual plan renewal due to two charges for the same renewal date.",
+        "grounded_facts": [
+          "The customer was charged twice for an annual plan renewal.",
+          "The double charges occurred on May 1.",
+          "The invoice numbers associated with the two charges are INV-9031 and INV-9032.",
+          "The customer is requesting that one of the charges be reversed.",
+          "The customer is requesting confirmation of which invoice should remain in their accounting system."
+        ],
+        "missing_information": [],
+        "risk_signals": [
+          "Billing ambiguity: uncertainty about which invoice should remain in accounting (INV-9031 vs INV-9032).",
+          "Potential revenue/billing reconciliation pressure due to duplicate charges on a renewal."
+        ],
+        "summary": "The customer reports being charged twice for an annual plan renewal on May 1 and requests reversing one charge while confirming whether invoice INV-9031 or INV-9032 should remain in their accounting records."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T004"
+}

@@ -1,0 +1,108 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 934.5060000196099,
+      "ok": true,
+      "parsed": {
+        "category": "how_to",
+        "needs_human_review": false,
+        "rationale": "User is asking for guidance to rename a saved view and where to find the option/docs; no issue severity or outage mentioned.",
+        "team": "support",
+        "urgency": "low"
+      },
+      "raw_text": "{\"category\":\"how_to\",\"urgency\":\"low\",\"team\":\"support\",\"needs_human_review\":false,\"rationale\":\"User is asking for guidance to rename a saved view and where to find the option/docs; no issue severity or outage mentioned.\"}",
+      "usage_metadata": {
+        "completion_tokens": 58,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 419,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 477
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2586.0378339421004,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi! Happy to point you in the right direction.\n\nTo make sure I reference the correct UI steps/docs: which product are you using (exact product name) and are you doing this in the web app or a desktop/mobile interface? Also, what area is the saved view in (e.g., a specific screen/report/dashboard)?\n\nIn the meantime, here are the common places a \u201cRename\u201d action usually appears for saved views:\n- The saved view **dropdown** (next to \u201cSaved views\u201d / view selector): look for a menu (often **\u2022\u2022\u2022** / \u201cMore\u201d) for the selected view\n- A **context menu** on the view name (right-click, or hover to reveal actions)\n- The **Manage saved views** / **View settings** page, where actions like Rename/Delete are typically grouped\n\nIf you can share a screenshot of where you\u2019re currently selecting the view (or list the options you see when you click the view/menu), I\u2019ll tell you the exact menu path for your interface.",
+        "promised_actions": [
+          "Provide the correct menu path and/or documentation once you confirm the product/app and the specific saved view location",
+          "Help interpret the options you see in the UI if you share a screenshot or list of available actions"
+        ],
+        "safety_notes": [
+          "Avoid asserting that rename exists or how it works in your specific product until the product/module interface is confirmed."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": "{\"draft_response\":\"Hi! Happy to point you in the right direction.\\n\\nTo make sure I reference the correct UI steps/docs: which product are you using (exact product name) and are you doing this in the web app or a desktop/mobile interface? Also, what area is the saved view in (e.g., a specific screen/report/dashboard)?\\n\\nIn the meantime, here are the common places a \u201cRename\u201d action usually appears for saved views:\\n- The saved view **dropdown** (next to \u201cSaved views\u201d / view selector): look for a menu (often **\u2022\u2022\u2022** / \u201cMore\u201d) for the selected view\\n- A **context menu** on the view name (right-click, or hover to reveal actions)\\n- The **Manage saved views** / **View settings** page, where actions like Rename/Delete are typically grouped\\n\\nIf you can share a screenshot of where you\u2019re currently selecting the view (or list the options you see when you click the view/menu), I\u2019ll tell you the exact menu path for your interface.\",\"tone\":\"clarifying\",\"promised_actions\":[\"Provide the correct menu path and/or documentation once you confirm the product/app and the specific saved view location\",\"Help interpret the options you see in the UI if you share a screenshot or list of available actions\"],\"safety_notes\":[\"Avoid asserting that rename exists or how it works in your specific product until the product/module interface is confirmed.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 303,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 625,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 928
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2356.1202501878142,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Reduced ability to manage and correct the naming of saved views due to lack of accessible rename functionality or unclear UI guidance.",
+        "grounded_facts": [
+          "The customer created a saved view with a typo in the name.",
+          "The customer cannot find a rename option.",
+          "The customer is requesting the correct menu path or a docs page reference.",
+          "The customer indicates there is no rush."
+        ],
+        "missing_information": [
+          "Which product/app and version/interface the customer is using (exact product name, platform/web vs desktop, UI context).",
+          "Whether the \u201csaved view\u201d is within a specific module (e.g., a particular screen/report/dashboard) and any relevant identifiers/links.",
+          "What options are currently visible to the customer (e.g., context menu items or toolbar actions) and what they have already tried."
+        ],
+        "risk_signals": [
+          "Ambiguity: the ticket does not specify the product/module or UI location, making it unclear whether rename is unsupported, hidden, or requires a specific workflow.",
+          "Low urgency and no outage/security/data-loss concerns are mentioned."
+        ],
+        "summary": "The customer asks where to find the option or documentation to rename a saved view because the original saved view name contains a typo."
+      },
+      "raw_text": "{\"summary\":\"The customer asks where to find the option or documentation to rename a saved view because the original saved view name contains a typo.\",\"grounded_facts\":[\"The customer created a saved view with a typo in the name.\",\"The customer cannot find a rename option.\",\"The customer is requesting the correct menu path or a docs page reference.\",\"The customer indicates there is no rush.\"],\"missing_information\":[\"Which product/app and version/interface the customer is using (exact product name, platform/web vs desktop, UI context).\",\"Whether the \u201csaved view\u201d is within a specific module (e.g., a particular screen/report/dashboard) and any relevant identifiers/links.\",\"What options are currently visible to the customer (e.g., context menu items or toolbar actions) and what they have already tried.\"],\"customer_impact\":\"Reduced ability to manage and correct the naming of saved views due to lack of accessible rename functionality or unclear UI guidance.\",\"risk_signals\":[\"Ambiguity: the ticket does not specify the product/module or UI location, making it unclear whether rename is unsupported, hidden, or requires a specific workflow.\",\"Low urgency and no outage/security/data-loss concerns are mentioned.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 242,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 334,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 576
+      }
+    }
+  },
+  "ticket_id": "T012"
+}

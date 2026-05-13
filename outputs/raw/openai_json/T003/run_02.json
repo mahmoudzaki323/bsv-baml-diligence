@@ -1,0 +1,113 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 968.252417165786,
+      "ok": true,
+      "parsed": {
+        "category": "unclear",
+        "needs_human_review": true,
+        "rationale": "User reports the app is broken and nothing works anymore, but provides no specific symptoms, error messages, or scope to confirm the exact issue type.",
+        "team": "engineering",
+        "urgency": "critical"
+      },
+      "raw_text": "{\n  \"category\": \"unclear\",\n  \"urgency\": \"critical\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"User reports the app is broken and nothing works anymore, but provides no specific symptoms, error messages, or scope to confirm the exact issue type.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 75,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 320,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 395
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2820.3702091705054,
+      "ok": true,
+      "parsed": {
+        "draft_response": "apologetic\r\n\r\nI\u2019m sorry this is happening again and that it\u2019s impacting your team. We\u2019ll get this escalated to engineering, but we\u2019ll need a couple details to identify which failure you\u2019re seeing \u201cas last time.\u201d\r\n\r\nPlease reply with the minimum info below:\r\n1) What exact function is broken (e.g., login, syncing, importing, API actions, payments)?\r\n2) Any error message/code you see (or a screenshot) and where it appears.\r\n3) When it started and whether it\u2019s continuous or intermittent.\r\n4) Which environment/platform is affected (web, iOS/Android; production vs staging; your account/org name or workspace).\r\n\r\nIf you have it, also share the approximate timestamp of the last successful use and any relevant request/log IDs from the app.\r\n\r\nOnce we have this, engineering can investigate the recurring behavior and prioritize a fix. In the meantime, if there\u2019s a workaround you\u2019re currently using, tell us what it is so we can help assess alternatives.",
+        "promised_actions": [
+          "Escalate the issue to engineering for investigation"
+        ],
+        "safety_notes": [
+          "Issue description is vague and recurring; avoid claiming specific root cause or resolution.",
+          "Ask for minimal, actionable troubleshooting details (errors, timestamps, affected feature/platform).",
+          "Do not promise a refund, fix timeline, or SLA."
+        ],
+        "tone": "apologetic"
+      },
+      "raw_text": "{\n  \"draft_response\": \"apologetic\\r\\n\\r\\nI\u2019m sorry this is happening again and that it\u2019s impacting your team. We\u2019ll get this escalated to engineering, but we\u2019ll need a couple details to identify which failure you\u2019re seeing \u201cas last time.\u201d\\r\\n\\r\\nPlease reply with the minimum info below:\\r\\n1) What exact function is broken (e.g., login, syncing, importing, API actions, payments)?\\r\\n2) Any error message/code you see (or a screenshot) and where it appears.\\r\\n3) When it started and whether it\u2019s continuous or intermittent.\\r\\n4) Which environment/platform is affected (web, iOS/Android; production vs staging; your account/org name or workspace).\\r\\n\\r\\nIf you have it, also share the approximate timestamp of the last successful use and any relevant request/log IDs from the app.\\r\\n\\r\\nOnce we have this, engineering can investigate the recurring behavior and prioritize a fix. In the meantime, if there\u2019s a workaround you\u2019re currently using, tell us what it is so we can help assess alternatives.\",\n  \"tone\": \"apologetic\",\n  \"promised_actions\": [\n    \"Escalate the issue to engineering for investigation\"\n  ],\n  \"safety_notes\": [\n    \"Issue description is vague and recurring; avoid claiming specific root cause or resolution.\",\n    \"Ask for minimal, actionable troubleshooting details (errors, timestamps, affected feature/platform).\",\n    \"Do not promise a refund, fix timeline, or SLA.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 329,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 611,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 940
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3030.515917111188,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Operations are disrupted for the customer, as the customer reports the app is broken again and nothing works anymore, contributing to internal frustration from their boss.",
+        "grounded_facts": [
+          "The customer states that the app is broken again.",
+          "The customer states that nothing works anymore.",
+          "The customer states that the app keeps doing the same thing as last time.",
+          "The customer says their boss is mad.",
+          "The customer requests that the issue be fixed and indicates they do not have time to explain again."
+        ],
+        "missing_information": [
+          "What specific functionality or feature is failing (e.g., login, payments, syncing).",
+          "Any error messages, codes, screenshots, or logs from the app.",
+          "What 'the same thing as last time' refers to (description of the prior incident and its symptoms).",
+          "When the problem started and whether it is continuous or intermittent.",
+          "Affected platforms/environments (web vs iOS/Android, specific versions, staging vs production).",
+          "User impact details (how many users affected, geographic regions, severity of failure mode)."
+        ],
+        "risk_signals": [
+          "The issue is recurring ('broken again') and is the same as a prior incident.",
+          "The customer describes total failure for them ('nothing works anymore')."
+        ],
+        "summary": "The customer reports that the app is broken again and that nothing works anymore, repeating the same behavior as a prior incident."
+      },
+      "raw_text": "{\n  \"summary\": \"The customer reports that the app is broken again and that nothing works anymore, repeating the same behavior as a prior incident.\",\n  \"grounded_facts\": [\n    \"The customer states that the app is broken again.\",\n    \"The customer states that nothing works anymore.\",\n    \"The customer states that the app keeps doing the same thing as last time.\",\n    \"The customer says their boss is mad.\",\n    \"The customer requests that the issue be fixed and indicates they do not have time to explain again.\"\n  ],\n  \"missing_information\": [\n    \"What specific functionality or feature is failing (e.g., login, payments, syncing).\",\n    \"Any error messages, codes, screenshots, or logs from the app.\",\n    \"What 'the same thing as last time' refers to (description of the prior incident and its symptoms).\",\n    \"When the problem started and whether it is continuous or intermittent.\",\n    \"Affected platforms/environments (web vs iOS/Android, specific versions, staging vs production).\",\n    \"User impact details (how many users affected, geographic regions, severity of failure mode).\"\n  ],\n  \"customer_impact\": \"Operations are disrupted for the customer, as the customer reports the app is broken again and nothing works anymore, contributing to internal frustration from their boss.\",\n  \"risk_signals\": [\n    \"The issue is recurring ('broken again') and is the same as a prior incident.\",\n    \"The customer describes total failure for them ('nothing works anymore').\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 320,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 239,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 559
+      }
+    }
+  },
+  "ticket_id": "T003"
+}

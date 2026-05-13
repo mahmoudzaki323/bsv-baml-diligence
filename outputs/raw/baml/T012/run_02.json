@@ -1,0 +1,61 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1054.0126250125468,
+      "ok": true,
+      "parsed": {
+        "category": "HOW_TO",
+        "needs_human_review": false,
+        "rationale": "Customer asks how to rename a saved view and requests the correct menu or documentation; they note it is low urgency with no immediate business impact.",
+        "team": "SUPPORT",
+        "urgency": "LOW"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 1991.6253339033574,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi! You\u2019re right to look for the rename option\u2014however, depending on the product area, saved views are sometimes edited by opening the saved view and using an \u201cEdit\u201d/\u201cManage views\u201d action rather than a direct \u201cRename\u201d button.\n\nCould you share which screen/module you created the saved view in (and your product name/version, if applicable)? If you can also tell us what menu you\u2019re currently viewing when you select the saved view, we can point you to the exact menu path or the right documentation page for that area.",
+        "promised_actions": [
+          "Ask for the minimum details needed to identify the correct UI path/docs for renaming a saved view"
+        ],
+        "safety_notes": [
+          "Did not claim a specific menu path without knowing the customer\u2019s exact product area/module.",
+          "Did not promise a workaround, fix, root cause, or any change to the product."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 1911.5306660532951,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Low urgency; the customer is blocked from correcting the saved view name due to not finding a rename option.",
+        "grounded_facts": [
+          "The customer created a saved view with a typo in the name.",
+          "The customer cannot find the rename option.",
+          "The customer is asking for the correct menu path or a docs page to rename the saved view.",
+          "The customer indicates there is no rush."
+        ],
+        "missing_information": [],
+        "risk_signals": [
+          "User cannot locate a required UI option (potential usability/feature discovery issue)."
+        ],
+        "summary": "The customer asks where to find the option or documentation to rename a saved view because they created one with a typo in its name."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T012"
+}

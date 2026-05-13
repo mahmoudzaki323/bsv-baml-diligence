@@ -1,0 +1,73 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 3,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1294.9875830672681,
+      "ok": true,
+      "parsed": {
+        "category": "UNCLEAR",
+        "needs_human_review": true,
+        "rationale": "Ticket states 'Nothing works anymore' and that the app is repeating the same issue as last time, but provides no specific broken behavior, impacted workflow, error details, or scope to confidently classify as bug/outage/integration/performance.",
+        "team": "ENGINEERING",
+        "urgency": "MEDIUM"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2644.6152499411255,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi\u2014sorry you\u2019re running into this again. I understand this is blocking your work and that it\u2019s repeating the same issue as last time.\n\nTo get this fixed quickly, please send the minimum details below (even short answers are fine):\n1) Which exact feature/workflow is failing (what you click and what happens)?\n2) Any error message or code you see (or a screenshot/log snippet).\n3) When it started and whether it\u2019s happening continuously.\n4) Whether it affects everyone or only a specific account/team/region/device/browser.\n5) Your app/environment info (plan/workspace, and if relevant: browser + version, app version).\n\nIf you have the ticket/reference from \u201clast time,\u201d please include it as well so we can correlate the recurring behavior.\n\nOnce we have these details, we\u2019ll escalate to the engineering team for investigation.",
+        "promised_actions": [
+          "Escalate to the engineering team for investigation once the requested details are provided"
+        ],
+        "safety_notes": [
+          "Did not claim a fix, root cause, refund, SLA impact, or outage status due to missing specifics.",
+          "Requested minimum information needed to identify the broken workflow and reproduce the issue."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3104.286666959524,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The customer reports that nothing works anymore and indicates business pressure due to an upset boss, implying disruption to the customer's ability to use the app.",
+        "grounded_facts": [
+          "The ticket subject is 'This is broken again.'",
+          "The customer says 'Nothing works anymore.'",
+          "The customer says 'Your app keeps doing the same thing as last time.'",
+          "The customer says their boss is mad.",
+          "The customer states they do not have time to explain this again.",
+          "The customer requests: 'Please fix it.'"
+        ],
+        "missing_information": [
+          "What specific functionality is broken (which feature or workflow).",
+          "What the expected behavior is versus what actually happens.",
+          "Whether any error message, error code, or screenshot/logs exist.",
+          "When the issue started and whether it is ongoing (timestamps/recurrence frequency).",
+          "Whether this affects all users or only a subset (account/region/device/browser/app version).",
+          "Any recent changes/releases/integrations/credentials that may relate to 'last time.'",
+          "Severity classification from the customer (e.g., outage vs. partial failure) and any workaround."
+        ],
+        "risk_signals": [
+          "Indicates recurring failure 'as last time,' suggesting a repeated regression or unresolved prior issue.",
+          "Uses absolute language ('Nothing works anymore'), implying potentially broad impact.",
+          "High ambiguity with no technical details, increasing time-to-diagnose and risk of mis-triage."
+        ],
+        "summary": "The customer reports that the app 'doesn't work anymore,' repeats the same issue as last time, and asks the team to fix it."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T003"
+}

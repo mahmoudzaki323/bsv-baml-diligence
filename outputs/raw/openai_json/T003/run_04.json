@@ -1,0 +1,116 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 918.5635419562459,
+      "ok": true,
+      "parsed": {
+        "category": "unclear",
+        "needs_human_review": true,
+        "rationale": "User reports the app is broken and nothing works, but provides no specific error, affected feature, or timeframe to confidently classify as bug/outage/performance or identify the exact scope.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"unclear\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"User reports the app is broken and nothing works, but provides no specific error, affected feature, or timeframe to confidently classify as bug/outage/performance or identify the exact scope.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 82,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 320,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 402
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2458.1605000421405,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi \u2014 I\u2019m sorry this is happening again and that it\u2019s impacting you urgently. We can help, but I\u2019ll need a couple of details to quickly pinpoint what\u2019s failing.\n\nPlease reply with:\n1) What exact feature/workflow is broken (what were you trying to do when it fails)?\n2) Any error message shown (copy/paste) or a screenshot.\n3) When it started and whether it\u2019s constant or intermittent.\n4) Your environment: tenant/org name (if applicable), and your browser/app version.\n5) \u201cThe same thing as last time\u201d: if you have the prior incident/ticket link or a brief description of the earlier problem, share that.\n\nAs soon as I have this, we\u2019ll escalate to engineering to investigate and get it back to working. If you can, include any recent changes on your side (integrations, credentials, exports/imports, or config changes) right before it began.",
+        "promised_actions": [
+          "Escalate the issue to engineering once the missing details are provided",
+          "Investigate the reported failure based on the information you share"
+        ],
+        "safety_notes": [
+          "Issue scope and root cause are unknown; response requests minimal necessary clarification.",
+          "No refund, fix guarantee, or SLA is promised."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Hi \u2014 I\u2019m sorry this is happening again and that it\u2019s impacting you urgently. We can help, but I\u2019ll need a couple of details to quickly pinpoint what\u2019s failing.\\n\\nPlease reply with:\\n1) What exact feature/workflow is broken (what were you trying to do when it fails)?\\n2) Any error message shown (copy/paste) or a screenshot.\\n3) When it started and whether it\u2019s constant or intermittent.\\n4) Your environment: tenant/org name (if applicable), and your browser/app version.\\n5) \u201cThe same thing as last time\u201d: if you have the prior incident/ticket link or a brief description of the earlier problem, share that.\\n\\nAs soon as I have this, we\u2019ll escalate to engineering to investigate and get it back to working. If you can, include any recent changes on your side (integrations, credentials, exports/imports, or config changes) right before it began.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Escalate the issue to engineering once the missing details are provided\",\n    \"Investigate the reported failure based on the information you share\"\n  ],\n  \"safety_notes\": [\n    \"Issue scope and root cause are unknown; response requests minimal necessary clarification.\",\n    \"No refund, fix guarantee, or SLA is promised.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 298,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 661,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 959
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2763.8550421688706,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The customer reports the app is unusable ('nothing works anymore'), causing operational stress for the customer because their boss is upset.",
+        "grounded_facts": [
+          "The customer says nothing works anymore.",
+          "The customer says the app is broken again.",
+          "The customer says the app keeps doing the same thing as last time.",
+          "The customer says their boss is mad.",
+          "The customer requests that the issue be fixed and says they do not have time to explain again."
+        ],
+        "missing_information": [
+          "What specific part of the app is failing (which feature/workflow).",
+          "Any error messages, logs, screenshots, or screenshots of symptoms.",
+          "What the customer means by 'the same thing as last time' (previous incident details).",
+          "When the problem started and whether it is intermittent or constant.",
+          "How often it occurs and what steps reliably reproduce it.",
+          "Device/browser/app version and environment (if applicable).",
+          "Whether any recent changes (deployments, configuration, integrations) happened before the issue.",
+          "Any scope details (all users vs specific users/tenants, regions, platforms)."
+        ],
+        "risk_signals": [
+          "The customer indicates recurrence of the same issue from a prior time ('keeps doing the same thing as last time').",
+          "The customer says nothing works anymore, suggesting a potentially broad outage or critical failure.",
+          "High urgency implied by the customer stating they do not have time to explain again and asking to fix it."
+        ],
+        "summary": "The customer reports that the app is broken again and nothing works anymore because the app keeps repeating the same issue as last time."
+      },
+      "raw_text": "{\n  \"summary\": \"The customer reports that the app is broken again and nothing works anymore because the app keeps repeating the same issue as last time.\",\n  \"grounded_facts\": [\n    \"The customer says nothing works anymore.\",\n    \"The customer says the app is broken again.\",\n    \"The customer says the app keeps doing the same thing as last time.\",\n    \"The customer says their boss is mad.\",\n    \"The customer requests that the issue be fixed and says they do not have time to explain again.\"\n  ],\n  \"missing_information\": [\n    \"What specific part of the app is failing (which feature/workflow).\",\n    \"Any error messages, logs, screenshots, or screenshots of symptoms.\",\n    \"What the customer means by 'the same thing as last time' (previous incident details).\",\n    \"When the problem started and whether it is intermittent or constant.\",\n    \"How often it occurs and what steps reliably reproduce it.\",\n    \"Device/browser/app version and environment (if applicable).\",\n    \"Whether any recent changes (deployments, configuration, integrations) happened before the issue.\",\n    \"Any scope details (all users vs specific users/tenants, regions, platforms).\"\n  ],\n  \"customer_impact\": \"The customer reports the app is unusable ('nothing works anymore'), causing operational stress for the customer because their boss is upset.\",\n  \"risk_signals\": [\n    \"The customer indicates recurrence of the same issue from a prior time ('keeps doing the same thing as last time').\",\n    \"The customer says nothing works anymore, suggesting a potentially broad outage or critical failure.\",\n    \"High urgency implied by the customer stating they do not have time to explain again and asking to fix it.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 363,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 246,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 609
+      }
+    }
+  },
+  "ticket_id": "T003"
+}

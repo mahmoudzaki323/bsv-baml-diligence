@@ -1,0 +1,32 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": "BamlValidationError(message=Failed to parse LLM response: Failed to coerce value: <root>: Failed while parsing required fields: missing=0, unparsed=1\n  - <root>: Failed to parse field team: team: Expected Team enum value, got String(\"product_success\", Complete).\n    - team: Expected Team enum value, got String(\"product_success\", Complete)., raw_output={\n  \"category\": \"feature_request\",\n  \"urgency\": \"low\",\n  \"team\": \"product_success\",\n  \"needs_human_review\": false,\n  \"rationale\": \"Customer requests a new capability: scheduling weekly exports directly to an S3 bucket instead of manually downloading CSVs; they state it is not blocking and would save time.\"\n}, prompt=system: You are a support operations triage assistant for a B2B SaaS company.\nClassify the ticket using only facts in the ticket. Do not infer facts that are not stated.\nUse UNCLEAR when the ticket lacks enough concrete detail to route confidently.\nuser: Ticket:\nSubject: Request: scheduled exports to S3\n\nIt would be useful if we could schedule weekly exports directly to our S3 bucket instead of downloading CSVs manually. This is not blocking us, but it would save our data team a couple of hours each week.\n\nTeam\n----\n- support: Frontline support or product guidance\n- engineering: Product engineering or infrastructure support\n- security: Security response team\n- billing: Billing, payments, or finance operations\n- customer_success: Customer success or account management\n- compliance: Privacy, legal, or compliance team\n\nUrgency\n----\n- low: No immediate user or business impact\n- medium: Limited impact or workaround exists\n- high: Important customer workflow affected\n- critical: Production outage, security risk, data loss, or major business impact\n\nCategory\n----\n- bug: A product defect with specific broken behavior\n- outage: A production service or workflow is unavailable\n- billing: Payment, invoice, refund, or subscription issue\n- security: Potential vulnerability, abuse, or security incident\n- feature_request: Product enhancement request\n- data_loss: Missing, deleted, corrupted, or unrecovered data\n- integration_failure: External integration, sync, API, webhook, or connector failure\n- performance: Latency, slow loading, degraded speed, or throughput issue\n- account_access: Login, invite, permission, or workspace access issue\n- compliance_privacy: DPA, privacy, compliance, retention, or subprocessors\n- how_to: Usage question or request for product guidance\n- unclear: Not enough facts to route confidently\n\nAnswer in JSON using this schema:\n{\n  // Best ticket category\n  category: Category,\n  // Business urgency based only on the ticket text\n  urgency: Urgency,\n  // First team that should own the ticket\n  team: Team,\n  // True for security, data loss, compliance, critical escalation, billing disputes, or ambiguous cases\n  needs_human_review: bool,\n  // Short grounded reason for the classification\n  rationale: string,\n}\n)",
+      "latency_ms": null,
+      "ok": false,
+      "parsed": null,
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": "Skipped because an earlier step failed.",
+      "latency_ms": null,
+      "ok": false,
+      "parsed": null,
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": "Skipped because classification failed.",
+      "latency_ms": null,
+      "ok": false,
+      "parsed": null,
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T006"
+}

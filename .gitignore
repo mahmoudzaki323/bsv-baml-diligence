@@ -7,11 +7,10 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .ipynb_checkpoints/
-
 *.log
 
-baml_client/
-outputs/raw/
-
-baml_client/
-outputs/raw/
+# Local-only analysis/writeups for the final submission
+FINDINGS.md
+local_diligence/
+docs/manual_review.csv
+docs/google_doc_outline.md

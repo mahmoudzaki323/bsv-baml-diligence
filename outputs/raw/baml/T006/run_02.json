@@ -1,0 +1,64 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1031.669249990955,
+      "ok": true,
+      "parsed": {
+        "category": "FEATURE_REQUEST",
+        "needs_human_review": false,
+        "rationale": "Customer requests a capability to schedule weekly exports directly to an S3 bucket instead of manually downloading CSVs; they state it is not blocking them and would only save time.",
+        "team": "SUPPORT",
+        "urgency": "LOW"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2569.4705829955637,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014thanks for the feature request. We understand you\u2019d like to schedule weekly exports to be delivered directly to your S3 bucket (instead of manually downloading CSVs), which would save your data team time each week.\n\nAt the moment, could you share a couple of details so we can confirm what would work best for your use case?\n1) What export format/options do you need (CSV only, or any other format)?\n2) How should \u201cweekly\u201d be scheduled (day of week and time zone)?\n3) Are there any specific datasets/endpoints you want included in the scheduled export?\n\nOnce we have that, we can log the request with the product team and advise on any existing options/workarounds that may help in the interim (if available). Since you noted it isn\u2019t blocking, we\u2019ll treat this as low priority unless you\u2019d like to adjust.",
+        "promised_actions": [
+          "Log the feature request with the product team",
+          "Advise on any existing options/workarounds (if available)"
+        ],
+        "safety_notes": [
+          "Did not promise delivery to S3, timing, or an SLA for this request.",
+          "Did not claim root cause or provide a definitive availability statement.",
+          "Asked only for the minimum clarifications needed to define scheduling and export requirements."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 1824.8154169414192,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "This would save the customer\u2019s data team time each week by eliminating manual CSV downloads, and it is stated to be non-blocking.",
+        "grounded_facts": [
+          "The customer wants scheduled weekly exports to be sent directly to their S3 bucket.",
+          "The customer currently downloads CSVs manually.",
+          "The request is described as not blocking them.",
+          "They expect the change would save their data team a couple of hours each week.",
+          "The ticket is classified as a FEATURE_REQUEST with low urgency."
+        ],
+        "missing_information": [],
+        "risk_signals": [
+          "The ticket does not specify scheduling details (e.g., time zone, export format/options, or frequency beyond 'weekly'), so requirements may be ambiguous."
+        ],
+        "summary": "The customer requests the ability to schedule weekly exports directly to their S3 bucket instead of manually downloading CSVs."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T006"
+}

@@ -1,0 +1,117 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1148.576125036925,
+      "ok": true,
+      "parsed": {
+        "category": "data_loss",
+        "needs_human_review": true,
+        "rationale": "Project was deleted and restored within the retention window, but files and comments are still missing, impacting final deliverables for a client launch on Monday.",
+        "team": "engineering",
+        "urgency": "critical"
+      },
+      "raw_text": "{\n  \"category\": \"data_loss\",\n  \"urgency\": \"critical\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"Project was deleted and restored within the retention window, but files and comments are still missing, impacting final deliverables for a client launch on Monday.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 75,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 327,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 402
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2752.2174580954015,
+      "ok": true,
+      "parsed": {
+        "draft_response": "apologetic\r\n\r\nThanks for flagging this\u2014I'm sorry the restored project is still missing required files and comments, especially with a Monday client launch.\r\n\r\nTo help our engineering team investigate the restore result and determine what content is missing, please reply with the following details:\r\n1) Project identifier/link (project ID or URL) and the workspace/account name.\r\n2) The approximate time the project was deleted and the time you performed \u201cRestore\u201d (including timezone if possible).\r\n3) Which specific items are missing: file names/paths or IDs, and the comment text and/or comment IDs (even a short list is fine).\r\n4) Confirmation on whether the restore action reported success and whether there were any errors/warnings during restore.\r\n5) Whether the missing items are completely absent or only partially missing (and if they reappear/re-appear on refresh).\r\n6) Any changes made after restore (e.g., re-uploads, edits, additional deletions, imports).\r\n\r\nOnce we have this, we\u2019ll escalate to engineering for human review of the restore contents and help you understand the fastest path to recover what\u2019s needed for your deliverables.\r\n\r\nIn the meantime, if you have any local copies, exports, or versions from before deletion, please share/retain them for contingency.",
+        "promised_actions": [
+          "Escalate the case to engineering for human review"
+        ],
+        "safety_notes": [
+          "Do not promise data recovery or restoration of missing items; request missing details to support investigation.",
+          "Avoid claiming a root cause, SLA, or refund; provide an escalation acknowledgement only."
+        ],
+        "tone": "apologetic"
+      },
+      "raw_text": "{\n  \"draft_response\": \"apologetic\\r\\n\\r\\nThanks for flagging this\u2014I'm sorry the restored project is still missing required files and comments, especially with a Monday client launch.\\r\\n\\r\\nTo help our engineering team investigate the restore result and determine what content is missing, please reply with the following details:\\r\\n1) Project identifier/link (project ID or URL) and the workspace/account name.\\r\\n2) The approximate time the project was deleted and the time you performed \u201cRestore\u201d (including timezone if possible).\\r\\n3) Which specific items are missing: file names/paths or IDs, and the comment text and/or comment IDs (even a short list is fine).\\r\\n4) Confirmation on whether the restore action reported success and whether there were any errors/warnings during restore.\\r\\n5) Whether the missing items are completely absent or only partially missing (and if they reappear/re-appear on refresh).\\r\\n6) Any changes made after restore (e.g., re-uploads, edits, additional deletions, imports).\\r\\n\\r\\nOnce we have this, we\u2019ll escalate to engineering for human review of the restore contents and help you understand the fastest path to recover what\u2019s needed for your deliverables.\\r\\n\\r\\nIn the meantime, if you have any local copies, exports, or versions from before deletion, please share/retain them for contingency.\",\n  \"tone\": \"apologetic\",\n  \"promised_actions\": [\n    \"Escalate the case to engineering for human review\"\n  ],\n  \"safety_notes\": [\n    \"Do not promise data recovery or restoration of missing items; request missing details to support investigation.\",\n    \"Avoid claiming a root cause, SLA, or refund; provide an escalation acknowledgement only.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 374,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 643,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1017
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2786.406375002116,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Operationally, the missing files and comments prevent completion of final deliverables for a client launch scheduled for Monday.",
+        "grounded_facts": [
+          "A user accidentally deleted a project yesterday.",
+          "The project was restored within the retention window.",
+          "Several files are still missing after restore.",
+          "Several comments are still missing after restore.",
+          "The project contains final deliverables for a client launch on Monday.",
+          "The ticket is classified as data_loss.",
+          "The issue requires human review.",
+          "The urgency is set to critical."
+        ],
+        "missing_information": [
+          "Which specific files and comments are missing (names/locations/IDs)?",
+          "Whether any other project content besides files/comments is affected.",
+          "The restore timestamp and the exact retention window timing (how long after deletion the restore occurred).",
+          "Whether the restore operation reported success without errors.",
+          "Whether the missing items appear partially, intermittently, or are completely absent.",
+          "Whether there were any changes to the project (edits, additional deletions, imports) after restore.",
+          "The platform/system name and version where the project is hosted (to confirm the restore behavior).",
+          "Any error logs, audit events, or screenshots from the restore action."
+        ],
+        "risk_signals": [
+          "Files and comments remain missing after a restore within the retention window.",
+          "The missing content is required for a client launch on Monday."
+        ],
+        "summary": "A project deleted yesterday and restored within the retention window is still missing several files and comments needed for a client launch on Monday."
+      },
+      "raw_text": "{\n  \"summary\": \"A project deleted yesterday and restored within the retention window is still missing several files and comments needed for a client launch on Monday.\",\n  \"grounded_facts\": [\n    \"A user accidentally deleted a project yesterday.\",\n    \"The project was restored within the retention window.\",\n    \"Several files are still missing after restore.\",\n    \"Several comments are still missing after restore.\",\n    \"The project contains final deliverables for a client launch on Monday.\",\n    \"The ticket is classified as data_loss.\",\n    \"The issue requires human review.\",\n    \"The urgency is set to critical.\"\n  ],\n  \"missing_information\": [\n    \"Which specific files and comments are missing (names/locations/IDs)?\",\n    \"Whether any other project content besides files/comments is affected.\",\n    \"The restore timestamp and the exact retention window timing (how long after deletion the restore occurred).\",\n    \"Whether the restore operation reported success without errors.\",\n    \"Whether the missing items appear partially, intermittently, or are completely absent.\",\n    \"Whether there were any changes to the project (edits, additional deletions, imports) after restore.\",\n    \"The platform/system name and version where the project is hosted (to confirm the restore behavior).\",\n    \"Any error logs, audit events, or screenshots from the restore action.\"\n  ],\n  \"customer_impact\": \"Operationally, the missing files and comments prevent completion of final deliverables for a client launch scheduled for Monday.\",\n  \"risk_signals\": [\n    \"Files and comments remain missing after a restore within the retention window.\",\n    \"The missing content is required for a client launch on Monday.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 345,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 246,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 591
+      }
+    }
+  },
+  "ticket_id": "T007"
+}

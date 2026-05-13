@@ -3,7 +3,7 @@ from __future__ import annotations
 from .openai_api import call_structured, client
 from .io_utils import benchmark_model, output_path, read_json, serialize, write_json
 from .models import DraftResponse, StepResult, Ticket, TicketClassification, TicketFacts
-from .prompts import classification_prompt, draft_prompt, facts_prompt
+from .prompts import classification_messages, draft_messages, facts_messages
 
 IMPLEMENTATION = "openai_structured"
 
@@ -20,7 +20,7 @@ def run_ticket(ticket: Ticket, run_index: int, force: bool = False) -> dict:
     classification = None
     try:
         classification, raw, latency, usage = call_structured(
-            genai_client, model, classification_prompt(ticket), TicketClassification
+            genai_client, model, classification_messages(ticket), TicketClassification
         )
         steps["classification"] = StepResult(
             ok=True, latency_ms=latency, parsed=serialize(classification), raw_text=raw, usage_metadata=usage
@@ -32,7 +32,7 @@ def run_ticket(ticket: Ticket, run_index: int, force: bool = False) -> dict:
     if classification is not None:
         try:
             facts, raw, latency, usage = call_structured(
-                genai_client, model, facts_prompt(ticket, serialize(classification)), TicketFacts
+                genai_client, model, facts_messages(ticket, serialize(classification)), TicketFacts
             )
             steps["facts"] = StepResult(ok=True, latency_ms=latency, parsed=serialize(facts), raw_text=raw, usage_metadata=usage)
         except Exception as exc:
@@ -43,7 +43,7 @@ def run_ticket(ticket: Ticket, run_index: int, force: bool = False) -> dict:
     if classification is not None and facts is not None:
         try:
             draft, raw, latency, usage = call_structured(
-                genai_client, model, draft_prompt(ticket, serialize(classification), serialize(facts)), DraftResponse
+                genai_client, model, draft_messages(ticket, serialize(classification), serialize(facts)), DraftResponse
             )
             steps["draft"] = StepResult(ok=True, latency_ms=latency, parsed=serialize(draft), raw_text=raw, usage_metadata=usage)
         except Exception as exc:

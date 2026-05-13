@@ -1,0 +1,62 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1002.8040001634508,
+      "ok": true,
+      "parsed": {
+        "category": "HOW_TO",
+        "needs_human_review": false,
+        "rationale": "Customer asks where to find the option/docs to rename a saved view and mentions low urgency/no immediate impact.",
+        "team": "SUPPORT",
+        "urgency": "LOW"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 1961.5597501397133,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014happy to help. In most cases, saved views can be managed from the Saved Views menu on the page where you created them. Could you tell me which product/module this is in (and the screen name or a screenshot of what you see when you open \u201cSaved Views\u201d)?\n\nOnce I have that, I can point you to the exact menu option (or the specific docs page) for renaming a saved view. Since you mentioned there\u2019s no rush, feel free to share the details at your convenience.",
+        "promised_actions": [
+          "Help locate the correct menu path or documentation for renaming a saved view once the product/module/screen is confirmed"
+        ],
+        "safety_notes": [
+          "No assumptions about the exact UI location or existence of a rename option were made.",
+          "Requested minimal clarification (product/module and where the user is clicking) to provide an accurate, non-speculative answer."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 1745.2055420726538,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "User cannot correct the name of an existing saved view they created with a typo.",
+        "grounded_facts": [
+          "The customer created a saved view with a typo in the name.",
+          "The customer cannot find the rename option.",
+          "The customer is asking the support team to point them to the correct menu or a docs page.",
+          "The customer states there is no rush (low urgency)."
+        ],
+        "missing_information": [],
+        "risk_signals": [
+          "Ambiguity: the platform/product UI/menu path for renaming saved views is not provided in the ticket.",
+          "No clear risk signals (no mention of data loss, security exposure, or operational impact)."
+        ],
+        "summary": "The customer asks where to find the option or documentation to rename a saved view because they created one with a typo in the name and cannot locate any rename control."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T012"
+}

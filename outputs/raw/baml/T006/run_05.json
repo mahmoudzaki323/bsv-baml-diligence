@@ -1,0 +1,63 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 962.965790880844,
+      "ok": true,
+      "parsed": {
+        "category": "FEATURE_REQUEST",
+        "needs_human_review": false,
+        "rationale": "Customer requests the ability to schedule weekly exports directly to their S3 bucket instead of manually downloading CSVs; they note it is not blocking and would save time weekly.",
+        "team": "SUPPORT",
+        "urgency": "LOW"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2560.5844168458134,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014thanks for the feature request. Scheduling recurring exports directly to your S3 bucket (so you can avoid manual CSV downloads) makes sense and would likely save time for your team.\n\nTo help us route this correctly, could you share two quick details:\n1) Which exports are you looking to schedule (e.g., specific report(s)/data type(s) or all available exports)?\n2) Do you need the output format to remain CSV, or are other formats acceptable?\n\nOnce we have that, we can log the requirements for product review. In the meantime, if you\u2019d like, we can also share any existing export automation/workarounds that may already be available for your current setup.",
+        "promised_actions": [
+          "Log the request for product review after receiving the requested details",
+          "Share any existing export automation/workarounds if the customer wants them"
+        ],
+        "safety_notes": [
+          "Did not promise delivery timeline, SLA, or completion of the feature.",
+          "Did not claim root cause or security/compliance conclusions.",
+          "Asked for minimal clarification to define scope and format requirements for the feature request."
+        ],
+        "tone": "calm"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 1536.7289159912616,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Would save the customer\u2019s data team a couple of hours per week by eliminating manual CSV downloads and enabling scheduled exports to S3.",
+        "grounded_facts": [
+          "The request is to schedule weekly exports directly to an S3 bucket.",
+          "The current workflow involves manually downloading CSVs.",
+          "The customer says the request is not blocking them.",
+          "The customer expects it would save their data team a couple of hours each week."
+        ],
+        "missing_information": [],
+        "risk_signals": [
+          "No risks or security/compliance implications were mentioned in the ticket."
+        ],
+        "summary": "The customer requests the ability to schedule weekly exports directly to their S3 bucket instead of manually downloading CSVs."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T006"
+}

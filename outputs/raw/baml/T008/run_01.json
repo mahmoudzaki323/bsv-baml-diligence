@@ -1,0 +1,74 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1520.0254588853568,
+      "ok": true,
+      "parsed": {
+        "category": "INTEGRATION_FAILURE",
+        "needs_human_review": true,
+        "rationale": "Ticket reports webhook endpoint stopped receiving events and dashboard shows 'retries exhausted for 118 events' with a request to replay missing events; this is an external integration/webhook failure requiring engineering investigation.",
+        "team": "ENGINEERING",
+        "urgency": "MEDIUM"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2765.1827910449356,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014thanks for reaching out. I understand your production order webhook stopped receiving events and the dashboard shows \u201cretries exhausted\u201d for 118 events. Since this is an integration delivery issue, we\u2019ll need a quick engineering review to confirm what happened and determine the available options to recover the missed events.\n\nTo help us investigate and (if possible) coordinate a replay, could you please share:\n1) The environment and webhook endpoint details (e.g., production vs. staging URL) and any integration identifier/name.\n2) The time window when the webhook stopped receiving events (start time/date) and whether it\u2019s still ongoing.\n3) Which production order/event types correspond to the 118 exhausted retries (if your dashboard can export/share event IDs or order references).\n4) Any error details shown with the exhausted retries (HTTP status codes, timeouts, or logs), if available.\n5) Whether the dashboard offers a manual replay button/workflow and what inputs it requires.\n\nOnce we have this, we can escalate to engineering to review the delivery attempts and assess the most appropriate next step for those 118 events. ",
+        "promised_actions": [
+          "Escalate the issue for engineering review",
+          "Review the delivery attempts and available options for event recovery after receiving the requested details"
+        ],
+        "safety_notes": [
+          "No commitment to successful replay is made because the dashboard\u2019s retry exhaustion may indicate events cannot be recovered without verification.",
+          "No claims about root cause, timeline, or SLA are included.",
+          "Requests the minimum necessary details to identify the affected events and the current integration configuration."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3176.326874876395,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Missing webhook events for production orders may prevent the recipient system from processing order updates, potentially delaying or missing order-related actions for affected customers.",
+        "grounded_facts": [
+          "The ticket states the order webhook endpoint has stopped receiving events from the other system.",
+          "The ticket says the dashboard shows 'retries exhausted for 118 events.'",
+          "The ticket requests that the missing events be replayed if possible.",
+          "The ticket states 'We changed nothing on our side.'",
+          "The ticket\u2019s current classification is INTEGRATION_FAILURE with needs_human_review set to true."
+        ],
+        "missing_information": [
+          "Which specific production orders/events correspond to the 118 exhausted retries.",
+          "When the webhook stopped receiving events (start time/date) and whether it is fully or partially stopped.",
+          "The webhook endpoint URL/environment details (e.g., production URL) and any identifiers for the affected integration.",
+          "Whether the sending system retried independently and how many attempts occurred there (beyond the dashboard count).",
+          "Any error details/log messages associated with the exhausted retries (e.g., HTTP status codes, timeouts).",
+          "Whether any manual replay mechanism exists on the dashboard and the required inputs to perform it.",
+          "Customer/order impact details: what downstream features or order processing steps were affected by the missing events."
+        ],
+        "risk_signals": [
+          "Production impact implied by 'production orders' and 'missing events replay' request.",
+          "Potential data inconsistency if order state changes occurred but webhook updates did not arrive.",
+          "Operational risk due to exhausted retries indicating delivery attempts were not successful."
+        ],
+        "summary": "The ticket reports that the order webhook endpoint stopped receiving events and the dashboard indicates 'retries exhausted for 118 events,' requesting replay of the missing events."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T008"
+}

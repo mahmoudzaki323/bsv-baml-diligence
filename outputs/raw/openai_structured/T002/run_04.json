@@ -1,0 +1,120 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1110.7328340876848,
+      "ok": true,
+      "parsed": {
+        "category": "integration_failure",
+        "needs_human_review": true,
+        "rationale": "After upgrading to v2.8, the Salesforce sync has been failing; logs show repeated auth token refresh errors and it is blocking reporting for ~40 enterprise customers.",
+        "team": "engineering",
+        "urgency": "critical"
+      },
+      "raw_text": "{\"category\":\"integration_failure\",\"urgency\":\"critical\",\"team\":\"engineering\",\"needs_human_review\":true,\"rationale\":\"After upgrading to v2.8, the Salesforce sync has been failing; logs show repeated auth token refresh errors and it is blocking reporting for ~40 enterprise customers.\"}",
+      "usage_metadata": {
+        "completion_tokens": 66,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 434,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 500
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2738.9642919879407,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi team\u2014thanks for flagging this as critical. I can confirm we\u2019re treating this as an escalation since the Salesforce sync has been failing in production immediately after your v2.8 upgrade, with repeated auth token refresh errors and reporting blocked for ~40 enterprise customers.\n\nTo help engineering investigate quickly (especially with your renewal call tomorrow), could you share the following from the logs:\n1) The exact auth token refresh error text(s) including timestamps and any error codes/stack traces.\n2) Which sync component/job/service is failing post-upgrade (service name or job identifier).\n3) Whether all affected tenants are failing or which specific accounts/tenants are impacted.\n4) The last successful sync time and whether there\u2019s a backlog/queue growth (retry behavior is fine too).\n5) Any recent Salesforce auth/config changes around the upgrade (connected app/client credentials, OAuth settings, token scopes), if applicable.\n\nAs soon as we have the above, we\u2019ll have a human from engineering review the production logs and advise on the next troubleshooting steps.\n\nReply with the requested log excerpts and job identifiers when you can, and we\u2019ll coordinate from there ahead of your call tomorrow.",
+        "promised_actions": [
+          "Acknowledge escalation to engineering for human review.",
+          "Request specific log excerpts and minimal diagnostic details to speed investigation.",
+          "Advise on next troubleshooting steps after reviewing the provided production log details."
+        ],
+        "safety_notes": [
+          "Avoid claiming root cause, refund, or resolution.",
+          "Avoid mentioning SLA/guarantees; only promise escalation and review/troubleshooting steps after receiving requested details."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\"draft_response\":\"Hi team\u2014thanks for flagging this as critical. I can confirm we\u2019re treating this as an escalation since the Salesforce sync has been failing in production immediately after your v2.8 upgrade, with repeated auth token refresh errors and reporting blocked for ~40 enterprise customers.\\n\\nTo help engineering investigate quickly (especially with your renewal call tomorrow), could you share the following from the logs:\\n1) The exact auth token refresh error text(s) including timestamps and any error codes/stack traces.\\n2) Which sync component/job/service is failing post-upgrade (service name or job identifier).\\n3) Whether all affected tenants are failing or which specific accounts/tenants are impacted.\\n4) The last successful sync time and whether there\u2019s a backlog/queue growth (retry behavior is fine too).\\n5) Any recent Salesforce auth/config changes around the upgrade (connected app/client credentials, OAuth settings, token scopes), if applicable.\\n\\nAs soon as we have the above, we\u2019ll have a human from engineering review the production logs and advise on the next troubleshooting steps.\\n\\nReply with the requested log excerpts and job identifiers when you can, and we\u2019ll coordinate from there ahead of your call tomorrow.\",\"tone\":\"escalation\",\"promised_actions\":[\"Acknowledge escalation to engineering for human review.\",\"Request specific log excerpts and minimal diagnostic details to speed investigation.\",\"Advise on next troubleshooting steps after reviewing the provided production log details.\"],\"safety_notes\":[\"Avoid claiming root cause, refund, or resolution.\",\"Avoid mentioning SLA/guarantees; only promise escalation and review/troubleshooting steps after receiving requested details.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 342,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 761,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1103
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3171.9935829751194,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Reporting is blocked for about 40 enterprise customers due to Salesforce sync failures.",
+        "grounded_facts": [
+          "The system was upgraded to v2.8 yesterday.",
+          "After the v2.8 upgrade, the Salesforce sync has been failing.",
+          "The failure has persisted since the upgrade.",
+          "The logs show repeated auth token refresh errors.",
+          "The issue is blocking reporting.",
+          "The impact is about 40 enterprise customers.",
+          "There is a renewal call tomorrow.",
+          "The ticket is classified as critical urgency and needs human review."
+        ],
+        "missing_information": [
+          "Exact error messages from the auth token refresh errors (timestamps, error codes, stack traces).",
+          "Which component/version of the sync integration is involved post-upgrade (e.g., specific service/job name).",
+          "Whether the Salesforce sync started failing immediately after the upgrade or after a specific time/event.",
+          "Any recent configuration changes related to Salesforce authentication (connected app/client credentials, OAuth settings, token scopes).",
+          "Whether all 40 enterprise customers are failing or if there are specific accounts/tenants affected.",
+          "Current status of affected sync jobs (e.g., retry behavior, queue backlog, last successful sync time).",
+          "Environment details (production vs staging) and deployment window/region."
+        ],
+        "risk_signals": [
+          "Production impact (sync failing) affecting enterprise reporting.",
+          "Potential customer retention/renewal risk due to renewal call tomorrow.",
+          "Authentication/token refresh errors suggest a likely outage-like failure affecting ongoing integrations.",
+          "Unclear scope (not stated whether all tenants are impacted), which may increase operational uncertainty."
+        ],
+        "summary": "After upgrading to v2.8, the Salesforce sync has been failing due to repeated auth token refresh errors and is blocking reporting for ~40 enterprise customers."
+      },
+      "raw_text": "{\"summary\":\"After upgrading to v2.8, the Salesforce sync has been failing due to repeated auth token refresh errors and is blocking reporting for ~40 enterprise customers.\",\"grounded_facts\":[\"The system was upgraded to v2.8 yesterday.\",\"After the v2.8 upgrade, the Salesforce sync has been failing.\",\"The failure has persisted since the upgrade.\",\"The logs show repeated auth token refresh errors.\",\"The issue is blocking reporting.\",\"The impact is about 40 enterprise customers.\",\"There is a renewal call tomorrow.\",\"The ticket is classified as critical urgency and needs human review.\"],\"missing_information\":[\"Exact error messages from the auth token refresh errors (timestamps, error codes, stack traces).\",\"Which component/version of the sync integration is involved post-upgrade (e.g., specific service/job name).\",\"Whether the Salesforce sync started failing immediately after the upgrade or after a specific time/event.\",\"Any recent configuration changes related to Salesforce authentication (connected app/client credentials, OAuth settings, token scopes).\",\"Whether all 40 enterprise customers are failing or if there are specific accounts/tenants affected.\",\"Current status of affected sync jobs (e.g., retry behavior, queue backlog, last successful sync time).\",\"Environment details (production vs staging) and deployment window/region.\"] ,\"customer_impact\":\"Reporting is blocked for about 40 enterprise customers due to Salesforce sync failures.\",\"risk_signals\":[\"Production impact (sync failing) affecting enterprise reporting.\",\"Potential customer retention/renewal risk due to renewal call tomorrow.\",\"Authentication/token refresh errors suggest a likely outage-like failure affecting ongoing integrations.\",\"Unclear scope (not stated whether all tenants are impacted), which may increase operational uncertainty.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 342,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 357,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 699
+      }
+    }
+  },
+  "ticket_id": "T002"
+}

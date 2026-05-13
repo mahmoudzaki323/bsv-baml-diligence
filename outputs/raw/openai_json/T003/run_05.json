@@ -1,0 +1,113 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 916.8535419739783,
+      "ok": true,
+      "parsed": {
+        "category": "bug",
+        "needs_human_review": true,
+        "rationale": "User reports the app is broken again and nothing works anymore, requesting a fix; no specific error details are provided.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"bug\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"User reports the app is broken again and nothing works anymore, requesting a fix; no specific error details are provided.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 68,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 320,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 388
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2586.468458874151,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Sorry about the disruption\u2014this sounds urgent, and I understand you\u2019re running out of time. We can help, but I\u2019ll need a few details to pinpoint what\u2019s failing since \u201cnothing works\u201d and \u201csame as last time\u201d don\u2019t specify which workflow.\n\nPlease reply with the minimum info below:\n1) What exact feature/workflow doesn\u2019t work (e.g., login, specific page/action, sync, import/export)?\n2) Any error message shown (exact text), or a screenshot.\n3) When it started and whether it\u2019s consistent or intermittent.\n4) Your environment: OS/browser (or app version), and whether this is one tenant/account or multiple users.\n\nIf you can\u2019t gather all of that right now, tell me just #1 (which workflow) and #2 (any error text/screenshot), and we\u2019ll take it from there.\n\nWe\u2019ve escalated this for investigation based on your report, and once we have the above details we\u2019ll move faster toward identifying the cause and next steps.",
+        "promised_actions": [
+          "Escalate the report for investigation",
+          "Use the details you provide to identify the failing workflow and determine next steps"
+        ],
+        "safety_notes": [
+          "No specific fix or refund promised due to missing reproduction/error details.",
+          "Acknowledges escalation without claiming resolution."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Sorry about the disruption\u2014this sounds urgent, and I understand you\u2019re running out of time. We can help, but I\u2019ll need a few details to pinpoint what\u2019s failing since \u201cnothing works\u201d and \u201csame as last time\u201d don\u2019t specify which workflow.\\n\\nPlease reply with the minimum info below:\\n1) What exact feature/workflow doesn\u2019t work (e.g., login, specific page/action, sync, import/export)?\\n2) Any error message shown (exact text), or a screenshot.\\n3) When it started and whether it\u2019s consistent or intermittent.\\n4) Your environment: OS/browser (or app version), and whether this is one tenant/account or multiple users.\\n\\nIf you can\u2019t gather all of that right now, tell me just #1 (which workflow) and #2 (any error text/screenshot), and we\u2019ll take it from there.\\n\\nWe\u2019ve escalated this for investigation based on your report, and once we have the above details we\u2019ll move faster toward identifying the cause and next steps.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Escalate the report for investigation\",\n    \"Use the details you provide to identify the failing workflow and determine next steps\"\n  ],\n  \"safety_notes\": [\n    \"No specific fix or refund promised due to missing reproduction/error details.\",\n    \"Acknowledges escalation without claiming resolution.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 308,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 612,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 920
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2566.839125007391,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Customer reports that the app is non-functional (\u201cnothing works anymore\u201d), indicating business-critical disruption and operational stress for the customer team.",
+        "grounded_facts": [
+          "The customer says the app is broken again.",
+          "The customer says nothing works anymore.",
+          "The customer says the app keeps doing the same thing as last time.",
+          "The customer requests that the issue be fixed.",
+          "The customer states urgency due to their boss being mad and not having time to explain again."
+        ],
+        "missing_information": [
+          "What specific feature or workflow is failing.",
+          "Any error messages, codes, logs, screenshots, or stack traces.",
+          "When the issue started and whether it happens consistently or intermittently.",
+          "Device/platform details (OS, app version, browser, environment) and any relevant account/tenant details.",
+          "Steps to reproduce the problem (what the customer did right before it breaks)."
+        ],
+        "risk_signals": [
+          "Repeated occurrence of the same issue as last time (\u201ckeeps doing the same thing as last time\u201d).",
+          "High urgency stated by the customer due to their boss being mad.",
+          "Inability to proceed without additional details (\u201cI do not have time to explain this again\u201d)."
+        ],
+        "summary": "The customer reports that the app is broken again and nothing works anymore, repeating the same issue from a prior time, and asks for a fix urgently."
+      },
+      "raw_text": "{\n  \"summary\": \"The customer reports that the app is broken again and nothing works anymore, repeating the same issue from a prior time, and asks for a fix urgently.\",\n  \"grounded_facts\": [\n    \"The customer says the app is broken again.\",\n    \"The customer says nothing works anymore.\",\n    \"The customer says the app keeps doing the same thing as last time.\",\n    \"The customer requests that the issue be fixed.\",\n    \"The customer states urgency due to their boss being mad and not having time to explain again.\"\n  ],\n  \"missing_information\": [\n    \"What specific feature or workflow is failing.\",\n    \"Any error messages, codes, logs, screenshots, or stack traces.\",\n    \"When the issue started and whether it happens consistently or intermittently.\",\n    \"Device/platform details (OS, app version, browser, environment) and any relevant account/tenant details.\",\n    \"Steps to reproduce the problem (what the customer did right before it breaks).\"\n  ],\n  \"customer_impact\": \"Customer reports that the app is non-functional (\u201cnothing works anymore\u201d), indicating business-critical disruption and operational stress for the customer team.\",\n  \"risk_signals\": [\n    \"Repeated occurrence of the same issue as last time (\u201ckeeps doing the same thing as last time\u201d).\",\n    \"High urgency stated by the customer due to their boss being mad.\",\n    \"Inability to proceed without additional details (\u201cI do not have time to explain this again\u201d).\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 310,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 232,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 542
+      }
+    }
+  },
+  "ticket_id": "T003"
+}

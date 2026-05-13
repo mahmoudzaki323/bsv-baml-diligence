@@ -1,0 +1,118 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 2637.578041991219,
+      "ok": true,
+      "parsed": {
+        "category": "unclear",
+        "needs_human_review": true,
+        "rationale": "Customer reports the app is not working and that the issue is recurring, but no\u5177\u4f53 details, error messages, timeframe, affected features, or impact metrics are provided to route to a specific team (bug/outage/integration/performance).",
+        "team": "support",
+        "urgency": "high"
+      },
+      "raw_text": "{\"category\":\"unclear\",\"urgency\":\"high\",\"team\":\"support\",\"needs_human_review\":true,\"rationale\":\"Customer reports the app is not working and that the issue is recurring, but no\u5177\u4f53 details, error messages, timeframe, affected features, or impact metrics are provided to route to a specific team (bug/outage/integration/performance).\"}",
+      "usage_metadata": {
+        "completion_tokens": 80,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 416,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 496
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2712.8415000624955,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi\u2014sorry about the disruption. I understand you\u2019re seeing the same failure again and that nothing is working right now.\n\nTo get this investigated quickly, please reply with the minimum details below (even short answers are fine):\n1) What changed since \u201clast time\u201d (date/time of the previous incident, or link/ticket number if you have it)?\n2) Are you able to use the app at all, or is it failing for everyone or just your account?\n3) Which specific feature(s)/workflow(s) don\u2019t work (e.g., login, syncing, specific screens/actions)?\n4) Any error message text you see (or screenshot) and the time it appeared.\n5) Your environment/platform: production vs. staging, and your browser/device (if applicable).\n\nOnce we have that, we\u2019ll escalate to the on-call/human review team to diagnose and work toward a resolution as quickly as possible. If you can share the error message + when it started, that will help us route immediately.",
+        "promised_actions": [
+          "Escalate the report for human review to investigate the recurring failure and work toward resolution.",
+          "Request the minimum technical details needed to route and diagnose the issue."
+        ],
+        "safety_notes": [
+          "Avoid promising a fix timing or refund.",
+          "Do not claim root cause or confirm an outage without receiving evidence.",
+          "Acknowledge escalation without implying resolution."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\"draft_response\":\"Hi\u2014sorry about the disruption. I understand you\u2019re seeing the same failure again and that nothing is working right now.\\n\\nTo get this investigated quickly, please reply with the minimum details below (even short answers are fine):\\n1) What changed since \u201clast time\u201d (date/time of the previous incident, or link/ticket number if you have it)?\\n2) Are you able to use the app at all, or is it failing for everyone or just your account?\\n3) Which specific feature(s)/workflow(s) don\u2019t work (e.g., login, syncing, specific screens/actions)?\\n4) Any error message text you see (or screenshot) and the time it appeared.\\n5) Your environment/platform: production vs. staging, and your browser/device (if applicable).\\n\\nOnce we have that, we\u2019ll escalate to the on-call/human review team to diagnose and work toward a resolution as quickly as possible. If you can share the error message + when it started, that will help us route immediately.\",\"tone\":\"escalation\",\"promised_actions\":[\"Escalate the report for human review to investigate the recurring failure and work toward resolution.\",\"Request the minimum technical details needed to route and diagnose the issue.\"],\"safety_notes\":[\"Avoid promising a fix timing or refund.\",\"Do not claim root cause or confirm an outage without receiving evidence.\",\"Acknowledge escalation without implying resolution.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 303,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 808,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1111
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2680.015749996528,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The customer reports complete lack of functionality (\u201cNothing works anymore\u201d), repetition of a prior failure, and escalation due to workplace pressure (boss is mad), indicating significant disruption to their operations.",
+        "grounded_facts": [
+          "Customer states: \u201cNothing works anymore.\u201d",
+          "Customer states the app \u201ckeeps doing the same thing as last time.\u201d",
+          "Customer says their boss is mad.",
+          "Customer requests: \u201cPlease fix it.\u201d",
+          "No specific error messages, timeframe, affected features, or technical details are provided in the ticket text."
+        ],
+        "missing_information": [
+          "What \u201clast time\u201d refers to (date, prior ticket/incident reference, or what previously broke).",
+          "Current date/time and how long the issue has been occurring.",
+          "Which app features/workflows are failing (e.g., login, checkout, syncing, specific screens).",
+          "Any error messages, logs, screenshots, or error codes observed.",
+          "Whether this is affecting all users or only the customer account/region.",
+          "Device/platform/browser details (if applicable) and account/environment (prod/staging).",
+          "Expected behavior vs. actual behavior steps to reproduce.",
+          "Impact metrics (how many users, duration, frequency) or severity confirmation."
+        ],
+        "risk_signals": [
+          "Reported recurrence (\u201cbroken again\u201d / same as last time) suggests an unresolved or regressed issue.",
+          "\u201cNothing works anymore\u201d implies broad service degradation and potential customer operational impact.",
+          "Lack of details increases ambiguity and routing risk, potentially delaying mitigation.",
+          "High urgency claim without supporting technical specifics may indicate an ongoing incident."
+        ],
+        "summary": "Customer reports that the app is \u201cbroken again,\u201d working incorrectly as in a previous incident, and requests a fix due to high urgency and their boss being upset."
+      },
+      "raw_text": "{\"summary\":\"Customer reports that the app is \u201cbroken again,\u201d working incorrectly as in a previous incident, and requests a fix due to high urgency and their boss being upset.\",\"grounded_facts\":[\"Customer states: \u201cNothing works anymore.\u201d\",\"Customer states the app \u201ckeeps doing the same thing as last time.\u201d\",\"Customer says their boss is mad.\",\"Customer requests: \u201cPlease fix it.\u201d\",\"No specific error messages, timeframe, affected features, or technical details are provided in the ticket text.\"],\"missing_information\":[\"What \u201clast time\u201d refers to (date, prior ticket/incident reference, or what previously broke).\",\"Current date/time and how long the issue has been occurring.\",\"Which app features/workflows are failing (e.g., login, checkout, syncing, specific screens).\",\"Any error messages, logs, screenshots, or error codes observed.\",\"Whether this is affecting all users or only the customer account/region.\",\"Device/platform/browser details (if applicable) and account/environment (prod/staging).\",\"Expected behavior vs. actual behavior steps to reproduce.\",\"Impact metrics (how many users, duration, frequency) or severity confirmation.\"],\"customer_impact\":\"The customer reports complete lack of functionality (\u201cNothing works anymore\u201d), repetition of a prior failure, and escalation due to workplace pressure (boss is mad), indicating significant disruption to their operations.\",\"risk_signals\":[\"Reported recurrence (\u201cbroken again\u201d / same as last time) suggests an unresolved or regressed issue.\",\"\u201cNothing works anymore\u201d implies broad service degradation and potential customer operational impact.\",\"Lack of details increases ambiguity and routing risk, potentially delaying mitigation.\",\"High urgency claim without supporting technical specifics may indicate an ongoing incident.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 344,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 360,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 704
+      }
+    }
+  },
+  "ticket_id": "T003"
+}

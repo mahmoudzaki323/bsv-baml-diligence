@@ -1,0 +1,115 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 3,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1367.5237090792507,
+      "ok": true,
+      "parsed": {
+        "category": "unclear",
+        "needs_human_review": true,
+        "rationale": "User reports the app is 'broken' and nothing works anymore, but no specific error, feature, or timeframe is provided to confidently classify as bug/outage/integration/performance.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"unclear\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"User reports the app is 'broken' and nothing works anymore, but no specific error, feature, or timeframe is provided to confidently classify as bug/outage/integration/performance.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 82,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 320,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 402
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2114.5359580405056,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Sorry this is happening again\u2014 I understand this is urgent and you don\u2019t have time to repeat details. To get this fixed quickly, can you reply with the minimum info below?\n\n1) What exactly is broken? (which feature/action fails)\n2) Any error message you see (copy/paste) or a screenshot\n3) When it started (approx. date/time) and whether it\u2019s constant or intermittent\n4) Your environment: web or mobile, and your browser/OS (and app version if applicable)\n5) Affected scope: your account/tenant only or all users\n\nIf you have the previous ticket/incident reference for \u201clast time,\u201d please include it as well. Once I have this, I\u2019ll escalate to engineering so they can investigate right away.",
+        "promised_actions": [
+          "Ask for specific details to identify what is broken",
+          "Escalate the issue to engineering for investigation"
+        ],
+        "safety_notes": [
+          "Issue details are insufficient to confirm outage/bug/integration/performance; avoid claiming root cause or resolution.",
+          "Do not promise an SLA or refund."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Sorry this is happening again\u2014 I understand this is urgent and you don\u2019t have time to repeat details. To get this fixed quickly, can you reply with the minimum info below?\\n\\n1) What exactly is broken? (which feature/action fails)\\n2) Any error message you see (copy/paste) or a screenshot\\n3) When it started (approx. date/time) and whether it\u2019s constant or intermittent\\n4) Your environment: web or mobile, and your browser/OS (and app version if applicable)\\n5) Affected scope: your account/tenant only or all users\\n\\nIf you have the previous ticket/incident reference for \u201clast time,\u201d please include it as well. Once I have this, I\u2019ll escalate to engineering so they can investigate right away.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Ask for specific details to identify what is broken\",\n    \"Escalate the issue to engineering for investigation\"\n  ],\n  \"safety_notes\": [\n    \"Issue details are insufficient to confirm outage/bug/integration/performance; avoid claiming root cause or resolution.\",\n    \"Do not promise an SLA or refund.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 260,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 644,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 904
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3320.897917030379,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Customer states that the app is not working ('nothing works anymore'), and indicates operational impact via frustration from their boss.",
+        "grounded_facts": [
+          "The subject is 'This is broken again'.",
+          "The customer says 'Nothing works anymore'.",
+          "The customer says the app keeps doing 'the same thing as last time'.",
+          "The customer says they do not have time to explain this again and requests that it be fixed.",
+          "The customer says their boss is mad."
+        ],
+        "missing_information": [
+          "What specifically is broken (which feature(s) or user actions fail).",
+          "Any error messages, logs, screenshots, or stack traces.",
+          "When the issue started and whether it is ongoing or intermittent.",
+          "Which platform/environment is affected (web/mobile, OS, browser, device, app version).",
+          "What 'last time' refers to (previous ticket/incident details or timeframe).",
+          "Whether this affects all users or only certain accounts/tenants.",
+          "Any steps the customer has tried to resolve or reproduce the problem."
+        ],
+        "risk_signals": [
+          "Customer claims the same problem is recurring ('keeps doing the same thing as last time').",
+          "Customer states the severity as complete failure ('Nothing works anymore').",
+          "Urgency is implied by the customer saying they do not have time to explain again and requests a fix immediately."
+        ],
+        "summary": "Customer reports that the app is 'broken again' and that 'nothing works anymore' because the app keeps doing the same thing as last time."
+      },
+      "raw_text": "{\n  \"summary\": \"Customer reports that the app is 'broken again' and that 'nothing works anymore' because the app keeps doing the same thing as last time.\",\n  \"grounded_facts\": [\n    \"The subject is 'This is broken again'.\",\n    \"The customer says 'Nothing works anymore'.\",\n    \"The customer says the app keeps doing 'the same thing as last time'.\",\n    \"The customer says they do not have time to explain this again and requests that it be fixed.\",\n    \"The customer says their boss is mad.\"\n  ],\n  \"missing_information\": [\n    \"What specifically is broken (which feature(s) or user actions fail).\",\n    \"Any error messages, logs, screenshots, or stack traces.\",\n    \"When the issue started and whether it is ongoing or intermittent.\",\n    \"Which platform/environment is affected (web/mobile, OS, browser, device, app version).\",\n    \"What 'last time' refers to (previous ticket/incident details or timeframe).\",\n    \"Whether this affects all users or only certain accounts/tenants.\",\n    \"Any steps the customer has tried to resolve or reproduce the problem.\"\n  ],\n  \"customer_impact\": \"Customer states that the app is not working ('nothing works anymore'), and indicates operational impact via frustration from their boss.\",\n  \"risk_signals\": [\n    \"Customer claims the same problem is recurring ('keeps doing the same thing as last time').\",\n    \"Customer states the severity as complete failure ('Nothing works anymore').\",\n    \"Urgency is implied by the customer saying they do not have time to explain again and requests a fix immediately.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 346,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 246,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 592
+      }
+    }
+  },
+  "ticket_id": "T003"
+}

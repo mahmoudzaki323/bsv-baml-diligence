@@ -1,0 +1,75 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1226.266291923821,
+      "ok": true,
+      "parsed": {
+        "category": "DATA_LOSS",
+        "needs_human_review": true,
+        "rationale": "The user deleted a project and after restoring within the retention window, several files and comments are still missing. This indicates missing/recovered data and affects final deliverables for a client launch on Monday.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 5017.310375114903,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi team\u2014thanks for the details. I\u2019m sorry this is impacting your client launch on Monday.\n\nBecause you deleted the project and then restored within the retention window but items are still missing, this will require engineering review to check what was restored and which items (files/comments) were not recovered.\n\nTo help us investigate quickly, could you please provide the following minimum info?\n1) The exact project identifier (project ID or link) and the environment/workspace where the restore was performed.\n2) Deletion and restore timestamps (including time zone).\n3) Whether the restore completed successfully (any confirmation message or errors).\n4) The list of missing items (file/comment names or IDs) and where they should appear in the project.\n\nOnce we have that, we\u2019ll escalate to engineering to review the restore results and advise on next steps. In the meantime, if you have any exported copies or prior versions of the missing deliverables, retaining/attaching them may help mitigate the Monday deadline while the investigation proceeds.",
+        "promised_actions": [
+          "Escalate to engineering for review of the restore results"
+        ],
+        "safety_notes": [
+          "Human review is acknowledged without claiming resolution or identifying root cause.",
+          "No refund, SLA, or security/legal conclusions are provided.",
+          "Request includes only the minimum useful clarifications needed to investigate."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2765.1751250959933,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Final deliverables for a client launch on Monday are missing due to absent files and comments after restore.",
+        "grounded_facts": [
+          "A user accidentally deleted a project yesterday.",
+          "The team clicked restore within the retention window.",
+          "After the restore, several files are still missing.",
+          "After the restore, several comments are still missing.",
+          "The missing items affect the project's final deliverables for a client launch on Monday.",
+          "The ticket is currently classified as DATA_LOSS.",
+          "The ticket states that human review is needed.",
+          "The ticket sets urgency to HIGH."
+        ],
+        "missing_information": [
+          "Which retention window period applies (e.g., exact time range and current time since deletion).",
+          "Whether the restore completed successfully or returned any errors.",
+          "The exact list of missing files and comments (names/IDs/locations).",
+          "Whether any parts of the project were restored correctly (partial restore).",
+          "Timestamps for deletion and restore actions (exact times, time zone).",
+          "Where the restore was performed (system/environment) and which project/version should be restored."
+        ],
+        "risk_signals": [
+          "DATA_LOSS classification",
+          "Production/operations impact due to an imminent Monday deadline",
+          "Ambiguity about restore completeness (missing files and comments remain)"
+        ],
+        "summary": "A user deleted a project yesterday and used restore within the retention window, but several files and comments remain missing and the client launch deliverables are due on Monday."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T007"
+}

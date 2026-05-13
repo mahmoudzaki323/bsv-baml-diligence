@@ -1,0 +1,116 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1007.8334170393646,
+      "ok": true,
+      "parsed": {
+        "category": "integration_failure",
+        "needs_human_review": true,
+        "rationale": "Webhook endpoint stopped receiving events; dashboard reports retries exhausted for 118 events and request to replay missing events. This indicates an integration/webhook delivery failure requiring engineering investigation and potential manual replay.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\"category\":\"integration_failure\",\"urgency\":\"high\",\"team\":\"engineering\",\"needs_human_review\":true,\"rationale\":\"Webhook endpoint stopped receiving events; dashboard reports retries exhausted for 118 events and request to replay missing events. This indicates an integration/webhook delivery failure requiring engineering investigation and potential manual replay.\"}",
+      "usage_metadata": {
+        "completion_tokens": 70,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 423,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 493
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3066.1125001497567,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi \u2014 thanks for reporting this. I\u2019m sorry for the disruption.\n\nBased on your description, your production order webhook endpoint isn\u2019t receiving events and the dashboard shows \u201cretries exhausted\u201d for 118 events. To investigate and determine what can be replayed, we\u2019ll need a few details so we can pinpoint the affected endpoint and the exact time window:\n\n1) The exact webhook endpoint/URL name (and confirmation it\u2019s the production environment).\n2) The approximate time when delivery stopped and when the retries were exhausted.\n3) Whether you\u2019re still receiving any webhook events normally (i.e., partial vs. total outage).\n4) The event IDs (or timestamps) for the 118 events if available in your dashboard.\n5) Any delivery failure details from the webhook endpoint logs (HTTP status codes/timeouts) or from the sending side.\n6) Confirmation of the sender identifier you use for these webhook calls (and any auth/signature headers involved), even if you didn\u2019t change anything.\n\nOnce we have this, we\u2019ll escalate to our engineering team to review the delivery/retry records and advise on the best way to re-trigger delivery for the missing events (if replay is supported for those event types).\n\nReply with the items above (even partial info is fine) and we\u2019ll take the next step right away.",
+        "promised_actions": [
+          "Escalate to the engineering team for investigation of the webhook delivery/retry records.",
+          "Review whether the missing events can be replayed based on the event type and delivery logs."
+        ],
+        "safety_notes": [
+          "Avoid promising replay or restoration without confirming feasibility.",
+          "Avoid claiming root cause; request minimum useful diagnostic details.",
+          "Acknowledge human review/escalation without stating resolution or SLA/legal outcomes."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\"draft_response\":\"Hi \u2014 thanks for reporting this. I\u2019m sorry for the disruption.\\n\\nBased on your description, your production order webhook endpoint isn\u2019t receiving events and the dashboard shows \u201cretries exhausted\u201d for 118 events. To investigate and determine what can be replayed, we\u2019ll need a few details so we can pinpoint the affected endpoint and the exact time window:\\n\\n1) The exact webhook endpoint/URL name (and confirmation it\u2019s the production environment).\\n2) The approximate time when delivery stopped and when the retries were exhausted.\\n3) Whether you\u2019re still receiving any webhook events normally (i.e., partial vs. total outage).\\n4) The event IDs (or timestamps) for the 118 events if available in your dashboard.\\n5) Any delivery failure details from the webhook endpoint logs (HTTP status codes/timeouts) or from the sending side.\\n6) Confirmation of the sender identifier you use for these webhook calls (and any auth/signature headers involved), even if you didn\u2019t change anything.\\n\\nOnce we have this, we\u2019ll escalate to our engineering team to review the delivery/retry records and advise on the best way to re-trigger delivery for the missing events (if replay is supported for those event types).\\n\\nReply with the items above (even partial info is fine) and we\u2019ll take the next step right away.\",\"tone\":\"escalation\",\"promised_actions\":[\"Escalate to the engineering team for investigation of the webhook delivery/retry records.\",\"Review whether the missing events can be replayed based on the event type and delivery logs.\"],\"safety_notes\":[\"Avoid promising replay or restoration without confirming feasibility.\",\"Avoid claiming root cause; request minimum useful diagnostic details.\",\"Acknowledge human review/escalation without stating resolution or SLA/legal outcomes.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 376,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 771,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1147
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2878.1617910135537,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Missing production order webhook events could prevent downstream processing that depends on those events, and the customer is requesting replay due to the integration delivery failure.",
+        "grounded_facts": [
+          "The order webhook endpoint has stopped receiving events from the customer\u2019s system.",
+          "The dashboard reports \u201cretries exhausted\u201d for 118 events.",
+          "The customer states they changed nothing on their side.",
+          "The customer requests the missing events be replayed if possible.",
+          "The ticket is classified as an integration_failure and needs human review."
+        ],
+        "missing_information": [
+          "Which specific webhook endpoint/URL and environment (production) are affected (exact endpoint name).",
+          "Time window when the webhook stopped receiving events and when retries were exhausted.",
+          "Whether any events are still being received normally (partial outage).",
+          "Payloads or event IDs for the 118 events, and whether replay is supported/enabled for these events.",
+          "Logs/trace details from the webhook endpoint or delivery provider showing failures (e.g., HTTP status codes, timeouts).",
+          "Confirmation of the \u201cyour system\u201d sender identifier and whether any credentials/signatures/authorization changed (even if customer says they changed nothing).",
+          "Expected behavior and SLA for webhook delivery/retry policy (to determine correct remediation steps)."
+        ],
+        "risk_signals": [
+          "Production order events not being delivered and retry attempts exhausted for 118 events.",
+          "Potential for order state desynchronization or missed processing due to missing webhook events.",
+          "Ambiguity about whether the issue is solely on the sender side vs. the webhook endpoint, since no changes were made on the customer\u2019s side."
+        ],
+        "summary": "The production order webhook endpoint stopped receiving events and the dashboard reports 118 events with retries exhausted, and the customer requests replay of the missing events if possible."
+      },
+      "raw_text": "{\"summary\":\"The production order webhook endpoint stopped receiving events and the dashboard reports 118 events with retries exhausted, and the customer requests replay of the missing events if possible.\",\"grounded_facts\":[\"The order webhook endpoint has stopped receiving events from the customer\u2019s system.\",\"The dashboard reports \u201cretries exhausted\u201d for 118 events.\",\"The customer states they changed nothing on their side.\",\"The customer requests the missing events be replayed if possible.\",\"The ticket is classified as an integration_failure and needs human review.\"],\"missing_information\":[\"Which specific webhook endpoint/URL and environment (production) are affected (exact endpoint name).\",\"Time window when the webhook stopped receiving events and when retries were exhausted.\",\"Whether any events are still being received normally (partial outage).\",\"Payloads or event IDs for the 118 events, and whether replay is supported/enabled for these events.\",\"Logs/trace details from the webhook endpoint or delivery provider showing failures (e.g., HTTP status codes, timeouts).\",\"Confirmation of the \u201cyour system\u201d sender identifier and whether any credentials/signatures/authorization changed (even if customer says they changed nothing).\",\"Expected behavior and SLA for webhook delivery/retry policy (to determine correct remediation steps).\"],\"customer_impact\":\"Missing production order webhook events could prevent downstream processing that depends on those events, and the customer is requesting replay due to the integration delivery failure.\",\"risk_signals\":[\"Production order events not being delivered and retry attempts exhausted for 118 events.\",\"Potential for order state desynchronization or missed processing due to missing webhook events.\",\"Ambiguity about whether the issue is solely on the sender side vs. the webhook endpoint, since no changes were made on the customer\u2019s side.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 350,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 350,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 700
+      }
+    }
+  },
+  "ticket_id": "T008"
+}

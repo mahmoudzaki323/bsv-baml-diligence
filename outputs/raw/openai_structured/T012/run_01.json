@@ -1,0 +1,108 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1018.5663339216262,
+      "ok": true,
+      "parsed": {
+        "category": "how_to",
+        "needs_human_review": false,
+        "rationale": "User is asking for instructions to rename a saved view and where to find the option/docs; no issue with system functioning is described.",
+        "team": "support",
+        "urgency": "low"
+      },
+      "raw_text": "{\"category\":\"how_to\",\"urgency\":\"low\",\"team\":\"support\",\"needs_human_review\":false,\"rationale\":\"User is asking for instructions to rename a saved view and where to find the option/docs; no issue with system functioning is described.\"}",
+      "usage_metadata": {
+        "completion_tokens": 59,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 419,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 478
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2230.262542143464,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi! Happy to point you in the right direction.\n\nSaved view renaming is typically done from the saved views/manage list (often via an action menu like **\u2026 / More** next to the view name, or a **Manage / Edit** option). Since the exact UI can vary by where the saved view lives (and by whether you\u2019re on Web vs. Desktop), could you share one quick detail so I can guide you precisely?\n\n1) What product area is this saved view in (e.g., Reports, Dashboard, Query results, etc.)?\n2) Are you using the **web app** or a **desktop** app?\n3) If you can, what screen are you currently on when you look for rename (and/or a screenshot)?\n\nOnce I have that, I\u2019ll reply with the exact menu path and the matching help-doc link. No rush\u2014whenever you can send those details.",
+        "promised_actions": [
+          "Provide the exact menu path to rename a saved view based on the customer\u2019s product area and platform.",
+          "Share the relevant help documentation link."
+        ],
+        "safety_notes": [
+          "Avoid claiming a specific UI path or doc link without knowing product area/platform; ask minimal clarifications to reduce ambiguity."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": "{\"draft_response\":\"Hi! Happy to point you in the right direction.\\n\\nSaved view renaming is typically done from the saved views/manage list (often via an action menu like **\u2026 / More** next to the view name, or a **Manage / Edit** option). Since the exact UI can vary by where the saved view lives (and by whether you\u2019re on Web vs. Desktop), could you share one quick detail so I can guide you precisely?\\n\\n1) What product area is this saved view in (e.g., Reports, Dashboard, Query results, etc.)?\\n2) Are you using the **web app** or a **desktop** app?\\n3) If you can, what screen are you currently on when you look for rename (and/or a screenshot)?\\n\\nOnce I have that, I\u2019ll reply with the exact menu path and the matching help-doc link. No rush\u2014whenever you can send those details.\",\"tone\":\"clarifying\",\"promised_actions\":[\"Provide the exact menu path to rename a saved view based on the customer\u2019s product area and platform.\",\"Share the relevant help documentation link.\"],\"safety_notes\":[\"Avoid claiming a specific UI path or doc link without knowing product area/platform; ask minimal clarifications to reduce ambiguity.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 269,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 613,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 882
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2497.3932078573853,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "User cannot correct a typo in the saved view name and needs guidance to locate the rename functionality.",
+        "grounded_facts": [
+          "Customer created a saved view with a typo in the name.",
+          "Customer cannot find a rename option for the saved view.",
+          "Customer is asking for the correct menu location or a docs page to rename the saved view.",
+          "Customer states there is no rush (low urgency)."
+        ],
+        "missing_information": [
+          "Product/app name and version or platform (e.g., web vs. desktop) where the saved view exists.",
+          "The exact location/UI where the customer is looking for the rename option (e.g., saved views list, dashboard, report view).",
+          "Screenshots or the current steps they\u2019ve tried to rename the saved view.",
+          "Whether the saved view is user-owned, shared, or system-provided (if that affects rename availability)."
+        ],
+        "risk_signals": [
+          "No operational or production issue is described; this appears to be usability/documentation-related rather than a failure."
+        ],
+        "summary": "Customer asks where they can find the option or documentation to rename a saved view because the saved view name contains a typo."
+      },
+      "raw_text": "{\"summary\":\"Customer asks where they can find the option or documentation to rename a saved view because the saved view name contains a typo.\",\"grounded_facts\":[\"Customer created a saved view with a typo in the name.\",\"Customer cannot find a rename option for the saved view.\",\"Customer is asking for the correct menu location or a docs page to rename the saved view.\",\"Customer states there is no rush (low urgency).\"],\"missing_information\":[\"Product/app name and version or platform (e.g., web vs. desktop) where the saved view exists.\",\"The exact location/UI where the customer is looking for the rename option (e.g., saved views list, dashboard, report view).\",\"Screenshots or the current steps they\u2019ve tried to rename the saved view.\",\"Whether the saved view is user-owned, shared, or system-provided (if that affects rename availability).\"],\"customer_impact\":\"User cannot correct a typo in the saved view name and needs guidance to locate the rename functionality.\",\"risk_signals\":[\"No operational or production issue is described; this appears to be usability/documentation-related rather than a failure.\" ]}",
+      "usage_metadata": {
+        "completion_tokens": 232,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 335,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 567
+      }
+    }
+  },
+  "ticket_id": "T012"
+}

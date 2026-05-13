@@ -1,0 +1,69 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1136.897583026439,
+      "ok": true,
+      "parsed": {
+        "category": "DATA_LOSS",
+        "needs_human_review": true,
+        "rationale": "User restored a deleted project within the retention window, but files and comments are still missing. Final deliverables are needed for a client launch on Monday, indicating important workflow impact.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2660.963833099231,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there \u2014 thanks for the details. I\u2019m sorry the restored project is still missing some files and comments, especially with a Monday launch deadline.\n\nWe\u2019ve escalated this as a potential incomplete restore case for human review. In the meantime, could you share the following so we can narrow down what\u2019s missing and prioritize the right recovery path:\n1) Project name/ID\n2) Approximate time of deletion (and the time you clicked restore, if you have it)\n3) The names or paths of 2\u20135 specific files/comments that did not come back\n4) Whether the project appears restored structurally (e.g., project exists) but content is missing, or if parts of the project are missing entirely\n\nOnce we have that, we\u2019ll investigate the restore results and advise on next steps as quickly as possible. ",
+        "promised_actions": [
+          "Escalate the issue for human review",
+          "Request the specific details needed to investigate the restore contents"
+        ],
+        "safety_notes": [
+          "Do not promise a full recovery or any refund.",
+          "Do not state root cause or certainty that any specific data can be recovered.",
+          "Avoid claiming an SLA or legal conclusion.",
+          "Acknowledge escalation without asserting resolution."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2238.3332909084857,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The missing project files and comments prevent access to final deliverables needed for a client launch scheduled for Monday, causing operational/workflow disruption for the user.",
+        "grounded_facts": [
+          "A user accidentally deleted a project yesterday.",
+          "The team clicked restore within the retention window.",
+          "After restore, several files are still missing.",
+          "After restore, several comments are still missing.",
+          "The project contains the final deliverables for a client launch on Monday.",
+          "The issue is classified as DATA_LOSS and requires human review."
+        ],
+        "missing_information": [],
+        "risk_signals": [
+          "Data loss classification",
+          "Restore did not fully recover expected content (files and comments)",
+          "High urgency due to a fixed Monday launch deadline",
+          "Ambiguity about why specific files/comments did not return after restore"
+        ],
+        "summary": "A user deleted a project yesterday and attempted to restore it within the retention window, but multiple files and comments are still missing and the project is needed for Monday\u2019s client launch deliverables."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T007"
+}

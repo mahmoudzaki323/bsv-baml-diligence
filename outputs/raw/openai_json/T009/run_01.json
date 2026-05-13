@@ -1,0 +1,113 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1589.3864170648158,
+      "ok": true,
+      "parsed": {
+        "category": "performance",
+        "needs_human_review": true,
+        "rationale": "After the last release, the analytics dashboard load time increased to 30\u201345 seconds from under 5 seconds; this impacts daily planning for 25 users, indicating a post-release performance regression.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"performance\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"After the last release, the analytics dashboard load time increased to 30\u201345 seconds from under 5 seconds; this impacts daily planning for 25 users, indicating a post-release performance regression.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 84,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 339,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 423
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 1455.0699999090284,
+      "ok": true,
+      "parsed": {
+        "draft_response": "clarifying_response",
+        "promised_actions": [
+          "Escalate this post-release performance regression to our engineering team for investigation.",
+          "Follow up with you once we\u2019ve reviewed the release and performance signals."
+        ],
+        "safety_notes": [
+          "Do not claim root cause or resolution; performance regressions require investigation.",
+          "Request minimal additional details to reproduce/triage (release version, measurement method, affected environment)."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"clarifying_response\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Escalate this post-release performance regression to our engineering team for investigation.\",\n    \"Follow up with you once we\u2019ve reviewed the release and performance signals.\"\n  ],\n  \"safety_notes\": [\n    \"Do not claim root cause or resolution; performance regressions require investigation.\",\n    \"Request minimal additional details to reproduce/triage (release version, measurement method, affected environment).\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 116,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 662,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 778
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2753.663874929771,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Operational slowdown for daily planning affecting 25 users due to increased dashboard load times.",
+        "grounded_facts": [
+          "Since the last release, the analytics dashboard takes 30 to 45 seconds to load.",
+          "Before the last release, the analytics dashboard loaded in under 5 seconds.",
+          "The app eventually loads.",
+          "This is slowing daily planning for 25 users.",
+          "The current classification is performance with needs_human_review set to true.",
+          "The ticket indicates the issue is a post-release change in load time."
+        ],
+        "missing_information": [
+          "The exact release version/date and what changed in that release.",
+          "Whether load time increase is consistent across all users or only specific sessions/regions/browsers/devices.",
+          "Whether server-side components, network, database, caching, or frontend changes are involved (any logs/metrics are not provided).",
+          "Current deployment topology and whether any scaling or infrastructure changes occurred with the release.",
+          "The method for measuring the 30\u201345 seconds (e.g., browser timing, server response time, or user-observed time).",
+          "Whether there are errors or only slow loading (no screenshots/errors/HTTP status details provided)."
+        ],
+        "risk_signals": [
+          "A significant post-release performance regression is indicated by load time increasing from under 5 seconds to 30\u201345 seconds."
+        ],
+        "summary": "After the last release, the analytics dashboard load time increased to about 30\u201345 seconds from under 5 seconds, though it eventually loads."
+      },
+      "raw_text": "{\n  \"summary\": \"After the last release, the analytics dashboard load time increased to about 30\u201345 seconds from under 5 seconds, though it eventually loads.\",\n  \"grounded_facts\": [\n    \"Since the last release, the analytics dashboard takes 30 to 45 seconds to load.\",\n    \"Before the last release, the analytics dashboard loaded in under 5 seconds.\",\n    \"The app eventually loads.\",\n    \"This is slowing daily planning for 25 users.\",\n    \"The current classification is performance with needs_human_review set to true.\",\n    \"The ticket indicates the issue is a post-release change in load time.\"\n  ],\n  \"missing_information\": [\n    \"The exact release version/date and what changed in that release.\",\n    \"Whether load time increase is consistent across all users or only specific sessions/regions/browsers/devices.\",\n    \"Whether server-side components, network, database, caching, or frontend changes are involved (any logs/metrics are not provided).\",\n    \"Current deployment topology and whether any scaling or infrastructure changes occurred with the release.\",\n    \"The method for measuring the 30\u201345 seconds (e.g., browser timing, server response time, or user-observed time).\",\n    \"Whether there are errors or only slow loading (no screenshots/errors/HTTP status details provided).\"\n  ],\n  \"customer_impact\": \"Operational slowdown for daily planning affecting 25 users due to increased dashboard load times.\",\n  \"risk_signals\": [\n    \"A significant post-release performance regression is indicated by load time increasing from under 5 seconds to 30\u201345 seconds.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 339,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 268,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 607
+      }
+    }
+  },
+  "ticket_id": "T009"
+}

@@ -15,6 +15,7 @@ from pydantic import BaseModel
 from .io_utils import require_openai_key
 
 T = TypeVar("T", bound=BaseModel)
+Message = dict[str, str]
 
 
 def client() -> str:
@@ -28,7 +29,7 @@ def client() -> str:
 def call_structured(
     api_key: str,
     model: str,
-    prompt: str,
+    prompt: str | list[Message],
     schema: type[T],
 ) -> tuple[T, str, float, dict[str, Any] | None]:
     start = time.perf_counter()
@@ -40,8 +41,8 @@ def call_structured(
             "type": "json_schema",
             "json_schema": {
                 "name": schema.__name__,
-                "schema": schema.model_json_schema(),
-                "strict": False,
+                "schema": _strict_json_schema(schema.model_json_schema()),
+                "strict": True,
             },
         },
     )
@@ -54,7 +55,7 @@ def call_structured(
 def call_json(
     api_key: str,
     model: str,
-    prompt: str,
+    prompt: str | list[Message],
     schema: type[T],
 ) -> tuple[T, str, float, dict[str, Any] | None]:
     start = time.perf_counter()
@@ -71,11 +72,12 @@ def call_json(
     return parsed, raw_text, latency_ms, response.get("usage")
 
 
-def _chat_completion(api_key: str, model: str, prompt: str, response_format: dict[str, Any]) -> dict[str, Any]:
+def _chat_completion(api_key: str, model: str, prompt: str | list[Message], response_format: dict[str, Any]) -> dict[str, Any]:
+    messages = prompt if isinstance(prompt, list) else [{"role": "user", "content": prompt}]
     payload = json.dumps(
         {
             "model": model,
-            "messages": [{"role": "user", "content": prompt}],
+            "messages": messages,
             "response_format": response_format,
         }
     ).encode("utf-8")
@@ -123,3 +125,29 @@ def _parse_json(raw_text: str) -> Any:
         return json.loads(raw_text[first : last + 1])
 
     raise ValueError("Model response did not contain parseable JSON.")
+
+
+def _strict_json_schema(schema: dict[str, Any]) -> dict[str, Any]:
+    """Make Pydantic JSON Schema acceptable for strict OpenAI structured outputs."""
+    cleaned = json.loads(json.dumps(schema))
+
+    def visit(node: Any) -> None:
+        if isinstance(node, dict):
+            if "$ref" in node:
+                ref = node["$ref"]
+                node.clear()
+                node["$ref"] = ref
+                return
+            if node.get("type") == "object":
+                node.setdefault("additionalProperties", False)
+                properties = node.get("properties")
+                if isinstance(properties, dict):
+                    node["required"] = list(properties.keys())
+            for value in node.values():
+                visit(value)
+        elif isinstance(node, list):
+            for item in node:
+                visit(item)
+
+    visit(cleaned)
+    return cleaned

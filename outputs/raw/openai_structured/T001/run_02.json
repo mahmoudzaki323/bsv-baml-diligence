@@ -1,0 +1,116 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1267.0499999076128,
+      "ok": true,
+      "parsed": {
+        "category": "bug",
+        "needs_human_review": true,
+        "rationale": "CSV export button on the invoice page started returning a 500 error; affects only that page. Finance requires a fix before Friday close, indicating time-sensitive impact.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\"category\":\"bug\",\"urgency\":\"high\",\"team\":\"engineering\",\"needs_human_review\":true,\"rationale\":\"CSV export button on the invoice page started returning a 500 error; affects only that page. Finance requires a fix before Friday close, indicating time-sensitive impact.\"}",
+      "usage_metadata": {
+        "completion_tokens": 64,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 433,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 497
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2985.031459014863,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi team\u2014thanks for the details. I\u2019m sorry for the disruption to your finance workflow.\n\nFrom what you shared, the CSV export button on the **invoice page** started returning a **500 error** this morning, and it appears to impact only that page (not customer exports). We\u2019ll escalate this to Engineering for investigation and to work toward a fix before Friday close.\n\nTo help us narrow down the cause quickly, could you please share the following (any that are available)?\n1) The **exact 500 error message/body** (or a screenshot) from the browser/network response\n2) Whether the failure is **consistent** or intermittent, and whether it happens in **production only** (or also in staging)\n3) Any **recent deployments/config changes** that occurred right before this started\n4) **Steps to reproduce** (e.g., which invoice(s) / any filters / how you select the invoice before clicking export)\n5) The **request ID** / timestamp / correlation ID from the failing attempt (from server/API logs if you have it, or from the browser network details)\n\nIn the meantime, thanks for confirming there\u2019s a manual workaround\u2014please continue using that for now, and we\u2019ll prioritize restoring the invoice-page export functionality.\n\nOnce Engineering has reviewed the logs/request details, we\u2019ll follow up with the next update on the fix status.",
+        "promised_actions": [
+          "Escalate the invoice-page CSV export 500 error to Engineering for investigation",
+          "Follow up with an update after Engineering reviews available logs/request details"
+        ],
+        "safety_notes": [
+          "Do not confirm root cause or provide an SLA; acknowledge escalation without promising resolution by Friday.",
+          "Request missing diagnostic details (error body, reproducibility, environment, request ID, timestamps) to support human review."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\"draft_response\":\"Hi team\u2014thanks for the details. I\u2019m sorry for the disruption to your finance workflow.\\n\\nFrom what you shared, the CSV export button on the **invoice page** started returning a **500 error** this morning, and it appears to impact only that page (not customer exports). We\u2019ll escalate this to Engineering for investigation and to work toward a fix before Friday close.\\n\\nTo help us narrow down the cause quickly, could you please share the following (any that are available)?\\n1) The **exact 500 error message/body** (or a screenshot) from the browser/network response\\n2) Whether the failure is **consistent** or intermittent, and whether it happens in **production only** (or also in staging)\\n3) Any **recent deployments/config changes** that occurred right before this started\\n4) **Steps to reproduce** (e.g., which invoice(s) / any filters / how you select the invoice before clicking export)\\n5) The **request ID** / timestamp / correlation ID from the failing attempt (from server/API logs if you have it, or from the browser network details)\\n\\nIn the meantime, thanks for confirming there\u2019s a manual workaround\u2014please continue using that for now, and we\u2019ll prioritize restoring the invoice-page export functionality.\\n\\nOnce Engineering has reviewed the logs/request details, we\u2019ll follow up with the next update on the fix status.\",\"tone\":\"escalation\",\"promised_actions\":[\"Escalate the invoice-page CSV export 500 error to Engineering for investigation\",\"Follow up with an update after Engineering reviews available logs/request details\"],\"safety_notes\":[\"Do not confirm root cause or provide an SLA; acknowledge escalation without promising resolution by Friday.\",\"Request missing diagnostic details (error body, reproducibility, environment, request ID, timestamps) to support human review.\" ]}",
+      "usage_metadata": {
+        "completion_tokens": 385,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 734,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1119
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2645.437041996047,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Finance cannot rely on CSV export from the invoice page and requires a fix before Friday close; current export can be worked around manually temporarily.",
+        "grounded_facts": [
+          "The CSV export button on the invoice page started returning a 500 error this morning.",
+          "The issue affects only the invoice page, not customer exports.",
+          "A manual workaround exists for now.",
+          "Finance needs the export issue fixed before Friday close.",
+          "The ticket is classified as a bug with high urgency and requires human review."
+        ],
+        "missing_information": [
+          "The exact error message/body or stack trace associated with the 500 response.",
+          "Whether the 500 happens consistently or intermittently and in all environments (prod/staging).",
+          "Whether any recent deployments/config changes occurred immediately before \u201cthis morning.\u201d",
+          "Steps to reproduce the issue on the invoice page (including any specific invoice conditions).",
+          "Whether logs/metrics (API logs, server logs, request IDs) are available for the failing export request.",
+          "Which endpoint/service handles the invoice CSV export.",
+          "Browser/client details or whether the workaround is consistent across users."
+        ],
+        "risk_signals": [
+          "Time-sensitive deadline: fix required before Friday close.",
+          "Production impact indicated by a 500 error on an operational finance workflow (invoice export).",
+          "Scope ambiguity reduced (affects only invoice page), but missing diagnostic details increase risk of prolonged downtime.",
+          "Potential operational delays for finance due to reliance on export functionality."
+        ],
+        "summary": "The CSV export button on the invoice page began returning a 500 error this morning, affecting only that page, and finance needs it fixed before Friday close."
+      },
+      "raw_text": "{\"summary\":\"The CSV export button on the invoice page began returning a 500 error this morning, affecting only that page, and finance needs it fixed before Friday close.\",\"grounded_facts\":[\"The CSV export button on the invoice page started returning a 500 error this morning.\",\"The issue affects only the invoice page, not customer exports.\",\"A manual workaround exists for now.\",\"Finance needs the export issue fixed before Friday close.\",\"The ticket is classified as a bug with high urgency and requires human review.\"],\"missing_information\":[\"The exact error message/body or stack trace associated with the 500 response.\",\"Whether the 500 happens consistently or intermittently and in all environments (prod/staging).\",\"Whether any recent deployments/config changes occurred immediately before \u201cthis morning.\u201d\",\"Steps to reproduce the issue on the invoice page (including any specific invoice conditions).\",\"Whether logs/metrics (API logs, server logs, request IDs) are available for the failing export request.\",\"Which endpoint/service handles the invoice CSV export.\",\"Browser/client details or whether the workaround is consistent across users.\"],\"customer_impact\":\"Finance cannot rely on CSV export from the invoice page and requires a fix before Friday close; current export can be worked around manually temporarily.\",\"risk_signals\":[\"Time-sensitive deadline: fix required before Friday close.\",\"Production impact indicated by a 500 error on an operational finance workflow (invoice export).\",\"Scope ambiguity reduced (affects only invoice page), but missing diagnostic details increase risk of prolonged downtime.\",\"Potential operational delays for finance due to reliance on export functionality.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 317,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 354,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 671
+      }
+    }
+  },
+  "ticket_id": "T001"
+}

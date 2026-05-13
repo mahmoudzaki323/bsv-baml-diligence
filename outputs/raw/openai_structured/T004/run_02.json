@@ -1,0 +1,114 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 854.0038750506938,
+      "ok": true,
+      "parsed": {
+        "category": "billing",
+        "needs_human_review": true,
+        "rationale": "Customer reports duplicate charges for the annual plan renewal and requests reversal and confirmation for which invoice to keep (INV-9031 and INV-9032).",
+        "team": "billing",
+        "urgency": "high"
+      },
+      "raw_text": "{\"category\":\"billing\",\"urgency\":\"high\",\"team\":\"billing\",\"needs_human_review\":true,\"rationale\":\"Customer reports duplicate charges for the annual plan renewal and requests reversal and confirmation for which invoice to keep (INV-9031 and INV-9032).\"}",
+      "usage_metadata": {
+        "completion_tokens": 62,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 428,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 490
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2973.0947089847177,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there \u2014 thanks for reporting this. I\u2019m sorry for the confusion and the additional accounting effort this has caused.\n\nI can see you were charged twice for your annual plan renewal on May 1, and you provided invoice numbers INV-9031 and INV-9032. To make sure we reverse the correct payment (and to confirm which invoice should remain in your records), we\u2019ll need to verify which card charge maps to which invoice in our billing system.\n\nCould you please reply with:\n1) The exact charge amounts and currency for INV-9031 and INV-9032 (or screenshots/receipts showing the amounts)\n2) The transaction IDs or the payment processor reference details for both charges (if available on your card statement)\n3) Which invoice you would like to keep (INV-9031 or INV-9032), if you have a preference\n4) Confirm whether both charges are already posted/settled or if one/both are still pending\n\nOnce we have that, we\u2019ll escalate to our Billing team to review the duplicate charges and proceed with the appropriate reversal. We\u2019ll follow up with confirmation on which invoice remains as the correct one for your accounting.",
+        "promised_actions": [
+          "Escalate to the Billing team to review the duplicate charges",
+          "Confirm which invoice should remain after verifying the charge-to-invoice mapping",
+          "Proceed with the appropriate reversal once we can match each charge to the correct invoice"
+        ],
+        "safety_notes": [
+          "Do not confirm reversal outcome until billing team verifies charge-to-invoice mapping.",
+          "Request minimum necessary details (amounts, transaction IDs/reference, posted vs pending, and which invoice to keep) to avoid incorrect reversal."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\"draft_response\":\"Hi there \u2014 thanks for reporting this. I\u2019m sorry for the confusion and the additional accounting effort this has caused.\\n\\nI can see you were charged twice for your annual plan renewal on May 1, and you provided invoice numbers INV-9031 and INV-9032. To make sure we reverse the correct payment (and to confirm which invoice should remain in your records), we\u2019ll need to verify which card charge maps to which invoice in our billing system.\\n\\nCould you please reply with:\\n1) The exact charge amounts and currency for INV-9031 and INV-9032 (or screenshots/receipts showing the amounts)\\n2) The transaction IDs or the payment processor reference details for both charges (if available on your card statement)\\n3) Which invoice you would like to keep (INV-9031 or INV-9032), if you have a preference\\n4) Confirm whether both charges are already posted/settled or if one/both are still pending\\n\\nOnce we have that, we\u2019ll escalate to our Billing team to review the duplicate charges and proceed with the appropriate reversal. We\u2019ll follow up with confirmation on which invoice remains as the correct one for your accounting.\",\"tone\":\"escalation\",\"promised_actions\":[\"Escalate to the Billing team to review the duplicate charges\",\"Confirm which invoice should remain after verifying the charge-to-invoice mapping\",\"Proceed with the appropriate reversal once we can match each charge to the correct invoice\"],\"safety_notes\":[\"Do not confirm reversal outcome until billing team verifies charge-to-invoice mapping.\",\"Request minimum necessary details (amounts, transaction IDs/reference, posted vs pending, and which invoice to keep) to avoid incorrect reversal.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 358,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 687,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1045
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2764.4217498600483,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Potential billing error causing customer financial impact and accounting reconciliation burden due to duplicate renewal charges.",
+        "grounded_facts": [
+          "Customer reports their card was charged twice for the annual plan renewal on May 1.",
+          "The two invoice numbers provided are INV-9031 and INV-9032.",
+          "Customer requests reversing one of the charges.",
+          "Customer requests confirmation of which invoice should remain in their accounting system."
+        ],
+        "missing_information": [
+          "The card charge/transaction IDs or amounts (to verify which charge maps to which invoice).",
+          "Whether both charges are pending or already completed/settled.",
+          "The currency and the exact charge amounts for INV-9031 and INV-9032.",
+          "Current status of each invoice in the system (paid/void/refunded) and the payment processor reference details.",
+          "Account identifier (customer ID/subscription ID) and the subscription/plan name tied to the renewal.",
+          "Whether the customer has a specific invoice they prefer to keep (INV-9031 vs INV-9032)."
+        ],
+        "risk_signals": [
+          "High urgency indicated by the ticket (duplicate charges requiring timely reversal).",
+          "Accounting reconciliation ambiguity (unclear which invoice should remain).",
+          "Potential risk of improper refund/reversal if invoice-to-transaction mapping is not confirmed."
+        ],
+        "summary": "The customer reports being charged twice for an annual plan renewal on May 1 and is requesting reversal of one charge and confirmation of which invoice to keep."
+      },
+      "raw_text": "{\"summary\":\"The customer reports being charged twice for an annual plan renewal on May 1 and is requesting reversal of one charge and confirmation of which invoice to keep.\",\"grounded_facts\":[\"Customer reports their card was charged twice for the annual plan renewal on May 1.\",\"The two invoice numbers provided are INV-9031 and INV-9032.\",\"Customer requests reversing one of the charges.\",\"Customer requests confirmation of which invoice should remain in their accounting system.\"],\"missing_information\":[\"The card charge/transaction IDs or amounts (to verify which charge maps to which invoice).\",\"Whether both charges are pending or already completed/settled.\",\"The currency and the exact charge amounts for INV-9031 and INV-9032.\",\"Current status of each invoice in the system (paid/void/refunded) and the payment processor reference details.\",\"Account identifier (customer ID/subscription ID) and the subscription/plan name tied to the renewal.\",\"Whether the customer has a specific invoice they prefer to keep (INV-9031 vs INV-9032).\"],\"customer_impact\":\"Potential billing error causing customer financial impact and accounting reconciliation burden due to duplicate renewal charges.\",\"risk_signals\":[\"High urgency indicated by the ticket (duplicate charges requiring timely reversal).\",\"Accounting reconciliation ambiguity (unclear which invoice should remain).\",\"Potential risk of improper refund/reversal if invoice-to-transaction mapping is not confirmed.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 288,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 348,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 636
+      }
+    }
+  },
+  "ticket_id": "T004"
+}

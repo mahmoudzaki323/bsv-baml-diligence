@@ -1,0 +1,73 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1332.7798338141292,
+      "ok": true,
+      "parsed": {
+        "category": "DATA_LOSS",
+        "needs_human_review": true,
+        "rationale": "User deleted a project and, despite restoring within the retention window, several files and comments are still missing; project contains final deliverables for a client launch on Monday. This indicates missing deleted data and potential unrecovered content, requiring human engineering review.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2950.5395831074566,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014thanks for reporting this. I\u2019m sorry the restore didn\u2019t bring back the expected files and comments, especially with a Monday deadline.\n\nWe\u2019ve escalated this to our engineering team for human review, since the project appears to be only partially recovered after using the restore option within the retention window.\n\nTo help engineering validate what\u2019s missing and what was restored, could you please share the following (as applicable)?\n1) Project identifier (project ID or link) and the account/user who deleted the project and clicked restore.\n2) Approximate deletion time (yesterday) and the exact restore time you clicked, including your time zone.\n3) Which items are missing\u2014file names/paths and comment identifiers or examples (even a short list is fine). Also confirm what is present vs. missing.\n4) Any errors/logs you saw during deletion/restore (screenshots or message text are helpful).\n\nIf you\u2019re able to, please also confirm where those missing files/comments should normally appear in the project (e.g., specific folders, sections, or activity views). Once we have the details above, engineering can investigate further and advise on next steps.",
+        "promised_actions": [
+          "Escalate the case to engineering for human review",
+          "Request specific details needed to investigate what was and wasn\u2019t restored"
+        ],
+        "safety_notes": [
+          "We cannot confirm recovery completeness or root cause based on the provided information, so we\u2019re asking for concrete restore/deletion timestamps and item-level details.",
+          "We are not promising a refund, guaranteeing data recovery, or stating an SLA.",
+          "We avoid any security-related conclusions; this is handled as a data restoration/recovery investigation."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3222.736082971096,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Potential data loss and inability to access required final deliverables for a client launch scheduled for Monday.",
+        "grounded_facts": [
+          "A user accidentally deleted a project yesterday.",
+          "The team clicked restore within the retention window.",
+          "Several files and comments are still missing after restore.",
+          "The project contains the final deliverables for a client launch on Monday.",
+          "The ticket is classified as DATA_LOSS and requires human review."
+        ],
+        "missing_information": [
+          "Which specific files and comments are missing (names/paths/counts)?",
+          "Whether any parts of the project were restored successfully (what is present vs. missing)?",
+          "The exact restore timestamp and the retention window details (start/end times and time zone).",
+          "The project identifier and the user/account who performed the deletion and restore.",
+          "Whether there were any errors or logs during deletion/restore (screenshots/log entries/API responses).",
+          "What storage scope is affected (e.g., project metadata vs. file contents) and where the missing items are expected to appear."
+        ],
+        "risk_signals": [
+          "DATA_LOSS classification with missing deleted content after restore",
+          "Time-sensitive operational impact due to Monday client launch",
+          "Ambiguity in restore completeness (partial or failed recovery implied)"
+        ],
+        "summary": "A user deleted a project yesterday, used the restore option within the retention window, but several files and comments are still missing\u2014while the project contains final deliverables needed for a client launch on Monday."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T007"
+}

@@ -1,0 +1,73 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1143.633957952261,
+      "ok": true,
+      "parsed": {
+        "category": "INTEGRATION_FAILURE",
+        "needs_human_review": true,
+        "rationale": "The ticket describes webhook events for production orders not being received, with the dashboard reporting 'retries exhausted for 118 events' and a request to replay missing events.",
+        "team": "ENGINEERING",
+        "urgency": "MEDIUM"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2570.324582979083,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Thanks for the details. I understand your production order webhook endpoint is no longer receiving events, and the dashboard shows \u201cretries exhausted\u201d for 118 events. Since you didn\u2019t change anything on your side, we\u2019ll need to investigate what happened and whether those specific events can be resent/replayed.\n\nTo help us move quickly, could you please share the following:\n1) The environment and exact webhook endpoint (URL/deployment name) that stopped receiving events.\n2) The time range when the events stopped and when the retries were marked exhausted.\n3) For the 118 failed items: the event types and any available identifiers (e.g., order IDs/event IDs) from the dashboard.\n4) Any error details shown for those failed webhook deliveries (if available beyond \u201cretries exhausted\u201d).\n\nOnce we have that, we can escalate to engineering to check the delivery/replay options for the affected events and advise on the next steps for restoring the missing processing.",
+        "promised_actions": [
+          "Escalate the case to engineering for investigation and to review replay/resent options for the affected events",
+          "Request the minimum additional details needed to identify the specific 118 failed events"
+        ],
+        "safety_notes": [
+          "No refund or resolution is promised.",
+          "No root cause is claimed since the customer reports no changes and details are missing.",
+          "We do not confirm that a replay is guaranteed until we review the provided event identifiers/time range and the available replay capabilities."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2530.8505001012236,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Production order webhook events were not received for 118 events, and the user is requesting replay of missing events to restore expected processing.",
+        "grounded_facts": [
+          "The order webhook endpoint has stopped receiving events from the user\u2019s system.",
+          "The dashboard indicates 'retries exhausted for 118 events'.",
+          "The user states they changed nothing on their side.",
+          "The user requests that the missing events be replayed if possible.",
+          "The issue is classified as INTEGRATION_FAILURE and needs human review."
+        ],
+        "missing_information": [
+          "Which webhook events are missing (event types and identifiers) for the 118 failed events.",
+          "The time range when the events stopped and when the retries were exhausted.",
+          "Any error details/logs from the webhook endpoint or the dashboard beyond 'retries exhausted'.",
+          "The current environment affected (e.g., which specific production order webhook endpoint URL or deployment).",
+          "Whether a replay mechanism exists on the sender/receiver side and how it should be invoked.",
+          "Whether there are affected downstream systems or customers tied to production orders for these events."
+        ],
+        "risk_signals": [
+          "Potential operational disruption due to missed production order events",
+          "Data/processing inconsistency risk if events are not replayed",
+          "Ambiguity in root cause since the user reports no changes on their side"
+        ],
+        "summary": "The ticket reports that the order webhook endpoint is no longer receiving events, with the dashboard showing 'retries exhausted for 118 events,' and requests replay of the missing production order events."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T008"
+}

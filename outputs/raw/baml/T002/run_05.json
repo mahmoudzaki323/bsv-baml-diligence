@@ -1,0 +1,77 @@
+{
+  "implementation": "baml",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1519.3920419551432,
+      "ok": true,
+      "parsed": {
+        "category": "INTEGRATION_FAILURE",
+        "needs_human_review": true,
+        "rationale": "After upgrading to v2.8, the Salesforce sync has been failing since yesterday with repeated auth token refresh errors, blocking reporting for about 40 enterprise customers and requiring help ASAP for a renewal call tomorrow.",
+        "team": "ENGINEERING",
+        "urgency": "HIGH"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2559.7091671079397,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there \u2014 thanks for the details. I\u2019m sorry you\u2019re seeing production sync failures after the v2.8 upgrade. Since you\u2019re getting repeated Salesforce auth token refresh errors and this is blocking reporting for ~40 enterprise customers, we will escalate this for immediate engineering review.\n\nTo help us zero in quickly (especially for your renewal call tomorrow), could you share the following minimum details:\n1) Which Salesforce sync/integration job(s) are failing (job name(s) or connector name), and whether it\u2019s production only.\n2) The exact auth token refresh error text from the logs (a few lines around the failure), ideally including the timestamp.\n3) Confirm whether it started immediately after the v2.8 upgrade or at a specific time after.\n4) For one affected tenant, whether the Salesforce credentials/auth connection were recently rotated/changed (if applicable).\n\nOnce we have those, engineering can review the logs and advise next steps. We\u2019ll also keep you updated as the investigation progresses.",
+        "promised_actions": [
+          "Escalate the issue to engineering for immediate review",
+          "Request the minimum log and job details needed to proceed"
+        ],
+        "safety_notes": [
+          "Did not promise a fix or refund, and did not claim root cause.",
+          "Acknowledged escalation without asserting resolution.",
+          "Requested specific, minimum clarifications to reduce ambiguity (job names, exact error text, timing, credential changes)."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3174.8739168979228,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Reporting is blocked for about 40 enterprise customers, impacting their ability to generate/report data.",
+        "grounded_facts": [
+          "The system was upgraded to v2.8 yesterday.",
+          "The Salesforce sync has been failing since the v2.8 upgrade.",
+          "Logs show repeated auth token refresh errors.",
+          "This issue is blocking reporting.",
+          "The reporting is blocked for about 40 enterprise customers.",
+          "A renewal call is scheduled for tomorrow and help is needed ASAP."
+        ],
+        "missing_information": [
+          "Which specific Salesforce integration/sync job(s) are failing",
+          "Exact error messages/stack traces from the logs (beyond 'auth token refresh errors')",
+          "Whether the failures started immediately after the upgrade or after a specific time",
+          "Whether all enterprise customers are affected or only a subset (beyond 'about 40')",
+          "Whether any recent configuration changes occurred alongside the v2.8 upgrade",
+          "Which environments are affected (production only or also staging/dev)",
+          "Current status of affected auth credentials/tokens (e.g., expired, rotated, revoked) for the affected tenants",
+          "Any troubleshooting steps already attempted and their results"
+        ],
+        "risk_signals": [
+          "Production impact (sync failing since upgrade)",
+          "High operational urgency due to a renewal call tomorrow and need for immediate help",
+          "Repeated authentication token refresh errors suggest an integration auth/credential issue",
+          "Potential security exposure/credential handling ambiguity due to auth-related failures (severity not specified in ticket)"
+        ],
+        "summary": "After upgrading to v2.8, the Salesforce sync has been failing since yesterday with repeated auth token refresh errors, blocking reporting for ~40 enterprise customers."
+      },
+      "raw_text": null,
+      "usage_metadata": null
+    }
+  },
+  "ticket_id": "T002"
+}

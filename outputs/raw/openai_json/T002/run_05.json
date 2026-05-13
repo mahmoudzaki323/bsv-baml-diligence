@@ -1,0 +1,116 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1433.8722499087453,
+      "ok": true,
+      "parsed": {
+        "category": "integration_failure",
+        "needs_human_review": true,
+        "rationale": "After upgrading to v2.8, Salesforce production sync has been failing since and logs show repeated auth token refresh errors, blocking reporting for ~40 enterprise customers.",
+        "team": "engineering",
+        "urgency": "critical"
+      },
+      "raw_text": "{\n  \"category\": \"integration_failure\",\n  \"urgency\": \"critical\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"After upgrading to v2.8, Salesforce production sync has been failing since and logs show repeated auth token refresh errors, blocking reporting for ~40 enterprise customers.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 78,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 338,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 416
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3102.0340831018984,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Thanks for the details\u2014and I\u2019m sorry this is impacting reporting for ~40 enterprise customers. Given that the Salesforce production sync started failing immediately after the v2.8 upgrade and the logs show repeated auth token refresh errors, we\u2019re treating this as a critical integration issue and will escalate to our engineering team to investigate the v2.8/auth-token refresh path.\n\nTo help us get to the right fix quickly, could you share the following from the failing sync logs?\n1) The exact auth token refresh error message(s) and any error codes (paste 5\u201310 representative lines).\n2) Whether this is failing for all Salesforce connections/tenants or only certain ones (please list the tenant names/org IDs or counts).\n3) The timestamp when failures began relative to the upgrade, and whether any Salesforce/OAuth credential/config changes were made during/after the upgrade.\n4) The affected environment details (prod vs sandbox, region, and whether you\u2019re syncing to Salesforce production only).\n\nIn parallel, our team will review your logs and the v2.8 changes around Salesforce sync and authentication. We\u2019ll follow up with what we find and the next steps to restore successful sync.",
+        "promised_actions": [
+          "Escalate the issue to engineering for investigation based on the v2.8 upgrade timing and auth token refresh errors",
+          "Review the provided logs and v2.8/auth-related changes once you share the requested log details",
+          "Follow up with next steps after engineering review"
+        ],
+        "safety_notes": [
+          "We cannot confirm root cause or resolution in this message; investigation is pending human review.",
+          "No warranty of recovery timing or SLA is implied."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Thanks for the details\u2014and I\u2019m sorry this is impacting reporting for ~40 enterprise customers. Given that the Salesforce production sync started failing immediately after the v2.8 upgrade and the logs show repeated auth token refresh errors, we\u2019re treating this as a critical integration issue and will escalate to our engineering team to investigate the v2.8/auth-token refresh path.\\n\\nTo help us get to the right fix quickly, could you share the following from the failing sync logs?\\n1) The exact auth token refresh error message(s) and any error codes (paste 5\u201310 representative lines).\\n2) Whether this is failing for all Salesforce connections/tenants or only certain ones (please list the tenant names/org IDs or counts).\\n3) The timestamp when failures began relative to the upgrade, and whether any Salesforce/OAuth credential/config changes were made during/after the upgrade.\\n4) The affected environment details (prod vs sandbox, region, and whether you\u2019re syncing to Salesforce production only).\\n\\nIn parallel, our team will review your logs and the v2.8 changes around Salesforce sync and authentication. We\u2019ll follow up with what we find and the next steps to restore successful sync.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Escalate the issue to engineering for investigation based on the v2.8 upgrade timing and auth token refresh errors\",\n    \"Review the provided logs and v2.8/auth-related changes once you share the requested log details\",\n    \"Follow up with next steps after engineering review\"\n  ],\n  \"safety_notes\": [\n    \"We cannot confirm root cause or resolution in this message; investigation is pending human review.\",\n    \"No warranty of recovery timing or SLA is implied.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 375,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 649,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1024
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3039.9827091023326,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Reporting is blocked for about 40 enterprise customers due to Salesforce production sync failures.",
+        "grounded_facts": [
+          "The system was upgraded to v2.8 yesterday.",
+          "The Salesforce production sync has been failing since the v2.8 upgrade.",
+          "Logs show repeated auth token refresh errors.",
+          "This issue is blocking reporting.",
+          "The reporting is blocked for about 40 enterprise customers."
+        ],
+        "missing_information": [
+          "Which specific integration/service/component the v2.8 upgrade affected (exact module or service name).",
+          "Exact error messages and error codes from the auth token refresh errors.",
+          "Whether the failures are occurring for all Salesforce connections/tenants or only a subset (including which ones).",
+          "Start time of the failure relative to the upgrade and whether any configuration changes were made during/after the upgrade.",
+          "Whether customer authentication/credentials or OAuth settings were changed around the same time as the upgrade.",
+          "Current status of retries/backoff and whether the job eventually recovers or fails continuously.",
+          "Any relevant environment details (prod vs sandbox, region, Salesforce instance type)."
+        ],
+        "risk_signals": [
+          "Repeated auth token refresh errors shown in logs.",
+          "Failure began immediately after the v2.8 upgrade.",
+          "Business impact is blocking reporting for about 40 enterprise customers."
+        ],
+        "summary": "After the v2.8 upgrade, the Salesforce production sync has been failing since yesterday with repeated auth token refresh errors, blocking reporting for about 40 enterprise customers."
+      },
+      "raw_text": "{\n  \"summary\": \"After the v2.8 upgrade, the Salesforce production sync has been failing since yesterday with repeated auth token refresh errors, blocking reporting for about 40 enterprise customers.\",\n  \"grounded_facts\": [\n    \"The system was upgraded to v2.8 yesterday.\",\n    \"The Salesforce production sync has been failing since the v2.8 upgrade.\",\n    \"Logs show repeated auth token refresh errors.\",\n    \"This issue is blocking reporting.\",\n    \"The reporting is blocked for about 40 enterprise customers.\"\n  ],\n  \"missing_information\": [\n    \"Which specific integration/service/component the v2.8 upgrade affected (exact module or service name).\",\n    \"Exact error messages and error codes from the auth token refresh errors.\",\n    \"Whether the failures are occurring for all Salesforce connections/tenants or only a subset (including which ones).\",\n    \"Start time of the failure relative to the upgrade and whether any configuration changes were made during/after the upgrade.\",\n    \"Whether customer authentication/credentials or OAuth settings were changed around the same time as the upgrade.\",\n    \"Current status of retries/backoff and whether the job eventually recovers or fails continuously.\",\n    \"Any relevant environment details (prod vs sandbox, region, Salesforce instance type).\"\n  ],\n  \"customer_impact\": \"Reporting is blocked for about 40 enterprise customers due to Salesforce production sync failures.\",\n  \"risk_signals\": [\n    \"Repeated auth token refresh errors shown in logs.\",\n    \"Failure began immediately after the v2.8 upgrade.\",\n    \"Business impact is blocking reporting for about 40 enterprise customers.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 337,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 260,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 597
+      }
+    }
+  },
+  "ticket_id": "T002"
+}

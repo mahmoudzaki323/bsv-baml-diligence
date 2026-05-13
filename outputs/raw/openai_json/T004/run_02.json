@@ -1,0 +1,111 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1237.5255420338362,
+      "ok": true,
+      "parsed": {
+        "category": "billing",
+        "needs_human_review": true,
+        "rationale": "Customer reports being charged twice for annual plan renewal (May 1) with two invoice numbers (INV-9031, INV-9032) and requests reversing one charge and confirming which invoice to keep.",
+        "team": "billing",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"billing\",\n  \"urgency\": \"high\",\n  \"team\": \"billing\",\n  \"needs_human_review\": true,\n  \"rationale\": \"Customer reports being charged twice for annual plan renewal (May 1) with two invoice numbers (INV-9031, INV-9032) and requests reversing one charge and confirming which invoice to keep.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 86,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 332,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 418
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2355.0491670612246,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there \u2014 I\u2019m sorry for the trouble. I understand you were charged twice for your annual plan renewal on May 1, and the two invoice numbers involved are INV-9031 and INV-9032. \n\nWe\u2019ve escalated this to our billing team to review the charges and determine which one can be reversed while keeping the correct invoice for your accounting.\n\nTo make sure we match the payments accurately, could you please share:\n1) The amounts for INV-9031 and INV-9032 (as shown on your invoice or billing email)\n2) The last 4 digits of the card that was charged (or the payment method identifier)\n3) Whether your bank/card statement shows both charges as fully posted/settled, or if one is pending\n\nOnce we have that, we\u2019ll follow up with confirmation of which invoice should remain on your side.",
+        "promised_actions": [
+          "Escalate the duplicate charge review to the billing team",
+          "Follow up with confirmation of which invoice should remain for your accounting after reviewing the provided details"
+        ],
+        "safety_notes": [
+          "Human review is required; response does not confirm which invoice will be reversed until billing team verifies the charges.",
+          "No refund promise or resolution guarantee is made; only escalation and follow-up are committed."
+        ],
+        "tone": "apologetic"
+      },
+      "raw_text": "{\n  \"draft_response\": \"apologetic\",\n  \"draft_response\": \"Hi there \u2014 I\u2019m sorry for the trouble. I understand you were charged twice for your annual plan renewal on May 1, and the two invoice numbers involved are INV-9031 and INV-9032. \\n\\nWe\u2019ve escalated this to our billing team to review the charges and determine which one can be reversed while keeping the correct invoice for your accounting.\\n\\nTo make sure we match the payments accurately, could you please share:\\n1) The amounts for INV-9031 and INV-9032 (as shown on your invoice or billing email)\\n2) The last 4 digits of the card that was charged (or the payment method identifier)\\n3) Whether your bank/card statement shows both charges as fully posted/settled, or if one is pending\\n\\nOnce we have that, we\u2019ll follow up with confirmation of which invoice should remain on your side.\",\n  \"tone\": \"apologetic\",\n  \"promised_actions\": [\n    \"Escalate the duplicate charge review to the billing team\",\n    \"Follow up with confirmation of which invoice should remain for your accounting after reviewing the provided details\"\n  ],\n  \"safety_notes\": [\n    \"Human review is required; response does not confirm which invoice will be reversed until billing team verifies the charges.\",\n    \"No refund promise or resolution guarantee is made; only escalation and follow-up are committed.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 309,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 633,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 942
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2970.077957957983,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The customer may have been overcharged and needs one charge reversed while ensuring their accounting system reflects the correct invoice.",
+        "grounded_facts": [
+          "The customer reports being charged twice for the annual plan renewal on May 1.",
+          "The invoice numbers associated with the charges are INV-9031 and INV-9032.",
+          "The customer requests reversing one of the charges.",
+          "The customer asks for confirmation of which invoice should remain in their accounting system."
+        ],
+        "missing_information": [
+          "The charge amounts for INV-9031 and INV-9032.",
+          "Which invoice charge should be reversed (customer preference or evidence).",
+          "The payment method details (e.g., card last 4, payment authorization IDs) to match charges accurately.",
+          "Whether both charges have been successfully captured/posted or if one is pending/voided.",
+          "Any subscription/account identifier tied to the May 1 annual renewal.",
+          "Whether the invoices are issued for the same billing period and what line items they include."
+        ],
+        "risk_signals": [
+          "Duplicate charging for the same annual plan renewal on May 1 with two invoice numbers (INV-9031 and INV-9032)."
+        ],
+        "summary": "The customer reports their card was charged twice for the annual plan renewal on May 1 and asks for one charge to be reversed, with confirmation of which invoice (INV-9031 or INV-9032) should remain."
+      },
+      "raw_text": "{\n  \"summary\": \"The customer reports their card was charged twice for the annual plan renewal on May 1 and asks for one charge to be reversed, with confirmation of which invoice (INV-9031 or INV-9032) should remain.\",\n  \"grounded_facts\": [\n    \"The customer reports being charged twice for the annual plan renewal on May 1.\",\n    \"The invoice numbers associated with the charges are INV-9031 and INV-9032.\",\n    \"The customer requests reversing one of the charges.\",\n    \"The customer asks for confirmation of which invoice should remain in their accounting system.\"\n  ],\n  \"missing_information\": [\n    \"The charge amounts for INV-9031 and INV-9032.\",\n    \"Which invoice charge should be reversed (customer preference or evidence).\",\n    \"The payment method details (e.g., card last 4, payment authorization IDs) to match charges accurately.\",\n    \"Whether both charges have been successfully captured/posted or if one is pending/voided.\",\n    \"Any subscription/account identifier tied to the May 1 annual renewal.\",\n    \"Whether the invoices are issued for the same billing period and what line items they include.\"\n  ],\n  \"customer_impact\": \"The customer may have been overcharged and needs one charge reversed while ensuring their accounting system reflects the correct invoice.\",\n  \"risk_signals\": [\n    \"Duplicate charging for the same annual plan renewal on May 1 with two invoice numbers (INV-9031 and INV-9032).\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 319,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 262,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 581
+      }
+    }
+  },
+  "ticket_id": "T004"
+}

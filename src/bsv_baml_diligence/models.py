@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os
 from enum import Enum
-from typing import Any
+from typing import Any, Literal
 
 os.environ.setdefault("PYDANTIC_DISABLE_PLUGINS", "1")
 
@@ -76,7 +76,7 @@ class TicketFacts(BaseModel):
 
 class DraftResponse(BaseModel):
     draft_response: str = Field(description="Customer-facing support reply that does not invent facts or overpromise")
-    tone: str = Field(description="One of: calm, apologetic, clarifying, escalation")
+    tone: Literal["calm", "apologetic", "clarifying", "escalation"] = Field(description="Tone used in the reply")
     promised_actions: list[str] = Field(description="Only actions safely promised by the response")
     safety_notes: list[str] = Field(description="Internal notes about uncertainty, escalation, or things not to claim")
 

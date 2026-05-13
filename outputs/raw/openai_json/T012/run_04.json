@@ -1,0 +1,108 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1003.9894999936223,
+      "ok": true,
+      "parsed": {
+        "category": "how_to",
+        "needs_human_review": false,
+        "rationale": "User requests guidance on where to find the option/docs to rename a saved view; this is a how-to question with no indication of an incident.",
+        "team": "support",
+        "urgency": "low"
+      },
+      "raw_text": "{\n  \"category\": \"how_to\",\n  \"urgency\": \"low\",\n  \"team\": \"support\",\n  \"needs_human_review\": false,\n  \"rationale\": \"User requests guidance on where to find the option/docs to rename a saved view; this is a how-to question with no indication of an incident.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 75,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 323,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 398
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3249.934291932732,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there\u2014happy to help. Renaming a saved view depends a bit on which product/module you\u2019re using and whether the view is personal or shared.\n\nCould you please confirm:\n1) Which application/product (and version, if shown) you\u2019re in\n2) Where you created the saved view (e.g., which page/section)\n3) Whether the view is personal or shared (if you see that option)\n4) (Optional) A screenshot of the saved view list/menu you\u2019re looking at\n\nOnce I have that, I\u2019ll point you to the exact menu path or the correct docs page for renaming the saved view.",
+        "promised_actions": [
+          "Provide the exact menu path or relevant documentation page once you confirm the product/module and view type"
+        ],
+        "safety_notes": [
+          "The UI for renaming saved views can vary by product/version and view scope; request minimal clarifications to avoid incorrect instructions.",
+          "No claims about resolution, refunds, or SLAs."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Hi there\u2014happy to help. Renaming a saved view depends a bit on which product/module you\u2019re using and whether the view is personal or shared.\\n\\nCould you please confirm:\\n1) Which application/product (and version, if shown) you\u2019re in\\n2) Where you created the saved view (e.g., which page/section)\\n3) Whether the view is personal or shared (if you see that option)\\n4) (Optional) A screenshot of the saved view list/menu you\u2019re looking at\\n\\nOnce I have that, I\u2019ll point you to the exact menu path or the correct docs page for renaming the saved view.\",\n  \"tone\": \"clarifying\",\n  \"promised_actions\": [\n    \"Provide the exact menu path or relevant documentation page once you confirm the product/module and view type\"\n  ],\n  \"safety_notes\": [\n    \"The UI for renaming saved views can vary by product/version and view scope; request minimal clarifications to avoid incorrect instructions.\",\n    \"No claims about resolution, refunds, or SLAs.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 236,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 761
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2014.8782499600202,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The customer is unable to correct a typo in the saved view name due to not finding the rename option.",
+        "grounded_facts": [
+          "The customer created a saved view with a typo in the name.",
+          "The customer cannot find the rename option.",
+          "The customer is asking to be pointed to the right menu or docs page to rename a saved view.",
+          "The customer indicated there is no rush."
+        ],
+        "missing_information": [
+          "Which application/product and version the customer is using.",
+          "Where the saved view is created (which page/feature/module).",
+          "Whether the saved view is personal vs shared (if applicable).",
+          "Any screenshots or the exact UI/menus the customer has already checked."
+        ],
+        "risk_signals": [
+          "User cannot locate the rename option (implies potential UI/documentation gap)."
+        ],
+        "summary": "The customer created a saved view with a typo and needs to know where the rename option is located or which documentation page explains how to rename it."
+      },
+      "raw_text": "{\n  \"summary\": \"The customer created a saved view with a typo and needs to know where the rename option is located or which documentation page explains how to rename it.\",\n  \"grounded_facts\": [\n    \"The customer created a saved view with a typo in the name.\",\n    \"The customer cannot find the rename option.\",\n    \"The customer is asking to be pointed to the right menu or docs page to rename a saved view.\",\n    \"The customer indicated there is no rush.\"\n  ],\n  \"missing_information\": [\n    \"Which application/product and version the customer is using.\",\n    \"Where the saved view is created (which page/feature/module).\",\n    \"Whether the saved view is personal vs shared (if applicable).\",\n    \"Any screenshots or the exact UI/menus the customer has already checked.\"\n  ],\n  \"customer_impact\": \"The customer is unable to correct a typo in the saved view name due to not finding the rename option.\",\n  \"risk_signals\": [\n    \"User cannot locate the rename option (implies potential UI/documentation gap).\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 231,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 242,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 473
+      }
+    }
+  },
+  "ticket_id": "T012"
+}

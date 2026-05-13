@@ -17,7 +17,7 @@ A three-step support ticket triage workflow:
 The same workflow is implemented three ways:
 
 1. `baml`: BAML typed functions using the OpenAI provider.
-2. `openai_structured`: Direct OpenAI Chat Completions call with `json_schema` structured output from the same Pydantic schema.
+2. `openai_structured`: Direct OpenAI Chat Completions call with strict `json_schema` structured output from the same Pydantic schema.
 3. `openai_json`: Direct OpenAI Chat Completions call with JSON mode and manual Pydantic validation.
 
 ## Why this is a useful BAML test
@@ -61,7 +61,7 @@ PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligen
 Generate comparison tables and charts:
 
 ```bash
-PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli report
+MPLBACKEND=Agg PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli report
 ```
 
 Outputs are written to:
@@ -72,12 +72,12 @@ Outputs are written to:
 
 ## Manual review
 
-Automated metrics are not enough for this diligence. Review the outputs and fill `docs/manual_review.csv` using `docs/scoring_rubric.md`.
+Automated metrics are not enough for this diligence. Review the outputs and fill `docs/manual_review.csv` using `docs/manual_review.template.csv` and `docs/scoring_rubric.md`.
 
 Then regenerate the report:
 
 ```bash
-PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli report
+MPLBACKEND=Agg PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m bsv_baml_diligence.cli report
 ```
 
 ## Charts
@@ -87,10 +87,27 @@ Charts are generated only from observed results, not arbitrary subjective scores
 - `schema_success_rate.png`
 - `expected_label_accuracy.png`
 - `latency_by_step.png`
-- `manual_failure_counts.png`
 - `label_match_by_ticket.png`
-- `workflow_success_by_ticket.png` is kept as a compatibility filename, but now shows average expected-label match rather than a brittle all-or-nothing workflow score.
 
-## Notes for the final writeup
+`manual_failure_counts.png` is generated only after a reviewer fills the manual review CSV.
 
-Use `FINDINGS.md` for running notes. Use `docs/google_doc_outline.md` as the Google Doc structure.
+## How to read the results
+
+This benchmark is a hands-on diligence artifact, not a definitive model leaderboard. It tests what it is like to build and inspect the same structured workflow through BAML and through direct OpenAI calls.
+
+The strict all-label score is intentionally not the headline metric. It marks a run wrong if any one of four labels differs from the locked expected label. That is useful for spotting disagreements, but it is too brittle for subjective support-ticket triage. The field-level label charts and the raw outputs are more useful for review.
+
+Implementation notes from the corrected run:
+
+- The direct structured-output baseline uses strict JSON schema mode.
+- The direct baselines use separate system and user messages to better match BAML's message structure.
+- The Pydantic draft-response schema matches BAML's tone constraint.
+- The strict schema path required a small schema normalizer because OpenAI rejects `$ref` fields with extra keywords such as field descriptions.
+
+Known limitations of the current run:
+
+- BAML prints richer prompt/rendering logs by default, while the direct OpenAI runners store more raw response metadata in JSON.
+- The expected labels are useful review targets, but some support-ticket labels are subjective.
+- The benchmark measures this workflow, not every BAML use case.
+
+Use the current results to evaluate BAML's developer workflow, schema reliability, generated client, and testing ergonomics. Do not treat the strict all-label score as a standalone product-quality score.

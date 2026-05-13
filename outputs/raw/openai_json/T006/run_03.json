@@ -1,0 +1,112 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 3,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 2612.0537919923663,
+      "ok": true,
+      "parsed": {
+        "category": "feature_request",
+        "needs_human_review": true,
+        "rationale": "Customer requests a new capability to schedule weekly exports to an S3 bucket instead of manual CSV downloads; stated as not blocking and helpful for time savings.",
+        "team": "support",
+        "urgency": "low"
+      },
+      "raw_text": "{\n  \"category\": \"feature_request\",\n  \"urgency\": \"low\",\n  \"team\": \"support\",\n  \"needs_human_review\": true,\n  \"rationale\": \"Customer requests a new capability to schedule weekly exports to an S3 bucket instead of manual CSV downloads; stated as not blocking and helpful for time savings.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 76,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 332,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 408
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2762.8494170494378,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Thanks for the suggestion\u2014scheduling exports directly to your S3 bucket sounds like it would definitely save time for your data team.\n\nTo help us route this to the right product owners and capture the requirements accurately, could you share a few details?\n1) Which export(s) are you looking to schedule (which dataset/table/reports in our product)?\n2) Preferred file format(s) (CSV only, or other formats as well)?\n3) Schedule configuration: what day/time and timezone should run, and do you need a simple weekly cadence or more control?\n4) S3 specifics: bucket name plus whether you have a desired object key/prefix (e.g., folder path), and your region.\n5) Auth/permissions approach: should the connection use your credentials (customer-managed) or another method you already use with us (if applicable)?\n6) Overwrite/versioning and naming: should each run overwrite a fixed object name, or create uniquely named files per run?\n7) Do you need any notifications or logging when exports succeed/fail?\n\nOnce we have these, we can confirm what\u2019s feasible and log this as a formal feature request for evaluation. Since you mentioned this isn\u2019t blocking, we\u2019ll align on next steps after review.",
+        "promised_actions": [
+          "Route the request to product owners for evaluation as a formal feature request",
+          "Use the details provided to confirm feasibility and align on next steps"
+        ],
+        "safety_notes": [
+          "Do not claim availability or delivery of the feature; only promise routing and review.",
+          "Avoid committing to timeline, SLA, or specific implementation details until requirements are reviewed by the product team."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Thanks for the suggestion\u2014scheduling exports directly to your S3 bucket sounds like it would definitely save time for your data team.\\n\\nTo help us route this to the right product owners and capture the requirements accurately, could you share a few details?\\n1) Which export(s) are you looking to schedule (which dataset/table/reports in our product)?\\n2) Preferred file format(s) (CSV only, or other formats as well)?\\n3) Schedule configuration: what day/time and timezone should run, and do you need a simple weekly cadence or more control?\\n4) S3 specifics: bucket name plus whether you have a desired object key/prefix (e.g., folder path), and your region.\\n5) Auth/permissions approach: should the connection use your credentials (customer-managed) or another method you already use with us (if applicable)?\\n6) Overwrite/versioning and naming: should each run overwrite a fixed object name, or create uniquely named files per run?\\n7) Do you need any notifications or logging when exports succeed/fail?\\n\\nOnce we have these, we can confirm what\u2019s feasible and log this as a formal feature request for evaluation. Since you mentioned this isn\u2019t blocking, we\u2019ll align on next steps after review.\",\n  \"tone\": \"clarifying\",\n  \"promised_actions\": [\n    \"Route the request to product owners for evaluation as a formal feature request\",\n    \"Use the details provided to confirm feasibility and align on next steps\"\n  ],\n  \"safety_notes\": [\n    \"Do not claim availability or delivery of the feature; only promise routing and review.\",\n    \"Avoid committing to timeline, SLA, or specific implementation details until requirements are reviewed by the product team.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 375,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 629,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1004
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2664.953500032425,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Operational time savings for the customer\u2019s data team by eliminating manual weekly CSV downloads and replacing them with scheduled exports to S3.",
+        "grounded_facts": [
+          "The customer wants scheduled weekly exports directly to their S3 bucket instead of downloading CSVs manually.",
+          "The customer says this is not blocking them.",
+          "The customer estimates it would save their data team a couple of hours each week."
+        ],
+        "missing_information": [
+          "Which product/service this export feature should be added to.",
+          "Whether the exports should be in CSV format or another format when sending to S3.",
+          "How the schedule should be configured (e.g., day/time, timezone, recurrence rules).",
+          "Whether exports should support multiple datasets/tables and any selection criteria.",
+          "S3 details required (bucket name is implied but not provided; need object path/prefix, region, and access method/credentials approach).",
+          "Whether any authentication/permissions workflow is required (e.g., customer-managed vs system-managed access).",
+          "Retention/overwrite behavior for objects in the S3 bucket (e.g., overwrite vs versioned, naming convention).",
+          "Whether the customer needs delivery guarantees and/or notifications on success/failure."
+        ],
+        "risk_signals": [
+          "None explicitly stated beyond the fact that the request is not blocking."
+        ],
+        "summary": "The customer requests the ability to schedule weekly exports directly to their S3 bucket rather than manually downloading CSVs."
+      },
+      "raw_text": "{\n  \"summary\": \"The customer requests the ability to schedule weekly exports directly to their S3 bucket rather than manually downloading CSVs.\",\n  \"grounded_facts\": [\n    \"The customer wants scheduled weekly exports directly to their S3 bucket instead of downloading CSVs manually.\",\n    \"The customer says this is not blocking them.\",\n    \"The customer estimates it would save their data team a couple of hours each week.\"\n  ],\n  \"missing_information\": [\n    \"Which product/service this export feature should be added to.\",\n    \"Whether the exports should be in CSV format or another format when sending to S3.\",\n    \"How the schedule should be configured (e.g., day/time, timezone, recurrence rules).\",\n    \"Whether exports should support multiple datasets/tables and any selection criteria.\",\n    \"S3 details required (bucket name is implied but not provided; need object path/prefix, region, and access method/credentials approach).\",\n    \"Whether any authentication/permissions workflow is required (e.g., customer-managed vs system-managed access).\",\n    \"Retention/overwrite behavior for objects in the S3 bucket (e.g., overwrite vs versioned, naming convention).\",\n    \"Whether the customer needs delivery guarantees and/or notifications on success/failure.\"\n  ],\n  \"customer_impact\": \"Operational time savings for the customer\u2019s data team by eliminating manual weekly CSV downloads and replacing them with scheduled exports to S3.\",\n  \"risk_signals\": [\n    \"None explicitly stated beyond the fact that the request is not blocking.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 322,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 252,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 574
+      }
+    }
+  },
+  "ticket_id": "T006"
+}

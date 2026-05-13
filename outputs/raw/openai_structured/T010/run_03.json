@@ -1,0 +1,118 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 3,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1036.0234580002725,
+      "ok": true,
+      "parsed": {
+        "category": "account_access",
+        "needs_human_review": true,
+        "rationale": "User reports a newly invited analyst receives an 'access denied' message after accepting the invite, while other users can log in normally; appears to be an access/account issue requiring support intervention.",
+        "team": "support",
+        "urgency": "high"
+      },
+      "raw_text": "{\"category\":\"account_access\",\"urgency\":\"high\",\"team\":\"support\",\"needs_human_review\":true,\"rationale\":\"User reports a newly invited analyst receives an 'access denied' message after accepting the invite, while other users can log in normally; appears to be an access/account issue requiring support intervention.\"}",
+      "usage_metadata": {
+        "completion_tokens": 70,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 420,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 490
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3168.6318749561906,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi team \u2014 sorry about the access issue. I can help get this investigated, but I\u2019ll need a couple details to pinpoint why the newly invited analyst is blocked.\n\nIn the meantime, please reply with:\n1) Workspace details: workspace name and URL (or tenant/org identifier).\n2) Analyst identity: the email address (or username) that accepted the invite.\n3) The exact error: the full \u201caccess denied\u201d message text (and any error code), or a screenshot.\n4) Confirm scope: is the analyst able to log in to the platform at all, or do they fail only when opening the workspace?\n5) Invite configuration: what role/group/team permissions were assigned during the invite (if you know).\n\nOnce we have that, we\u2019ll escalate to the team who can review invite/workspace access configuration and get the analyst access working as soon as possible today.",
+        "promised_actions": [
+          "Escalate the ticket to the appropriate support/human reviewer team to review invite/workspace access configuration.",
+          "Work with you to collect the missing details needed to diagnose the access denied error and restore workspace access today."
+        ],
+        "safety_notes": [
+          "Avoid claiming a specific root cause or resolution timeline beyond 'as soon as possible today.'",
+          "Do not promise a refund or provide legal/SLA commitments.",
+          "Request minimal useful clarifications (workspace, user identity, exact error, whether login works generally, invite role/permissions)."
+        ],
+        "tone": "clarifying"
+      },
+      "raw_text": "{\"draft_response\":\"Hi team \u2014 sorry about the access issue. I can help get this investigated, but I\u2019ll need a couple details to pinpoint why the newly invited analyst is blocked.\\n\\nIn the meantime, please reply with:\\n1) Workspace details: workspace name and URL (or tenant/org identifier).\\n2) Analyst identity: the email address (or username) that accepted the invite.\\n3) The exact error: the full \u201caccess denied\u201d message text (and any error code), or a screenshot.\\n4) Confirm scope: is the analyst able to log in to the platform at all, or do they fail only when opening the workspace?\\n5) Invite configuration: what role/group/team permissions were assigned during the invite (if you know).\\n\\nOnce we have that, we\u2019ll escalate to the team who can review invite/workspace access configuration and get the analyst access working as soon as possible today.\",\"tone\":\"clarifying\",\"promised_actions\":[\"Escalate the ticket to the appropriate support/human reviewer team to review invite/workspace access configuration.\",\"Work with you to collect the missing details needed to diagnose the access denied error and restore workspace access today.\"],\"safety_notes\":[\"Avoid claiming a specific root cause or resolution timeline beyond 'as soon as possible today.'\",\"Do not promise a refund or provide legal/SLA commitments.\",\"Request minimal useful clarifications (workspace, user identity, exact error, whether login works generally, invite role/permissions).\"]}",
+      "usage_metadata": {
+        "completion_tokens": 308,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 755,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1063
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3283.449999988079,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "The new analyst cannot access the workspace after accepting the invite, blocking their ability to work; urgency is noted as high for restoring access today.",
+        "grounded_facts": [
+          "A new analyst was invited yesterday.",
+          "The analyst accepts the invite.",
+          "After accepting, the analyst receives an \u201caccess denied\u201d message.",
+          "Other users can log in normally.",
+          "The request is to get the analyst into the workspace today.",
+          "Ticket category is account_access.",
+          "The ticket is marked needs_human_review as an access/account issue."
+        ],
+        "missing_information": [
+          "Which workspace/application is affected (name/URL/tenant)?",
+          "Exact text of the \u201caccess denied\u201d message and any error code/screenshot/log details.",
+          "How the invite was sent (role assigned, group/team membership, permissions/plan)?",
+          "Whether the analyst has been able to log in to the platform at all, or only fails on workspace access.",
+          "Any recent changes to workspace permissions, SSO settings, or role policies since the invite was created.",
+          "Identity details of the analyst (email/username) and whether the invite is still pending or marked accepted in the admin/invite system.",
+          "Time of access failure (relative to invite acceptance) and whether it is reproducible. "
+        ],
+        "risk_signals": [
+          "Potential misconfigured access permissions for invited users (ambiguity around root cause).",
+          "Time sensitivity indicated by request to resolve today.",
+          "\u201cAccess denied\u201d during onboarding may cause delays and operational disruption for the analyst team."
+        ],
+        "summary": "A newly invited analyst accepts the invite but receives an \u201caccess denied\u201d message and cannot access the workspace, while other users can log in normally."
+      },
+      "raw_text": "{\"summary\":\"A newly invited analyst accepts the invite but receives an \u201caccess denied\u201d message and cannot access the workspace, while other users can log in normally.\",\"grounded_facts\":[\"A new analyst was invited yesterday.\",\"The analyst accepts the invite.\",\"After accepting, the analyst receives an \u201caccess denied\u201d message.\",\"Other users can log in normally.\",\"The request is to get the analyst into the workspace today.\",\"Ticket category is account_access.\",\"The ticket is marked needs_human_review as an access/account issue.\"],\"missing_information\":[\"Which workspace/application is affected (name/URL/tenant)?\",\"Exact text of the \u201caccess denied\u201d message and any error code/screenshot/log details.\",\"How the invite was sent (role assigned, group/team membership, permissions/plan)?\",\"Whether the analyst has been able to log in to the platform at all, or only fails on workspace access.\",\"Any recent changes to workspace permissions, SSO settings, or role policies since the invite was created.\",\"Identity details of the analyst (email/username) and whether the invite is still pending or marked accepted in the admin/invite system.\",\"Time of access failure (relative to invite acceptance) and whether it is reproducible. \"],\"customer_impact\":\"The new analyst cannot access the workspace after accepting the invite, blocking their ability to work; urgency is noted as high for restoring access today.\",\"risk_signals\":[\"Potential misconfigured access permissions for invited users (ambiguity around root cause).\",\"Time sensitivity indicated by request to resolve today.\",\"\u201cAccess denied\u201d during onboarding may cause delays and operational disruption for the analyst team.\" ]}",
+      "usage_metadata": {
+        "completion_tokens": 330,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 347,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 677
+      }
+    }
+  },
+  "ticket_id": "T010"
+}

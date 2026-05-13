@@ -1,0 +1,116 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 2,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1019.0677079372108,
+      "ok": true,
+      "parsed": {
+        "category": "data_loss",
+        "needs_human_review": true,
+        "rationale": "User reports a project was deleted and restored within the retention window, but files and comments remain missing; missing deliverables for a client launch on Monday indicate potential incomplete restore/data loss requiring human review.",
+        "team": "support",
+        "urgency": "critical"
+      },
+      "raw_text": "{\"category\":\"data_loss\",\"urgency\":\"critical\",\"team\":\"support\",\"needs_human_review\":true,\"rationale\":\"User reports a project was deleted and restored within the retention window, but files and comments remain missing; missing deliverables for a client launch on Monday indicate potential incomplete restore/data loss requiring human review.\"}",
+      "usage_metadata": {
+        "completion_tokens": 72,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 423,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 495
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3187.4837500508875,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi there \u2014 I\u2019m sorry this is happening, especially with a Monday client launch deadline.\n\nBased on what you shared, the project was deleted and then restored within the retention window, but some files and comments are still missing. That does sound like an incomplete/partial restore outcome, and this will require human review on our side.\n\nTo help our team investigate quickly, could you reply with the following details?\n1) The project identifier (project name and/or project ID)\n2) Which items are missing (how many files/comments, and any filenames/comment text you can list)\n3) The exact delete and restore times (approximate is okay if you don\u2019t have exact timestamps)\n4) Whether the restore page/status shows \u201ccompleted\u201d (and any message shown)\n5) Any errors you observed during restore (screenshots or the exact wording if available)\n6) Confirm the affected platform/workspace (e.g., which product/service/environment) and where you performed the restore\n\nOnce we have that, we\u2019ll escalate to the appropriate team to review the restore logs/asset state and advise on next steps as soon as possible.\n\nIf you can share the project ID and a short list of the missing deliverables first, that will let us prioritize immediately.",
+        "promised_actions": [
+          "Acknowledge escalation for human review",
+          "Request the minimum details needed to investigate the missing files/comments after restore"
+        ],
+        "safety_notes": [
+          "Do not promise a fix or recovery outcome",
+          "Do not confirm root cause",
+          "Do not mention refund or SLA",
+          "Acknowledge escalation without claiming resolution"
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\"draft_response\":\"Hi there \u2014 I\u2019m sorry this is happening, especially with a Monday client launch deadline.\\n\\nBased on what you shared, the project was deleted and then restored within the retention window, but some files and comments are still missing. That does sound like an incomplete/partial restore outcome, and this will require human review on our side.\\n\\nTo help our team investigate quickly, could you reply with the following details?\\n1) The project identifier (project name and/or project ID)\\n2) Which items are missing (how many files/comments, and any filenames/comment text you can list)\\n3) The exact delete and restore times (approximate is okay if you don\u2019t have exact timestamps)\\n4) Whether the restore page/status shows \u201ccompleted\u201d (and any message shown)\\n5) Any errors you observed during restore (screenshots or the exact wording if available)\\n6) Confirm the affected platform/workspace (e.g., which product/service/environment) and where you performed the restore\\n\\nOnce we have that, we\u2019ll escalate to the appropriate team to review the restore logs/asset state and advise on next steps as soon as possible.\\n\\nIf you can share the project ID and a short list of the missing deliverables first, that will let us prioritize immediately.\",\"tone\":\"escalation\",\"promised_actions\":[\"Acknowledge escalation for human review\",\"Request the minimum details needed to investigate the missing files/comments after restore\"],\"safety_notes\":[\"Do not promise a fix or recovery outcome\",\"Do not confirm root cause\",\"Do not mention refund or SLA\",\"Acknowledge escalation without claiming resolution\"]}",
+      "usage_metadata": {
+        "completion_tokens": 342,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 693,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1035
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2385.7241249643266,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Customer deliverables for a client launch on Monday are missing, creating time-sensitive operational impact and likely blocking the launch.",
+        "grounded_facts": [
+          "A user accidentally deleted a project yesterday.",
+          "Support clicked restore within the retention window.",
+          "After restore, several files and comments are still missing.",
+          "The project contains the final deliverables for a client launch on Monday."
+        ],
+        "missing_information": [
+          "Which project (name/ID) is affected.",
+          "How many files/comments are missing and which ones (list or count).",
+          "Whether restore status/completion indicators are available and what they show.",
+          "Timestamps/details of deletion and restore (exact times).",
+          "Whether any related errors/logs were observed during restore.",
+          "What platform/system this refers to (e.g., product/service name) and where the restore was performed.",
+          "Whether other project components (e.g., metadata, attachments) are also missing or only files/comments."
+        ],
+        "risk_signals": [
+          "Indicates potential incomplete restore/data loss despite restoring within the retention window.",
+          "Critical timing: missing final deliverables required for a client launch on Monday.",
+          "Ambiguity: deletion-to-restore process succeeded at some level (restore initiated) but results are still incomplete (files/comments missing)."
+        ],
+        "summary": "A user deleted a project yesterday, restored it within the retention window, but multiple files and comments are still missing, including final deliverables needed for a client launch on Monday."
+      },
+      "raw_text": "{\"summary\":\"A user deleted a project yesterday, restored it within the retention window, but multiple files and comments are still missing, including final deliverables needed for a client launch on Monday.\",\"grounded_facts\":[\"A user accidentally deleted a project yesterday.\",\"Support clicked restore within the retention window.\",\"After restore, several files and comments are still missing.\",\"The project contains the final deliverables for a client launch on Monday.\"],\"missing_information\":[\"Which project (name/ID) is affected.\",\"How many files/comments are missing and which ones (list or count).\",\"Whether restore status/completion indicators are available and what they show.\",\"Timestamps/details of deletion and restore (exact times).\",\"Whether any related errors/logs were observed during restore.\",\"What platform/system this refers to (e.g., product/service name) and where the restore was performed.\",\"Whether other project components (e.g., metadata, attachments) are also missing or only files/comments.\"],\"customer_impact\":\"Customer deliverables for a client launch on Monday are missing, creating time-sensitive operational impact and likely blocking the launch.\",\"risk_signals\":[\"Indicates potential incomplete restore/data loss despite restoring within the retention window.\",\"Critical timing: missing final deliverables required for a client launch on Monday.\",\"Ambiguity: deletion-to-restore process succeeded at some level (restore initiated) but results are still incomplete (files/comments missing).\"]}",
+      "usage_metadata": {
+        "completion_tokens": 287,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 352,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 639
+      }
+    }
+  },
+  "ticket_id": "T007"
+}

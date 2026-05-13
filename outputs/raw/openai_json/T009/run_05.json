@@ -1,0 +1,112 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1123.141541145742,
+      "ok": true,
+      "parsed": {
+        "category": "performance",
+        "needs_human_review": true,
+        "rationale": "After the last release, the analytics dashboard load time increased to 30\u201345 seconds from under 5 seconds; this is impacting daily planning for 25 users, though the app eventually loads.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"performance\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"After the last release, the analytics dashboard load time increased to 30\u201345 seconds from under 5 seconds; this is impacting daily planning for 25 users, though the app eventually loads.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 84,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 339,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 423
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2844.8968750890344,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Thanks for reporting this\u2014sorry for the impact to your operations team. A jump from ~under 5 seconds to ~30\u201345 seconds after the last release is a significant regression.\n\nWe\u2019ve escalated this to our engineering team to investigate. To help them narrow down what changed and where the time is being spent, could you share the following:\n1) The date/time (and release version/build if available) of the \u201clast release.\u201d\n2) Whether the slowdown is on the entire analytics dashboard or only specific pages/views.\n3) How you\u2019re measuring the 30\u201345 seconds (e.g., time to first render, time to fully interactive, or time until the data finishes loading).\n4) Any browser/client details for affected users (browser + version, and whether it\u2019s consistent across all users/locations).\n5) If possible, a screenshot or a short copy of any errors you see during the slow load, plus any relevant logs/console/network info.\n\nOnce we have these, we\u2019ll continue the investigation and update you on our findings.",
+        "promised_actions": [
+          "We will escalate this performance regression to our engineering team for investigation.",
+          "We will review additional details you provide (timing, affected pages, and measurable metrics) to narrow down what changed after the last release."
+        ],
+        "safety_notes": [
+          "Customer reports a post-release performance regression (under 5s to 30\u201345s). Human review/engineering escalation is needed and cannot be resolved or root-caused here.",
+          "Requesting minimal additional details (release version/date, which pages/features, metric definition, and any logs/screenshots) to proceed."
+        ],
+        "tone": "apologetic"
+      },
+      "raw_text": "{\n  \"draft_response\": \"apologetic\",\n  \"tone\": \"apologetic\",\n  \"promised_actions\": [\n    \"We will escalate this performance regression to our engineering team for investigation.\",\n    \"We will review additional details you provide (timing, affected pages, and measurable metrics) to narrow down what changed after the last release.\"\n  ],\n  \"safety_notes\": [\n    \"Customer reports a post-release performance regression (under 5s to 30\u201345s). Human review/engineering escalation is needed and cannot be resolved or root-caused here.\",\n    \"Requesting minimal additional details (release version/date, which pages/features, metric definition, and any logs/screenshots) to proceed.\"\n  ],\n  \"draft_response\": \"Thanks for reporting this\u2014sorry for the impact to your operations team. A jump from ~under 5 seconds to ~30\u201345 seconds after the last release is a significant regression.\\n\\nWe\u2019ve escalated this to our engineering team to investigate. To help them narrow down what changed and where the time is being spent, could you share the following:\\n1) The date/time (and release version/build if available) of the \u201clast release.\u201d\\n2) Whether the slowdown is on the entire analytics dashboard or only specific pages/views.\\n3) How you\u2019re measuring the 30\u201345 seconds (e.g., time to first render, time to fully interactive, or time until the data finishes loading).\\n4) Any browser/client details for affected users (browser + version, and whether it\u2019s consistent across all users/locations).\\n5) If possible, a screenshot or a short copy of any errors you see during the slow load, plus any relevant logs/console/network info.\\n\\nOnce we have these, we\u2019ll continue the investigation and update you on our findings.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 384,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 654,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1038
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2749.760374892503,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Operations users experience significantly slower analytics dashboard loading (30\u201345 seconds vs under 5 seconds), which slows daily planning for 25 users.",
+        "grounded_facts": [
+          "Since the last release, the analytics dashboard takes 30 to 45 seconds to load.",
+          "Previously, the analytics dashboard loaded in under 5 seconds.",
+          "The app eventually loads.",
+          "The issue is slowing daily planning for 25 users in the operations team."
+        ],
+        "missing_information": [
+          "The specific date/time or version details of the last release.",
+          "Whether the performance regression affects all dashboard pages and features or only specific views.",
+          "Whether the 30\u201345 second load time is consistent across all users and locations or varies.",
+          "What load time metric is being measured (e.g., time to first render, time to fully interactive, time to data complete).",
+          "Any error messages, logs, or network/backend metrics observed during the slow loads.",
+          "Browser/client environment details (browser type/version, device type) for affected users.",
+          "Server-side and database performance indicators (CPU/memory/disk, query times) during the affected window."
+        ],
+        "risk_signals": [
+          "A major post-release performance regression (under 5 seconds to 30\u201345 seconds) is explicitly reported."
+        ],
+        "summary": "After the last release, the analytics dashboard load time increased to 30\u201345 seconds from under 5 seconds and is impacting daily planning for 25 operations users."
+      },
+      "raw_text": "{\n  \"summary\": \"After the last release, the analytics dashboard load time increased to 30\u201345 seconds from under 5 seconds and is impacting daily planning for 25 operations users.\",\n  \"grounded_facts\": [\n    \"Since the last release, the analytics dashboard takes 30 to 45 seconds to load.\",\n    \"Previously, the analytics dashboard loaded in under 5 seconds.\",\n    \"The app eventually loads.\",\n    \"The issue is slowing daily planning for 25 users in the operations team.\"\n  ],\n  \"missing_information\": [\n    \"The specific date/time or version details of the last release.\",\n    \"Whether the performance regression affects all dashboard pages and features or only specific views.\",\n    \"Whether the 30\u201345 second load time is consistent across all users and locations or varies.\",\n    \"What load time metric is being measured (e.g., time to first render, time to fully interactive, time to data complete).\",\n    \"Any error messages, logs, or network/backend metrics observed during the slow loads.\",\n    \"Browser/client environment details (browser type/version, device type) for affected users.\",\n    \"Server-side and database performance indicators (CPU/memory/disk, query times) during the affected window.\"\n  ],\n  \"customer_impact\": \"Operations users experience significantly slower analytics dashboard loading (30\u201345 seconds vs under 5 seconds), which slows daily planning for 25 users.\",\n  \"risk_signals\": [\n    \"A major post-release performance regression (under 5 seconds to 30\u201345 seconds) is explicitly reported.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 330,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 268,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 598
+      }
+    }
+  },
+  "ticket_id": "T009"
+}

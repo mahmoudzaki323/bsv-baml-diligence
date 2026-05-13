@@ -1,0 +1,121 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 5,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1182.055165991187,
+      "ok": true,
+      "parsed": {
+        "category": "integration_failure",
+        "needs_human_review": true,
+        "rationale": "After upgrading to v2.8, Salesforce sync started failing and logs show repeated auth token refresh errors, blocking reporting for ~40 enterprise customers.",
+        "team": "engineering",
+        "urgency": "critical"
+      },
+      "raw_text": "{\"category\":\"integration_failure\",\"urgency\":\"critical\",\"team\":\"engineering\",\"needs_human_review\":true,\"rationale\":\"After upgrading to v2.8, Salesforce sync started failing and logs show repeated auth token refresh errors, blocking reporting for ~40 enterprise customers.\"}",
+      "usage_metadata": {
+        "completion_tokens": 62,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 434,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 496
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3119.360457872972,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi\u2014thanks for the details, and I\u2019m sorry this is impacting reporting for ~40 enterprise customers after the v2.8 upgrade.\n\nWe\u2019ve escalated this to our engineering team for urgent review, since your logs indicate repeated Salesforce auth token refresh errors starting right after the upgrade.\n\nTo help us move quickly, could you paste the following from the logs (exact text/error codes) and confirm the scope?\n1) The exact auth token refresh error messages (including any error codes) and one or two representative log entries.\n2) Where these logs are located (job name/integration name, environment/instance) and the time range (timestamps, and whether it\u2019s all day since the upgrade).\n3) Whether **all** Salesforce sync jobs are failing or only certain accounts/objects.\n4) Any Salesforce/OAuth-related configuration changes you made during/after the upgrade (credentials, connected app settings, scopes, schedules).\n\nIf you can share screenshots/exports of the relevant log lines, that\u2019s perfect.\n\nIn the meantime, engineering is already working the escalation path to assess what could have changed with v2.8 and how that relates to token refresh failures. We\u2019ll follow up as soon as we have a targeted next step for you ahead of your renewal call tomorrow.",
+        "promised_actions": [
+          "Escalate the issue to engineering for urgent review.",
+          "Ask for specific log details (error text/codes, timestamps, scope) to speed up diagnosis.",
+          "Provide an update with a targeted next step once engineering confirms the likely cause."
+        ],
+        "safety_notes": [
+          "Avoid claiming a specific root cause or resolution because exact error text, scope, and v2.8 changes are not provided.",
+          "No refund/SLA/legal/security statements.",
+          "Acknowledge escalation without guaranteeing timeline beyond requesting information and stating escalation is underway."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\"draft_response\":\"Hi\u2014thanks for the details, and I\u2019m sorry this is impacting reporting for ~40 enterprise customers after the v2.8 upgrade.\\n\\nWe\u2019ve escalated this to our engineering team for urgent review, since your logs indicate repeated Salesforce auth token refresh errors starting right after the upgrade.\\n\\nTo help us move quickly, could you paste the following from the logs (exact text/error codes) and confirm the scope?\\n1) The exact auth token refresh error messages (including any error codes) and one or two representative log entries.\\n2) Where these logs are located (job name/integration name, environment/instance) and the time range (timestamps, and whether it\u2019s all day since the upgrade).\\n3) Whether **all** Salesforce sync jobs are failing or only certain accounts/objects.\\n4) Any Salesforce/OAuth-related configuration changes you made during/after the upgrade (credentials, connected app settings, scopes, schedules).\\n\\nIf you can share screenshots/exports of the relevant log lines, that\u2019s perfect.\\n\\nIn the meantime, engineering is already working the escalation path to assess what could have changed with v2.8 and how that relates to token refresh failures. We\u2019ll follow up as soon as we have a targeted next step for you ahead of your renewal call tomorrow.\",\"tone\":\"escalation\",\"promised_actions\":[\"Escalate the issue to engineering for urgent review.\",\"Ask for specific log details (error text/codes, timestamps, scope) to speed up diagnosis.\",\"Provide an update with a targeted next step once engineering confirms the likely cause.\"],\"safety_notes\":[\"Avoid claiming a specific root cause or resolution because exact error text, scope, and v2.8 changes are not provided.\",\"No refund/SLA/legal/security statements.\",\"Acknowledge escalation without guaranteeing timeline beyond requesting information and stating escalation is underway.\"]}",
+      "usage_metadata": {
+        "completion_tokens": 390,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 801,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1191
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2902.8758339118212,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Reporting is blocked for about 40 enterprise customers, and the issue is urgent due to an upcoming renewal call tomorrow.",
+        "grounded_facts": [
+          "The customer upgraded to v2.8 yesterday.",
+          "Since the v2.8 upgrade, the Salesforce sync has been failing.",
+          "The issue has been ongoing since the upgrade (\u201csince\u201d the upgrade).",
+          "Logs show repeated auth token refresh errors.",
+          "The failure is blocking reporting.",
+          "The blocking affects about 40 enterprise customers.",
+          "There is a renewal call scheduled for tomorrow.",
+          "The ticket is classified with urgency as critical and marked as needing human review."
+        ],
+        "missing_information": [
+          "Which specific auth token refresh error messages appear in the logs (exact error text and codes).",
+          "Where the logs are located and what time range/instances they cover (e.g., job name, environment, timestamps).",
+          "Whether the failure affects all Salesforce sync jobs or only specific accounts/objects.",
+          "The exact nature of \u201cv2.8\u201d (release version details) and which components were upgraded.",
+          "Current scope of impact metrics (e.g., all sync attempts failing vs. intermittent).",
+          "Any recent configuration changes made during/after the upgrade (credentials, connected app settings, OAuth settings, schedules).",
+          "Whether there are any known release notes/issues for v2.8 related to Salesforce auth/token refresh."
+        ],
+        "risk_signals": [
+          "Production/integration impact is blocking reporting.",
+          "Urgency is marked critical and there is imminent renewal pressure (call tomorrow).",
+          "Repeated auth token refresh errors suggest potential authentication disruption impacting many customers.",
+          "Ambiguity remains on the exact error details and scope (not provided in the ticket)."
+        ],
+        "summary": "After upgrading to v2.8, the Salesforce sync has been failing due to repeated auth token refresh errors, blocking reporting for ~40 enterprise customers and requiring urgent help ahead of a renewal call."
+      },
+      "raw_text": "{\"summary\":\"After upgrading to v2.8, the Salesforce sync has been failing due to repeated auth token refresh errors, blocking reporting for ~40 enterprise customers and requiring urgent help ahead of a renewal call.\",\"grounded_facts\":[\"The customer upgraded to v2.8 yesterday.\",\"Since the v2.8 upgrade, the Salesforce sync has been failing.\",\"The issue has been ongoing since the upgrade (\u201csince\u201d the upgrade).\",\"Logs show repeated auth token refresh errors.\",\"The failure is blocking reporting.\",\"The blocking affects about 40 enterprise customers.\",\"There is a renewal call scheduled for tomorrow.\",\"The ticket is classified with urgency as critical and marked as needing human review.\"],\"missing_information\":[\"Which specific auth token refresh error messages appear in the logs (exact error text and codes).\",\"Where the logs are located and what time range/instances they cover (e.g., job name, environment, timestamps).\",\"Whether the failure affects all Salesforce sync jobs or only specific accounts/objects.\",\"The exact nature of \u201cv2.8\u201d (release version details) and which components were upgraded.\",\"Current scope of impact metrics (e.g., all sync attempts failing vs. intermittent).\",\"Any recent configuration changes made during/after the upgrade (credentials, connected app settings, OAuth settings, schedules).\",\"Whether there are any known release notes/issues for v2.8 related to Salesforce auth/token refresh.\"],\"customer_impact\":\"Reporting is blocked for about 40 enterprise customers, and the issue is urgent due to an upcoming renewal call tomorrow.\",\"risk_signals\":[\"Production/integration impact is blocking reporting.\",\"Urgency is marked critical and there is imminent renewal pressure (call tomorrow).\",\"Repeated auth token refresh errors suggest potential authentication disruption impacting many customers.\",\"Ambiguity remains on the exact error details and scope (not provided in the ticket).\"]}",
+      "usage_metadata": {
+        "completion_tokens": 375,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 353,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 728
+      }
+    }
+  },
+  "ticket_id": "T002"
+}

@@ -1,0 +1,114 @@
+{
+  "implementation": "openai_structured",
+  "model": "gpt-5.4-nano",
+  "run_index": 1,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1124.2214171215892,
+      "ok": true,
+      "parsed": {
+        "category": "outage",
+        "needs_human_review": true,
+        "rationale": "User reports the app is broken and nothing works anymore, with prior occurrence; no specific details provided, so requires urgent engineering review to assess and restore service.",
+        "team": "engineering",
+        "urgency": "critical"
+      },
+      "raw_text": "{\"category\":\"outage\",\"urgency\":\"critical\",\"team\":\"engineering\",\"needs_human_review\":true,\"rationale\":\"User reports the app is broken and nothing works anymore, with prior occurrence; no specific details provided, so requires urgent engineering review to assess and restore service.\"}",
+      "usage_metadata": {
+        "completion_tokens": 64,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 416,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 480
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 2458.8049589656293,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi\u2014sorry about this. We understand the situation is urgent, and we\u2019ll help get this investigated.\n\nTo speed things up, can you reply with just the following details?\n1) What exactly is failing? (e.g., login, specific page/feature, uploading, integrations, checkout, etc.)\n2) Any error message text you see (or a screenshot).\n3) When did it start, and are you seeing this for all users or just your account/team?\n4) Are you using web or mobile? (and browser/device if web)\n5) Your app version/build if you know it.\n\nWe\u2019ve flagged this for immediate engineering review based on your report that the app is \u201cbroken again\u201d and previously happened \u201clast time.\u201d If you can share the items above, we can correlate your report faster and work toward restoring normal operation.",
+        "promised_actions": [
+          "Escalate the report for immediate engineering review",
+          "Request the minimum details needed to diagnose which functionality is failing and correlate the timeframe"
+        ],
+        "safety_notes": [
+          "Avoid confirming an outage state or root cause without verification",
+          "Do not promise a specific fix time or resolution"
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\"draft_response\":\"Hi\u2014sorry about this. We understand the situation is urgent, and we\u2019ll help get this investigated.\\n\\nTo speed things up, can you reply with just the following details?\\n1) What exactly is failing? (e.g., login, specific page/feature, uploading, integrations, checkout, etc.)\\n2) Any error message text you see (or a screenshot).\\n3) When did it start, and are you seeing this for all users or just your account/team?\\n4) Are you using web or mobile? (and browser/device if web)\\n5) Your app version/build if you know it.\\n\\nWe\u2019ve flagged this for immediate engineering review based on your report that the app is \u201cbroken again\u201d and previously happened \u201clast time.\u201d If you can share the items above, we can correlate your report faster and work toward restoring normal operation.\",\"tone\":\"escalation\",\"promised_actions\":[\"Escalate the report for immediate engineering review\",\"Request the minimum details needed to diagnose which functionality is failing and correlate the timeframe\"],\"safety_notes\":[\"Avoid confirming an outage state or root cause without verification\",\"Do not promise a specific fix time or resolution\"]}",
+      "usage_metadata": {
+        "completion_tokens": 254,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 735,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 989
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3276.2937089428306,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "App reportedly does not function (\u201cNothing works anymore\u201d), which implies service outage and immediate operational pressure on the customer (boss anger noted).",
+        "grounded_facts": [
+          "Customer states: \"Nothing works anymore.\"",
+          "Customer states the app \"keeps doing the same thing as last time.\"",
+          "Customer indicates prior occurrence: the issue happened \"last time\" as well.",
+          "Customer reports urgency pressure: \"my boss is mad\" and \"I do not have time to explain this again.\"",
+          "Ticket is already classified as \"outage\" with \"needs_human_review\": true and \"urgency\": \"critical\"."
+        ],
+        "missing_information": [
+          "What specific functionality or workflow is failing (e.g., login, payments, specific page/feature).",
+          "Any error messages, logs, screenshots, or timestamps of occurrences.",
+          "How many users/regions are affected and whether this is all users or a subset.",
+          "Current status of the system (incident start time, whether any mitigations were attempted).",
+          "Environment details (app version, platform/web/mobile, browser/device, account type/role).",
+          "Customer\u2019s definition of \"same thing as last time\" (what exactly occurred previously)."
+        ],
+        "risk_signals": [
+          "Potential recurring outage (\u201cbroken again\u201d / \u201csame thing as last time\u201d).",
+          "Critical urgency classification without supporting technical details, increasing ambiguity in diagnosis.",
+          "Possible broad service impact indicated by \u201cnothing works anymore.\u201d"
+        ],
+        "summary": "Customer reports the app is broken again, noting the same issue happened before and that nothing works anymore, requiring urgent engineering attention."
+      },
+      "raw_text": "{\"summary\":\"Customer reports the app is broken again, noting the same issue happened before and that nothing works anymore, requiring urgent engineering attention.\",\"grounded_facts\":[\"Customer states: \\\"Nothing works anymore.\\\"\",\"Customer states the app \\\"keeps doing the same thing as last time.\\\"\",\"Customer indicates prior occurrence: the issue happened \\\"last time\\\" as well.\",\"Customer reports urgency pressure: \\\"my boss is mad\\\" and \\\"I do not have time to explain this again.\\\"\",\"Ticket is already classified as \\\"outage\\\" with \\\"needs_human_review\\\": true and \\\"urgency\\\": \\\"critical\\\".\"],\"missing_information\":[\"What specific functionality or workflow is failing (e.g., login, payments, specific page/feature).\",\"Any error messages, logs, screenshots, or timestamps of occurrences.\",\"How many users/regions are affected and whether this is all users or a subset.\",\"Current status of the system (incident start time, whether any mitigations were attempted).\",\"Environment details (app version, platform/web/mobile, browser/device, account type/role).\",\"Customer\u2019s definition of \\\"same thing as last time\\\" (what exactly occurred previously).\"],\"customer_impact\":\"App reportedly does not function (\u201cNothing works anymore\u201d), which implies service outage and immediate operational pressure on the customer (boss anger noted).\",\"risk_signals\":[\"Potential recurring outage (\u201cbroken again\u201d / \u201csame thing as last time\u201d).\",\"Critical urgency classification without supporting technical details, increasing ambiguity in diagnosis.\",\"Possible broad service impact indicated by \u201cnothing works anymore.\u201d\"]}",
+      "usage_metadata": {
+        "completion_tokens": 318,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 337,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 655
+      }
+    }
+  },
+  "ticket_id": "T003"
+}

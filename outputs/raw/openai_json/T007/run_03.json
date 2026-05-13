@@ -1,0 +1,118 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 3,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1056.5569170285016,
+      "ok": true,
+      "parsed": {
+        "category": "data_loss",
+        "needs_human_review": true,
+        "rationale": "A project was deleted and restored within the retention window, but several files and comments are still missing; this indicates unexpected loss/incomplete restoration with a client launch on Monday.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"data_loss\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"A project was deleted and restored within the retention window, but several files and comments are still missing; this indicates unexpected loss/incomplete restoration with a client launch on Monday.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 80,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 327,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 407
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 1744.0382500644773,
+      "ok": true,
+      "parsed": {
+        "draft_response": "apologetic",
+        "promised_actions": [
+          "Escalate this to our engineering team for investigation of the restore outcome",
+          "Ask you for the missing details needed to compare the deleted and restored state",
+          "Coordinate with you to identify which specific files/comments are missing so we can focus the investigation quickly"
+        ],
+        "safety_notes": [
+          "Do not claim the root cause, complete recovery, or a refund.",
+          "Human review is required; respond with escalation and request minimum useful technical details (service/platform, timestamps, restore status, identifiers of missing content).",
+          "Avoid stating or implying any security determination."
+        ],
+        "tone": "apologetic"
+      },
+      "raw_text": "{\n  \"draft_response\": \"apologetic\",\n  \"tone\": \"apologetic\",\n  \"promised_actions\": [\n    \"Escalate this to our engineering team for investigation of the restore outcome\",\n    \"Ask you for the missing details needed to compare the deleted and restored state\",\n    \"Coordinate with you to identify which specific files/comments are missing so we can focus the investigation quickly\"\n  ],\n  \"safety_notes\": [\n    \"Do not claim the root cause, complete recovery, or a refund.\",\n    \"Human review is required; respond with escalation and request minimum useful technical details (service/platform, timestamps, restore status, identifiers of missing content).\",\n    \"Avoid stating or implying any security determination.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 157,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 640,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 797
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 2541.6049999184906,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Missing files and comments in the restored project jeopardize delivery of final client launch deliverables scheduled for Monday.",
+        "grounded_facts": [
+          "A user accidentally deleted a project yesterday.",
+          "The project was restored within the retention window.",
+          "Several files are still missing after the restore.",
+          "Several comments are still missing after the restore.",
+          "The project contains final deliverables for a client launch on Monday.",
+          "The current classification is data_loss and needs human review with high urgency."
+        ],
+        "missing_information": [
+          "Which platform/service the project belongs to.",
+          "Whether the restore completed successfully and what restore status/message was returned.",
+          "How many specific files/comments are missing (and their identifiers/locations).",
+          "Whether any other project components (e.g., versions, attachments, permissions) are missing as well.",
+          "When the deletion occurred exactly and when the restore was executed exactly.",
+          "Whether the missing content existed at the time of deletion/restoration (e.g., last saved state).",
+          "Any error logs, audit trail entries, or system events related to the delete/restore operations."
+        ],
+        "risk_signals": [
+          "A restore within the retention window did not fully recover files and comments.",
+          "The issue affects final deliverables for a client launch on Monday.",
+          "High urgency classification indicates potential time-critical operational impact."
+        ],
+        "summary": "A project was accidentally deleted and restored within the retention window, but several files and comments are still missing, threatening a client launch scheduled for Monday."
+      },
+      "raw_text": "{\n  \"summary\": \"A project was accidentally deleted and restored within the retention window, but several files and comments are still missing, threatening a client launch scheduled for Monday.\",\n  \"grounded_facts\": [\n    \"A user accidentally deleted a project yesterday.\",\n    \"The project was restored within the retention window.\",\n    \"Several files are still missing after the restore.\",\n    \"Several comments are still missing after the restore.\",\n    \"The project contains final deliverables for a client launch on Monday.\",\n    \"The current classification is data_loss and needs human review with high urgency.\"\n  ],\n  \"missing_information\": [\n    \"Which platform/service the project belongs to.\",\n    \"Whether the restore completed successfully and what restore status/message was returned.\",\n    \"How many specific files/comments are missing (and their identifiers/locations).\",\n    \"Whether any other project components (e.g., versions, attachments, permissions) are missing as well.\",\n    \"When the deletion occurred exactly and when the restore was executed exactly.\",\n    \"Whether the missing content existed at the time of deletion/restoration (e.g., last saved state).\",\n    \"Any error logs, audit trail entries, or system events related to the delete/restore operations.\"\n  ],\n  \"customer_impact\": \"Missing files and comments in the restored project jeopardize delivery of final client launch deliverables scheduled for Monday.\",\n  \"risk_signals\": [\n    \"A restore within the retention window did not fully recover files and comments.\",\n    \"The issue affects final deliverables for a client launch on Monday.\",\n    \"High urgency classification indicates potential time-critical operational impact.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 337,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 251,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 588
+      }
+    }
+  },
+  "ticket_id": "T007"
+}

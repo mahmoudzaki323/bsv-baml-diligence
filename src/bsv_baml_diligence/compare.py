@@ -241,6 +241,9 @@ def _write_markdown_summary(rows: list[dict[str, Any]]) -> None:
     lines.append(
         "Note: strict all-label match requires category, urgency, routing team, and human-review flag to all match the locked expected labels in the same run."
     )
+    lines.append(
+        "Use this as a diligence benchmark, not a definitive leaderboard: the current run is best for comparing developer workflow, schema reliability, and review ergonomics."
+    )
     lines.append("")
     path.write_text("\n".join(lines))
 
@@ -277,7 +280,8 @@ def _write_ticket_markdown_summary(rows: list[dict[str, Any]]) -> None:
         "| Ticket | Scenario | Implementation | Average label match | Strict all-label match |",
         "| --- | --- | --- | ---: | ---: |",
     ]
-    for row in sorted(rows, key=lambda item: (item["ticket_id"], item["implementation"])):
+    implementation_order = {"baml": 0, "openai_structured": 1, "openai_json": 2}
+    for row in sorted(rows, key=lambda item: (item["ticket_id"], implementation_order.get(item["implementation"], 99))):
         lines.append(
             f"| {row['ticket_id']} | {scenario_name.get(row['scenario'], row['scenario'])} | "
             f"{display_name.get(row['implementation'], row['implementation'])} | "

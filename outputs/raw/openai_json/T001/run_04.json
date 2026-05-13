@@ -1,0 +1,117 @@
+{
+  "implementation": "openai_json",
+  "model": "gpt-5.4-nano",
+  "run_index": 4,
+  "steps": {
+    "classification": {
+      "error": null,
+      "latency_ms": 1597.9212089441717,
+      "ok": true,
+      "parsed": {
+        "category": "bug",
+        "needs_human_review": true,
+        "rationale": "CSV export button on invoice page started returning a 500 error this morning; affects invoice page exports only. Requires engineering fix to restore functionality before Friday close.",
+        "team": "engineering",
+        "urgency": "high"
+      },
+      "raw_text": "{\n  \"category\": \"bug\",\n  \"urgency\": \"high\",\n  \"team\": \"engineering\",\n  \"needs_human_review\": true,\n  \"rationale\": \"CSV export button on invoice page started returning a 500 error this morning; affects invoice page exports only. Requires engineering fix to restore functionality before Friday close.\"\n}",
+      "usage_metadata": {
+        "completion_tokens": 76,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 337,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 413
+      }
+    },
+    "draft": {
+      "error": null,
+      "latency_ms": 3013.528791954741,
+      "ok": true,
+      "parsed": {
+        "draft_response": "Hi team\u2014thanks for reporting this. I\u2019m sorry for the disruption. We understand that the CSV export button on the **invoice page** started returning a **500 error** this morning, and that **customer exports are unaffected**. We\u2019ll escalate this to engineering to investigate and restore invoice-page CSV exports as a priority before Friday close.\n\nTo help engineering pinpoint the cause faster, could you share the following (even partial info is fine)?\n1) The exact **time** the issue started (with timezone) and whether there were any recent deployments/changes.\n2) Whether the 500 error shows any **message/error code** in the UI or browser console.\n3) Who is affected (all users vs specific roles) and whether it fails for **all invoices** or only certain invoices (date range, currency, etc.).\n4) Steps to reproduce and any details about the request (e.g., invoice page filters used, date range, etc.).\n\nIn the meantime, we\u2019ll continue to support your current manual workaround and make sure engineering has enough detail from your side to resolve the invoice page export failure quickly.",
+        "promised_actions": [
+          "Escalate the invoice page CSV export 500 error to engineering as a priority",
+          "Request the minimum additional details needed to reproduce and debug the issue",
+          "Continue supporting the current manual workaround while the investigation is ongoing"
+        ],
+        "safety_notes": [
+          "We cannot confirm a fix timeframe or root cause without engineering investigation.",
+          "No refund/SLA/legal/security claims are made.",
+          "We will rely on customer-provided error details (console/logs/request parameters) to accelerate debugging."
+        ],
+        "tone": "escalation"
+      },
+      "raw_text": "{\n  \"draft_response\": \"Hi team\u2014thanks for reporting this. I\u2019m sorry for the disruption. We understand that the CSV export button on the **invoice page** started returning a **500 error** this morning, and that **customer exports are unaffected**. We\u2019ll escalate this to engineering to investigate and restore invoice-page CSV exports as a priority before Friday close.\\n\\nTo help engineering pinpoint the cause faster, could you share the following (even partial info is fine)?\\n1) The exact **time** the issue started (with timezone) and whether there were any recent deployments/changes.\\n2) Whether the 500 error shows any **message/error code** in the UI or browser console.\\n3) Who is affected (all users vs specific roles) and whether it fails for **all invoices** or only certain invoices (date range, currency, etc.).\\n4) Steps to reproduce and any details about the request (e.g., invoice page filters used, date range, etc.).\\n\\nIn the meantime, we\u2019ll continue to support your current manual workaround and make sure engineering has enough detail from your side to resolve the invoice page export failure quickly.\",\n  \"tone\": \"escalation\",\n  \"promised_actions\": [\n    \"Escalate the invoice page CSV export 500 error to engineering as a priority\",\n    \"Request the minimum additional details needed to reproduce and debug the issue\",\n    \"Continue supporting the current manual workaround while the investigation is ongoing\"\n  ],\n  \"safety_notes\": [\n    \"We cannot confirm a fix timeframe or root cause without engineering investigation.\",\n    \"No refund/SLA/legal/security claims are made.\",\n    \"We will rely on customer-provided error details (console/logs/request parameters) to accelerate debugging.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 372,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 663,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1035
+      }
+    },
+    "facts": {
+      "error": null,
+      "latency_ms": 3167.470999993384,
+      "ok": true,
+      "parsed": {
+        "customer_impact": "Operationally impacts finance\u2019s ability to export invoices via CSV due to a 500 error, potentially affecting work before Friday close.",
+        "grounded_facts": [
+          "The CSV export button on the invoice page started returning a 500 error this morning.",
+          "The issue affects only the invoice page, not customer exports.",
+          "A manual workaround exists for now.",
+          "Finance needs the problem fixed before Friday close.",
+          "The ticket is currently classified as a bug requiring human review."
+        ],
+        "missing_information": [
+          "Whether the 500 error includes any error message, stack trace, or error code details.",
+          "When the issue began exactly (time zone / time of deployment or change, if known).",
+          "The browser/user role(s) affected (e.g., all users vs specific roles).",
+          "Whether the CSV export fails for all invoices or only certain invoices (e.g., date range, currency, amount).",
+          "Whether any relevant logs/metrics are available for the invoice page export request at the time of failure.",
+          "Steps to reproduce the 500 error and any request parameters used by the export button.",
+          "The current technical implementation/version of the invoice export feature (API endpoint, service, or code path), if known."
+        ],
+        "risk_signals": [
+          "Started returning a 500 error this morning.",
+          "Affects invoice page exports specifically (customer exports are not affected).",
+          "Requires timely fix before Friday close."
+        ],
+        "summary": "The CSV export button on the invoice page started returning a 500 error this morning and affects only invoice page exports."
+      },
+      "raw_text": "{\n  \"summary\": \"The CSV export button on the invoice page started returning a 500 error this morning and affects only invoice page exports.\",\n  \"grounded_facts\": [\n    \"The CSV export button on the invoice page started returning a 500 error this morning.\",\n    \"The issue affects only the invoice page, not customer exports.\",\n    \"A manual workaround exists for now.\",\n    \"Finance needs the problem fixed before Friday close.\",\n    \"The ticket is currently classified as a bug requiring human review.\"\n  ],\n  \"missing_information\": [\n    \"Whether the 500 error includes any error message, stack trace, or error code details.\",\n    \"When the issue began exactly (time zone / time of deployment or change, if known).\",\n    \"The browser/user role(s) affected (e.g., all users vs specific roles).\",\n    \"Whether the CSV export fails for all invoices or only certain invoices (e.g., date range, currency, amount).\",\n    \"Whether any relevant logs/metrics are available for the invoice page export request at the time of failure.\",\n    \"Steps to reproduce the 500 error and any request parameters used by the export button.\",\n    \"The current technical implementation/version of the invoice export feature (API endpoint, service, or code path), if known.\"\n  ],\n  \"customer_impact\": \"Operationally impacts finance\u2019s ability to export invoices via CSV due to a 500 error, potentially affecting work before Friday close.\",\n  \"risk_signals\": [\n    \"Started returning a 500 error this morning.\",\n    \"Affects invoice page exports specifically (customer exports are not affected).\",\n    \"Requires timely fix before Friday close.\"\n  ]\n}",
+      "usage_metadata": {
+        "completion_tokens": 351,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 257,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 608
+      }
+    }
+  },
+  "ticket_id": "T001"
+}
