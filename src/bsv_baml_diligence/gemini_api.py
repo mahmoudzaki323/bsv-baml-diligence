@@ -1,65 +1,115 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import time
+import urllib.error
+import urllib.request
 from typing import Any, TypeVar
 
-from google import genai
-from google.genai import types
+os.environ.setdefault("PYDANTIC_DISABLE_PLUGINS", "1")
+
 from pydantic import BaseModel
 
-from .io_utils import require_google_key, usage_to_dict
+from .io_utils import require_google_key
 
 T = TypeVar("T", bound=BaseModel)
 
 
-def client() -> genai.Client:
+def client() -> str:
     require_google_key()
-    return genai.Client()
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        raise RuntimeError("GOOGLE_API_KEY is required.")
+    return api_key
 
 
 def call_structured(
-    genai_client: genai.Client,
+    api_key: str,
     model: str,
     prompt: str,
     schema: type[T],
 ) -> tuple[T, str, float, dict[str, Any] | None]:
     start = time.perf_counter()
-    response = genai_client.models.generate_content(
+    response = _generate_content(
+        api_key=api_key,
         model=model,
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            response_schema=schema,
-            temperature=0.1,
-        ),
+        prompt=prompt,
+        generation_config={
+            "temperature": 0.1,
+            "responseMimeType": "application/json",
+            "responseJsonSchema": schema.model_json_schema(),
+        },
     )
     latency_ms = (time.perf_counter() - start) * 1000
-    parsed = schema.model_validate_json(response.text)
-    return parsed, response.text, latency_ms, usage_to_dict(response)
+    raw_text = _extract_text(response)
+    parsed = schema.model_validate_json(raw_text)
+    return parsed, raw_text, latency_ms, response.get("usageMetadata")
 
 
 def call_json(
-    genai_client: genai.Client,
+    api_key: str,
     model: str,
     prompt: str,
     schema: type[T],
 ) -> tuple[T, str, float, dict[str, Any] | None]:
     start = time.perf_counter()
-    response = genai_client.models.generate_content(
+    response = _generate_content(
+        api_key=api_key,
         model=model,
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            temperature=0.1,
-        ),
+        prompt=prompt,
+        generation_config={
+            "temperature": 0.1,
+            "responseMimeType": "application/json",
+        },
     )
     latency_ms = (time.perf_counter() - start) * 1000
-    raw_text = response.text
+    raw_text = _extract_text(response)
     parsed_json = _parse_json(raw_text)
     parsed = schema.model_validate(parsed_json)
-    return parsed, raw_text, latency_ms, usage_to_dict(response)
+    return parsed, raw_text, latency_ms, response.get("usageMetadata")
+
+
+def _generate_content(api_key: str, model: str, prompt: str, generation_config: dict[str, Any]) -> dict[str, Any]:
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    payload = json.dumps(
+        {
+            "contents": [
+                {
+                    "role": "user",
+                    "parts": [{"text": prompt}],
+                }
+            ],
+            "generationConfig": generation_config,
+        }
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        url,
+        data=payload,
+        headers={
+            "Content-Type": "application/json",
+            "x-goog-api-key": api_key,
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"Gemini API HTTP {exc.code}: {body}") from exc
+
+
+def _extract_text(response: dict[str, Any]) -> str:
+    candidates = response.get("candidates") or []
+    if not candidates:
+        raise ValueError(f"Gemini response did not include candidates: {response}")
+    parts = candidates[0].get("content", {}).get("parts", [])
+    text_parts = [part.get("text", "") for part in parts if part.get("text")]
+    if not text_parts:
+        raise ValueError(f"Gemini response did not include text parts: {response}")
+    return "\n".join(text_parts)
 
 
 def _parse_json(raw_text: str) -> Any:

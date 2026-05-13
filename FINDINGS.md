@@ -10,6 +10,7 @@ Does BAML make structured LLM application logic easier to define, test, debug, a
 - Gemini SDK docs used: Google Gen AI Python SDK docs via Context7.
 - Local setup command planned: `uv sync`
 - BAML generation command planned: `uv run baml-cli generate`
+- Baseline implementation note: the local environment hung while importing `google-genai`, so the baselines use direct Gemini REST `generateContent` calls instead of the Python SDK wrapper.
 
 Fill in during hands-on testing:
 
@@ -23,7 +24,7 @@ Fill in during hands-on testing:
 
 - Model used:
 - Date run:
-- Smoke test result:
+- Smoke test result: one-ticket smoke completed successfully for `baml`, `gemini_structured`, and `gemini_json` using `gemini-3-flash-preview`.
 - Full benchmark result:
 - Any API/model limitations:
 
