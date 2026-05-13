@@ -119,3 +119,14 @@ MPLBACKEND=Agg PYDANTIC_DISABLE_PLUGINS=1 PYTHONPATH=src ./.venv/bin/python -m b
 This is a diligence artifact, not a definitive leaderboard. The goal was to evaluate setup, usability, structure, and workflow fit.
 
 The raw outputs are included so the results can be inspected without rerunning the API calls.
+
+## Follow-up experiments
+
+If I had more time, I would run four follow-up tests:
+
+1. Tighten the urgency rubric and rerun the benchmark. Urgency was the weakest metric, and some tickets could reasonably fit more than one severity level.
+2. Add automatic retry handling. One BAML run failed because the model chose an option outside the allowed list; a production workflow should ask the model to try again instead of stopping.
+3. Test a larger workflow. BAML is most useful when there are many LLM calls, so I would test a workflow with more steps, shared functions, and prompt changes over time.
+4. Add manual review scoring. The current charts measure structure and label matching, but a human should also review drafts for unsafe promises, unsupported facts, and missed escalation signals.
+
+These follow-ups would better test whether BAML becomes more valuable as workflows get larger and harder to maintain.
